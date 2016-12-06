@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Automaton</title>
+    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro.min.css" />
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./icons/flaticon/flaticon.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <style>
+        [class^="flaticon-"]:before,
+        [class*=" flaticon-"]:before,
+        [class^="flaticon-"]:after,
+        [class*=" flaticon-"]:after {
+            font-size: inherit !important;
+            margin-left: 0 !important;
+        }
+        
+        .tile .tile-label {
+            display: inline-block;
+            max-width: 70%;
+        }
+        
+        .tile .tile-badge {
+            padding: .425rem .25rem !important;
+        }
+        
+        .tile .tile-badge.top {
+            top: 0 !important;
+            bottom: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        require('babel-register');
+        require('./src/index.jsx');
+    </script>
+</body>
+
+</html>
