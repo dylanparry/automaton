@@ -38,5 +38,52 @@
     "test": "jest",
     "lint": "eslint ./ --ext .jsx,.js",
     "build": "electron-packager . --out packages --overwrite --arch armv7l --platform linux --asar"
+  },
+  "babel": {
+    "presets": [
+      [
+        "latest"
+      ],
+      [
+        "react"
+      ]
+    ],
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-class-properties"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "rules": {
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ],
+      "class-methods-use-this": 0,
+      "indent": [
+        "error",
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "react/jsx-indent": [
+        "error",
+        4
+      ],
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allowAfterThis": true
+        }
+      ]
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest": true
+    }
   }
 }
