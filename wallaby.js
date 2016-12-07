@@ -1,8 +1,8 @@
 module.exports = function wallabyConfig(wallaby) {
     return {
         files: [
-            'src/**/*.js',
-            'src/**/*.jsx',
+            'app/**/*.js',
+            'app/**/*.jsx',
             '!tests/**/*.js',
             '!tests/**/*.jsx',
         ],
