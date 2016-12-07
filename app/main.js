@@ -1,13 +1,10 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow } from 'electron';
 import path from 'path';
 
 // When the app is ready
 app.on('ready', () => {
-    // Get the width and height of the screen
-    const { width, height } = screen.getPrimaryDisplay().size;
-
-    // If the width/height are the same as the RPi 7" screen, app should be in kiosk mode
-    const useKioskMode = width === 800 && height === 480;
+    // If running on a Pi, it'll be using an ARM processor running Linux
+    const useKioskMode = process.arch === 'arm' && process.platform === 'linux';
 
     // Create a new Browser Window for the splash
     let splashWindow = new BrowserWindow({
