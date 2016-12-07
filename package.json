@@ -2,7 +2,7 @@
   "name": "automaton",
   "version": "1.0.0",
   "description": "Home Automation software for Raspberry Pi",
-  "main": "./bootstrapper.js",
+  "main": "./app/bootstrapper.js",
   "author": "Dylan Parry",
   "license": "MIT",
   "private": true,
