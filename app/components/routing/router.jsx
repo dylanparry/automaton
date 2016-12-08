@@ -1,24 +1,37 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
+import App from '../../views/app';
+
+import HomeIndex from '../../views/home';
+
+import HeatingIndex from '../../views/heating';
+import HeatingRoom from '../../views/heating/room';
+
+import WeatherIndex from '../../views/weather';
+import WeatherDay from '../../views/weather/day';
+import WeatherWeek from '../../views/weather/week';
+
+import SettingsIndex from '../../views/settings';
+
 export default () => (
     <Router history={hashHistory}>
-        <Route path="/" component={null}> {/* Main app template */}
-            <IndexRoute component={null} /> {/* Home screen */}
+        <Route path="/" component={App}> {/* Main app template */}
+            <IndexRoute component={HomeIndex} /> {/* Home screen */}
 
             <Route path="heating">
-                <IndexRoute component={null} /> {/* Heating home screen */}
-                <Route path=":roomId" component={null} /> {/* Room summary */}
+                <IndexRoute component={HeatingIndex} /> {/* Heating home screen */}
+                <Route path=":roomId" component={HeatingRoom} /> {/* Room summary */}
             </Route>
 
             <Route path="weather">
-                <IndexRoute component={null} /> {/* Summary of weather now */}
-                <Route path="weather/today" component={null} /> {/* Summary of today's weather */}
-                <Route path="weather/week" component={null} /> {/* Five day forecast */}
+                <IndexRoute component={WeatherIndex} /> {/* Summary of weather now */}
+                <Route path="today" component={WeatherDay} /> {/* Summary of today's weather */}
+                <Route path="week" component={WeatherWeek} /> {/* Five day forecast */}
             </Route>
 
             <Route path="settings">
-                <IndexRoute component={null} /> {/* Settings home screen */}
+                <IndexRoute component={SettingsIndex} /> {/* Settings home screen */}
             </Route>
         </Route>
     </Router>
