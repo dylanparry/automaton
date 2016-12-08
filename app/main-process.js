@@ -47,7 +47,7 @@ app.on('ready', () => {
     // Wait for the window to finish loading its contents
     mainWindow.webContents.on('did-finish-load', () => {
         // Hide the splash window
-        if (!splashWindow.isDestroyed()) {
+        if (splashWindow && !splashWindow.isDestroyed()) {
             splashWindow.close();
         }
 

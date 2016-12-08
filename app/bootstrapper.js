@@ -1,2 +1,2 @@
 require('babel-register');
-require('./main.js');
+require('./main-process');
