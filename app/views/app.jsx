@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const App = ({ children }) => (
     <div>
-        <div className="app-bar navy">
+        <div className="app-bar navy" style={{ position: 'fixed', top: 0, left: 0, zIndex: 2 }}>
             <Link to="/" className="app-bar-element"><span className="icon fa fa-fw fa-cogs" /> automaton</Link>
             <span className="app-bar-divider" />
             <ul className="app-bar-menu">
@@ -25,7 +25,7 @@ const App = ({ children }) => (
                 <li><Link to="/settings"><span className="icon fa fa-fw fa-cog" /> Settings</Link></li>
             </ul>
         </div>
-        <div>
+        <div style={{ marginTop: 60 }}>
             {children}
         </div>
     </div>
