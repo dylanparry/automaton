@@ -9,7 +9,7 @@ import HeatingIndex from '../../views/heating';
 import HeatingRoom from '../../views/heating/room';
 
 import WeatherIndex from '../../views/weather';
-import WeatherDay from '../../views/weather/day';
+import WeatherToday from '../../views/weather/today';
 import WeatherWeek from '../../views/weather/week';
 
 import SettingsIndex from '../../views/settings';
@@ -26,7 +26,7 @@ export default () => (
 
             <Route path="weather">
                 <IndexRoute component={WeatherIndex} /> {/* Summary of weather now */}
-                <Route path="today" component={WeatherDay} /> {/* Summary of today's weather */}
+                <Route path="today" component={WeatherToday} /> {/* Summary of today's weather */}
                 <Route path="week" component={WeatherWeek} /> {/* Five day forecast */}
             </Route>
 
