@@ -8,9 +8,16 @@ export default () => (
         <ul className="app-bar-menu">
             <li>
                 <a className="dropdown-toggle"><span className="icon fa fa-fw fa-thermometer" /> Central Heating</a>
-                <ul className="d-menu" data-role="dropdown">
+                <ul className="d-menu navy" data-role="dropdown">
                     <li><Link to="/heating">Heating Summary</Link></li>
-                    <li><Link to="/heating/1">Heating Room Summary</Link></li>
+                    <li className="menu-title">Heating by Room</li>
+                    <li><Link to="/heating/1">Room 1</Link></li>
+                    <li><Link to="/heating/2">Room 2</Link></li>
+                    <li><Link to="/heating/3">Room 3</Link></li>
+                    <li><Link to="/heating/4">Room 4</Link></li>
+                    <li><Link to="/heating/5">Room 5</Link></li>
+                    <li><Link to="/heating/6">Room 6</Link></li>
+                    <li><Link to="/heating/7">Room 7</Link></li>
                 </ul>
             </li>
             <li>
