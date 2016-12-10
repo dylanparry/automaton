@@ -5,7 +5,7 @@ import AppBar from '../components/navigation/app-bar';
 const App = ({ children }) => (
     <div>
         <AppBar />
-        <div style={{ marginTop: 60 }}>
+        <div style={{ marginTop: 80 }}>
             {children}
         </div>
     </div>
