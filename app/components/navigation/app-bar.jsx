@@ -7,7 +7,7 @@ export default () => (
         <span className="app-bar-divider" />
         <ul className="app-bar-menu">
             <li>
-                <a className="dropdown-toggle"><span className="icon fa fa-fw fa-thermometer" /> Heating</a>
+                <a className="dropdown-toggle"><span className="icon fa fa-fw fa-thermometer" /> Central Heating</a>
                 <ul className="d-menu" data-role="dropdown">
                     <li><Link to="/heating">Heating Summary</Link></li>
                     <li><Link to="/heating/1">Heating Room Summary</Link></li>
