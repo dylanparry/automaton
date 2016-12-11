@@ -1,9 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 export default () => (
     <div>
-        <h1>Central Heating</h1>
+        <div className="margin20">
+            <div className="place-right">
+                <button className="button" onClick={() => hashHistory.push('/')}><span className="fa fa-fw fa-arrow-left" /> Home</button>
+            </div>
+
+            <h1>Heating Summary</h1>
+        </div>
 
         <div className="tile-container">
             <div className="tile-wide">
