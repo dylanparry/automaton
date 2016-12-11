@@ -5,7 +5,9 @@ export default () => (
     <div>
         <div className="margin20">
             <div className="place-right">
-                <button className="button" onClick={() => hashHistory.push('/')}><span className="fa fa-fw fa-arrow-left" /> Home</button>
+                <button className="button primary" onClick={() => hashHistory.push('/')}>
+                    <span className="fa fa-fw fa-arrow-left" /> Home
+                </button>
             </div>
 
             <h1>Heating Summary</h1>
