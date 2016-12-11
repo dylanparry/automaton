@@ -1,14 +1,12 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link } from 'react-router';
+
+import BackButton from '../../components/buttons/back-button';
 
 export default () => (
     <div>
         <div className="margin20">
-            <div className="place-right">
-                <button className="button primary" onClick={() => hashHistory.push('/')}>
-                    <span className="fa fa-fw fa-arrow-left" /> Home
-                </button>
-            </div>
+            <BackButton to="/">Home</BackButton>
 
             <h1>Heating Summary</h1>
         </div>
