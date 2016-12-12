@@ -21,9 +21,9 @@ export default class HeatingStore {
 
         this.cube.listen(data => console.log(data));
 
-        // Connect to the cube, then request device metadata every 10 seconds
+        // Connect to the cube, then request device list every 10 seconds
         this.cube.connect().then(() => setInterval(() => {
-            this.cube.requestDeviceMetadata();
+            this.cube.requestDeviceList();
         }, 10000));
     }
 

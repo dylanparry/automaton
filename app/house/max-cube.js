@@ -42,8 +42,8 @@ export default class MaxCube {
         });
     }
 
-    // Sends a request for device metadata
-    requestDeviceMetadata() {
+    // Sends a request for device list
+    requestDeviceList() {
         // Don't do anything if the cube isn't connected
         if (this.isConnected) {
             this.socket.write('l:\r\n');
