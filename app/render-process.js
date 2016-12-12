@@ -11,6 +11,9 @@ webFrame.setZoomLevelLimits(1, 1);
 
 // Stores
 const heatingStore = new HeatingStore();
+window.stores = {
+    heatingStore,
+};
 
 // Create a Provider with props for the stores and the Router as a child
 const provider = React.createElement(Provider, {
