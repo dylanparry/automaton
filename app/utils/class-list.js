@@ -9,7 +9,7 @@ export default class ClassList {
         this._classes.set('color', value);
     }
 
-    set icon(value) {
+    set useIcon(value) {
         this._classes.set('icon', value ? 'icon' : undefined);
     }
 
@@ -17,7 +17,7 @@ export default class ClassList {
         this._classes.set('iconName', value);
     }
 
-    set textShadow(value) {
+    set useTextShadow(value) {
         this._classes.set('textShadow', value ? 'text-shadow' : undefined);
     }
 
@@ -25,7 +25,7 @@ export default class ClassList {
         this._classes.set('tile', value);
     }
 
-    get classes() {
+    toString() {
         return [...this._classes.values()].join(' ');
     }
 }

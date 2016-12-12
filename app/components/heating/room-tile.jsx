@@ -5,7 +5,7 @@ import ClassList from '../../utils/class-list';
 
 const RoomTile = ({ id, label, displayWide = false }) => {
     const iconClassList = new ClassList();
-    iconClassList.icon = true;
+    iconClassList.useIcon = true;
     if (label.match(/office/i)) {
         iconClassList.iconName = 'flaticon-office';
     }
@@ -29,13 +29,13 @@ const RoomTile = ({ id, label, displayWide = false }) => {
     tileClassList.tile = displayWide ? 'tile-wide' : 'tile';
     tileClassList.background = 'bg-steel';
     tileClassList.color = 'fg-white';
-    tileClassList.textShadow = true;
+    tileClassList.useTextShadow = true;
 
     return (
         <Link to={`/heating/${id}`}>
-            <div className={tileClassList.classes}>
+            <div className={tileClassList}>
                 <div className="tile-content iconic">
-                    <span className={iconClassList.classes} />
+                    <span className={iconClassList} />
                     <span className="tile-label">{label}</span>
                 </div>
             </div>
