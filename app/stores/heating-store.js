@@ -48,7 +48,10 @@ export default class HeatingStore {
                     }
                     else {
                         // We've got the full message, so process it
-                        const metadataMessage = new MetadataMessage(this.metadataBuffer || value.slice(6), this.store);
+                        const metadataMessage = new MetadataMessage(
+                            this.metadataBuffer || value.slice(6),
+                            this.store,
+                        );
                         this.rooms.merge(metadataMessage.rooms);
                     }
                     break;
