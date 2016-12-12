@@ -9,7 +9,7 @@ export default class ClassList {
         this._classes.set('color', value);
     }
 
-    set useIcon(value) {
+    useIcon(value = true) {
         this._classes.set('icon', value ? 'icon' : undefined);
     }
 
@@ -17,7 +17,7 @@ export default class ClassList {
         this._classes.set('iconName', value);
     }
 
-    set useTextShadow(value) {
+    useTextShadow(value = true) {
         this._classes.set('textShadow', value ? 'text-shadow' : undefined);
     }
 
