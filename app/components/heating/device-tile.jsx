@@ -1,12 +1,22 @@
 import React from 'react';
 
-const DeviceTile = ({ label }) => (
-    <div className="tile">
-        <div className="tile-content">
-            <span className="tile-label">{label}</span>
+import ClassList from '../../utils/class-list';
+
+const DeviceTile = ({ label }) => {
+    const tileClassList = new ClassList();
+    tileClassList.tile = 'tile';
+    tileClassList.background = 'bg-steel';
+    tileClassList.color = 'fg-white';
+    tileClassList.useTextShadow();
+
+    return (
+        <div className={tileClassList}>
+            <div className="tile-content">
+                <span className="tile-label">{label}</span>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 DeviceTile.propTypes = {
     label: React.PropTypes.string.isRequired,
