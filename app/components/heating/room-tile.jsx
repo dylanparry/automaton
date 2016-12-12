@@ -1,40 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const icons = new Map();
-icons.set('office', 'flaticon-office');
-icons.set('stairs', 'flaticon-stairs');
-icons.set('bedroom', 'flaticon-bedroom');
-icons.set('living', 'flaticon-livingroom');
-icons.set('kitchen', 'flaticon-kitchen');
-icons.set('sewing', 'flaticon-sewing');
+import ClassList from '../../utils/class-list';
 
 const RoomTile = ({ id, label, displayWide = false }) => {
-    let icon = 'icon ';
+    const iconClassList = new ClassList();
+    iconClassList.icon = true;
     if (label.match(/office/i)) {
-        icon += 'flaticon-office';
+        iconClassList.iconName = 'flaticon-office';
     }
     else if (label.match(/stairs/i)) {
-        icon += 'flaticon-stairs';
+        iconClassList.iconName = 'flaticon-stairs';
     }
     else if (label.match(/bed/i)) {
-        icon += 'flaticon-bedroom';
+        iconClassList.iconName = 'flaticon-bedroom';
     }
     else if (label.match(/living/i)) {
-        icon += 'flaticon-livingroom';
+        iconClassList.iconName = 'flaticon-livingroom';
     }
     else if (label.match(/kitchen/i)) {
-        icon += 'flaticon-kitchen';
+        iconClassList.iconName = 'flaticon-kitchen';
     }
     else if (label.match(/sewing/i)) {
-        icon += 'flaticon-sewing';
+        iconClassList.iconName = 'flaticon-sewing';
     }
+
+    const tileClassList = new ClassList();
+    tileClassList.tile = displayWide ? 'tile-wide' : 'tile';
+    tileClassList.background = 'bg-steel';
+    tileClassList.color = 'fg-white';
+    tileClassList.textShadow = true;
 
     return (
         <Link to={`/heating/${id}`}>
-            <div className={displayWide ? 'tile-wide' : 'tile'}>
+            <div className={tileClassList.classes}>
                 <div className="tile-content iconic">
-                    <span className={icon} />
+                    <span className={iconClassList.classes} />
                     <span className="tile-label">{label}</span>
                 </div>
             </div>
