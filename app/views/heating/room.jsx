@@ -13,7 +13,7 @@ export default () => (
         </div>
 
         <div className="tile-container">
-            <RoomTile id="1" label="Room 1" displayWide />
+            <RoomTile id={1} label="Room 1" displayWide />
 
             <DeviceTile label="Device 1" />
             <DeviceTile label="Device 2" />
