@@ -2,13 +2,6 @@ import { action, computed, map, observable } from 'mobx';
 
 import MaxCube from '../house/max-cube';
 
-// Connect to Cube
-// Get Rooms
-// Monitor Cube Messages
-// Update Rooms and Devices within them
-// Monitor Rooms to (De)Activate the Thermostat
-// Provide Methods for (Dis)Connecting the Cube
-
 export default class HeatingStore {
     @observable cube = null;
     @observable rooms = map();
