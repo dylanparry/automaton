@@ -1,6 +1,8 @@
 import React from 'react';
 
 import BackButton from '../../components/buttons/back-button';
+import RoomTile from '../../components/heating/room-tile';
+import DeviceTile from '../../components/heating/device-tile';
 
 export default () => (
     <div>
@@ -11,29 +13,11 @@ export default () => (
         </div>
 
         <div className="tile-container">
-            <div className="tile-wide">
-                <div className="tile-content">
-                    <span className="tile-label">Room Summary</span>
-                </div>
-            </div>
+            <RoomTile id="1" label="Room 1" displayWide />
 
-            <div className="tile">
-                <div className="tile-content">
-                    <span className="tile-label">Device 1</span>
-                </div>
-            </div>
-
-            <div className="tile">
-                <div className="tile-content">
-                    <span className="tile-label">Device 2</span>
-                </div>
-            </div>
-
-            <div className="tile">
-                <div className="tile-content">
-                    <span className="tile-label">Device 3</span>
-                </div>
-            </div>
+            <DeviceTile label="Device 1" />
+            <DeviceTile label="Device 2" />
+            <DeviceTile label="Device 3" />
         </div>
     </div>
 );

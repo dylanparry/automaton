@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 import BackButton from '../../components/buttons/back-button';
+import HeatingTile from '../../components/heating';
+import RoomTile from '../../components/heating/room-tile';
 
 export default () => (
     <div>
@@ -12,67 +13,15 @@ export default () => (
         </div>
 
         <div className="tile-container">
-            <div className="tile-wide">
-                <div className="tile-content">
-                    <span className="tile-label">Heating Summary</span>
-                </div>
-            </div>
+            <HeatingTile />
 
-            <Link to="/heating/1">
-                <div className="tile">
-                    <div className="tile-content">
-                        <span className="tile-label">Room 1</span>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to="/heating/2">
-                <div className="tile">
-                    <div className="tile-content">
-                        <span className="tile-label">Room 2</span>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to="/heating/3">
-                <div className="tile">
-                    <div className="tile-content">
-                        <span className="tile-label">Room 3</span>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to="/heating/4">
-                <div className="tile">
-                    <div className="tile-content">
-                        <span className="tile-label">Room 4</span>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to="/heating/5">
-                <div className="tile">
-                    <div className="tile-content">
-                        <span className="tile-label">Room 5</span>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to="/heating/6">
-                <div className="tile">
-                    <div className="tile-content">
-                        <span className="tile-label">Room 6</span>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to="/heating/7">
-                <div className="tile">
-                    <div className="tile-content">
-                        <span className="tile-label">Room 7</span>
-                    </div>
-                </div>
-            </Link>
+            <RoomTile id="1" label="Room 1" />
+            <RoomTile id="2" label="Room 2" />
+            <RoomTile id="3" label="Room 3" />
+            <RoomTile id="4" label="Room 4" />
+            <RoomTile id="5" label="Room 5" />
+            <RoomTile id="6" label="Room 6" />
+            <RoomTile id="7" label="Room 7" />
         </div>
     </div>
 );
