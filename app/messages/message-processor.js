@@ -19,7 +19,7 @@ export default class MessageProcessor {
                         this.metadataBuffer = value.slice(6);
                     }
                     else {
-                        // ADd the message to the buffer
+                        // Add the message to the buffer
                         this.metadataBuffer += value.slice(6);
                     }
                 }
