@@ -51,12 +51,10 @@ export default class HeatingStore {
                         // We've got the full message, so process it
                         const metadataMessage = new MetadataMessage(
                             this.metadataBuffer || value.slice(6),
-                            this.store,
                         );
 
-                        // Merge the resulting rooms and devices
+                        // Merge the resulting rooms
                         this.rooms.merge(metadataMessage.rooms);
-                        this.devices.merge(metadataMessage.devices);
                     }
                     break;
                 default:

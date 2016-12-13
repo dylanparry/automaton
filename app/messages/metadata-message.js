@@ -15,7 +15,7 @@ export default class MetadataMessage {
 
         // Get details of each rooms
         for (let i = 0; i < roomCount; i += 1) {
-            const id = buffer[0];
+            const id = parseInt(buffer[0], 10);
             const nameLength = buffer[1];
             const name = buffer.slice(2, nameLength + 2).toString('utf-8');
             const rfAddress = buffer.slice(nameLength + 2, nameLength + 5).toString('hex');
@@ -26,7 +26,7 @@ export default class MetadataMessage {
                 rfAddress,
             });
 
-            this._rooms.set(rfAddress, room);
+            this._rooms.set(id, room);
 
             buffer = buffer.slice(nameLength + 5);
         }
@@ -76,13 +76,12 @@ export default class MetadataMessage {
 
             if (device !== null) {
                 // Get the room
-                // const room = this.rooms.get(roomId);
+                const room = this._rooms.get(roomId);
 
-                // if (typeof room !== 'undefined') {
-                //     // Add the device to the room
-                //     room.addDevice(device);
-                // }
-                this._devices.set(rfAddress, device);
+                if (typeof room !== 'undefined') {
+                    // Add the device to the room
+                    room.devices.set(rfAddress, device);
+                }
             }
 
             // Remove the current device from the buffer
@@ -93,10 +92,5 @@ export default class MetadataMessage {
     _rooms = map();
     get rooms() {
         return this._rooms;
-    }
-
-    _devices = map();
-    get devices() {
-        return this._devices;
     }
 }
