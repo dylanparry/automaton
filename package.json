@@ -38,11 +38,11 @@
     "webpack": "2.1.0-beta.28"
   },
   "scripts": {
-    "dev": "webpack --watch",
+    "dev": "cross-env NODE_ENV=development webpack -d --watch",
     "start": "electron .",
     "test": "jest",
     "lint": "eslint ./ --ext .jsx,.js",
-    "prebuild": "cross-env NODE_ENV=production webpack",
+    "prebuild": "cross-env NODE_ENV=production webpack -p",
     "build": "electron-packager . --out packages --overwrite --arch armv7l --platform linux --asar && electron-packager . --out packages --overwrite --arch x64 --platform win32 --asar"
   },
   "babel": {
