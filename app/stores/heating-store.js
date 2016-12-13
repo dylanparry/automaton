@@ -6,6 +6,7 @@ import MetadataMessage from '../messages/metadata-message';
 export default class HeatingStore {
     @observable cube = null;
     @observable rooms = map();
+    @observable devices = map();
 
     constructor() {
         this.cube = new MaxCube({
@@ -52,7 +53,10 @@ export default class HeatingStore {
                             this.metadataBuffer || value.slice(6),
                             this.store,
                         );
+
+                        // Merge the resulting rooms and devices
                         this.rooms.merge(metadataMessage.rooms);
+                        this.devices.merge(metadataMessage.devices);
                     }
                     break;
                 default:
