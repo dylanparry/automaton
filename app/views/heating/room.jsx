@@ -5,6 +5,9 @@ import BackButton from '../../components/buttons/back-button';
 import RoomTile from '../../components/heating/room-tile';
 import DeviceTile from '../../components/heating/device-tile';
 
+import WallMountedThermostat from '../../devices/wall-mounted-thermostat';
+import RadiatorThermostat from '../../devices/radiator-thermostat';
+
 const Room = ({ heatingStore, params }) => {
     // Get the room specified by the URL params
     const room = heatingStore.rooms.values().find(r => r.id === parseInt(params.roomId, 10));
@@ -13,6 +16,10 @@ const Room = ({ heatingStore, params }) => {
     if (typeof room === 'undefined') {
         return null;
     }
+
+    const devices = room.devices.values();
+    const wallMountedThermostat = devices.find(device => device instanceof WallMountedThermostat);
+    const radiatorThermostats = devices.filter(device => device instanceof RadiatorThermostat);
 
     return (
         <div>
@@ -25,9 +32,14 @@ const Room = ({ heatingStore, params }) => {
             <div className="tile-container">
                 <RoomTile id={room.id} label={room.name} displayWide />
 
-                <DeviceTile label="Device 1" />
-                <DeviceTile label="Device 2" />
-                <DeviceTile label="Device 3" />
+                {wallMountedThermostat && <DeviceTile label="Thermostat" />}
+                {
+                    radiatorThermostats.map(
+                        radiator => (
+                            <DeviceTile key={radiator.rfAddress} label={radiator.deviceName} />
+                        ),
+                    )
+                }
             </div>
         </div>
     );
