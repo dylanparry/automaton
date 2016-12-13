@@ -66,10 +66,6 @@ export default class HeatingStore {
         }
     }
 
-    @action addRoom(room) {
-        this.rooms.set(room.id, room);
-    }
-
     @action updateDevice() {
 
     }
