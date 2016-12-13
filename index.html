@@ -4,10 +4,10 @@
 <head>
     <title>Automaton</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="../../node_modules/metro-dist/css/metro.css" />
-    <link rel="stylesheet" href="../../node_modules/metro-dist/css/metro-schemes.css" />
-    <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="../fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro.css" />
+    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro-schemes.css" />
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="./fonts/flaticon/flaticon.css" />
     <style>
         body::-webkit-scrollbar {
             width: 0 !important;
@@ -27,11 +27,10 @@
     <div id="app"></div>
 
     <script>
-        require('babel-register');
         const $ = jQuery = require('jquery');
         require('metro-dist/js/metro');
-        require('../render-process');
     </script>
+    <script src="./dist/render-process.js"></script>
 </body>
 
 </html>

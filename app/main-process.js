@@ -18,7 +18,8 @@ app.on('ready', () => {
     });
 
     // Load the splash screen image
-    splashWindow.loadURL(path.join('file://', __dirname, '/app/images/splash.png'));
+    const splashPath = path.join('file:///', __dirname, '../images/splash.png');
+    splashWindow.loadURL(splashPath);
     splashWindow.webContents.on('did-finish-load', () => {
         splashWindow.show();
     });
@@ -35,14 +36,17 @@ app.on('ready', () => {
         useContentSize: true,
         resizable: false,
         title: 'automaton',
-        icon: './app/images/icon.png',
+        icon: './images/icon.png',
         show: false,
         kiosk: useKioskMode,
         autoHideMenuBar: true,
     });
 
+    mainWindow.webContents.openDevTools();
+
     // Load the React application
-    mainWindow.loadURL(path.join('file://', __dirname, '/views/index.html'));
+    const mainWindowPath = path.join('file:///', __dirname, '../index.html');
+    mainWindow.loadURL(mainWindowPath);
 
     // Wait for the window to finish loading its contents
     mainWindow.webContents.on('did-finish-load', () => {
