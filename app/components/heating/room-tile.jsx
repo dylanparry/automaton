@@ -1,41 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import ClassList from '../../utils/class-list';
+import ClassBuilder from '../../utils/class-builder';
 
 const RoomTile = ({ id, label, displayWide = false }) => {
-    const iconClassList = new ClassList();
-    iconClassList.useIcon();
+    const iconClass = new ClassBuilder();
+    iconClass.useIcon();
     if (label.match(/office/i)) {
-        iconClassList.iconName = 'flaticon-office';
+        iconClass.iconName = 'flaticon-office';
     }
     else if (label.match(/stairs/i)) {
-        iconClassList.iconName = 'flaticon-stairs';
+        iconClass.iconName = 'flaticon-stairs';
     }
     else if (label.match(/bed/i)) {
-        iconClassList.iconName = 'flaticon-bedroom';
+        iconClass.iconName = 'flaticon-bedroom';
     }
     else if (label.match(/living/i)) {
-        iconClassList.iconName = 'flaticon-livingroom';
+        iconClass.iconName = 'flaticon-livingroom';
     }
     else if (label.match(/kitchen/i)) {
-        iconClassList.iconName = 'flaticon-kitchen';
+        iconClass.iconName = 'flaticon-kitchen';
     }
     else if (label.match(/sewing/i)) {
-        iconClassList.iconName = 'flaticon-sewing';
+        iconClass.iconName = 'flaticon-sewing';
     }
 
-    const tileClassList = new ClassList();
-    tileClassList.tile = displayWide ? 'tile-wide' : 'tile';
-    tileClassList.background = 'bg-steel';
-    tileClassList.color = 'fg-white';
-    tileClassList.useTextShadow();
+    const tileClass = new ClassBuilder();
+    tileClass.tile = displayWide ? 'tile-wide' : 'tile';
+    tileClass.background = 'bg-steel';
+    tileClass.color = 'fg-white';
+    tileClass.useTextShadow();
 
     return (
         <Link to={`/heating/${id}`}>
-            <div className={tileClassList}>
+            <div className={tileClass}>
                 <div className="tile-content iconic">
-                    <span className={iconClassList} />
+                    <span className={iconClass} />
                     <span className="tile-label">{label}</span>
                 </div>
             </div>

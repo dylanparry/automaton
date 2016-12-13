@@ -1,16 +1,16 @@
 import React from 'react';
 
-import ClassList from '../../utils/class-list';
+import ClassBuilder from '../../utils/class-builder';
 
 const DeviceTile = ({ label }) => {
-    const tileClassList = new ClassList();
-    tileClassList.tile = 'tile';
-    tileClassList.background = 'bg-steel';
-    tileClassList.color = 'fg-white';
-    tileClassList.useTextShadow();
+    const tileClass = new ClassBuilder();
+    tileClass.tile = 'tile';
+    tileClass.background = 'bg-steel';
+    tileClass.color = 'fg-white';
+    tileClass.useTextShadow();
 
     return (
-        <div className={tileClassList}>
+        <div className={tileClass}>
             <div className="tile-content">
                 <span className="tile-label">{label}</span>
             </div>

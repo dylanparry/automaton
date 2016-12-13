@@ -1,4 +1,4 @@
-export default class ClassList {
+export default class ClassBuilder {
     _classes = new Map();
 
     set background(value) {

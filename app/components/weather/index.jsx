@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import ClassList from '../../utils/class-list';
+import ClassBuilder from '../../utils/class-builder';
 
 const WeatherTile = () => {
-    const tileClassList = new ClassList();
-    tileClassList.tile = 'tile-wide';
-    tileClassList.background = 'bg-steel';
-    tileClassList.color = 'fg-white';
-    tileClassList.useTextShadow();
+    const tileClass = new ClassBuilder();
+    tileClass.tile = 'tile-wide';
+    tileClass.background = 'bg-steel';
+    tileClass.color = 'fg-white';
+    tileClass.useTextShadow();
 
     return (
         <Link to="/weather">
-            <div className={tileClassList}>
+            <div className={tileClass}>
                 <div className="tile-content">
                     <span className="tile-label">Weather</span>
                 </div>
