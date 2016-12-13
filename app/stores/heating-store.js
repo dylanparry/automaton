@@ -1,6 +1,7 @@
 import { action, computed, map, observable } from 'mobx';
 
 import MaxCube from '../house/max-cube';
+import MessageProcessor from '../messages/message-processor';
 import MetadataMessage from '../messages/metadata-message';
 
 export default class HeatingStore {
@@ -24,45 +25,24 @@ export default class HeatingStore {
 
     @action processMessage(data) {
         // Sometimes we get more than one message at the same time
-        const pattern = /([A-Z]):([A-Za-z0-9+/=,]+)/g;
+        const pattern = /[A-Z]:[A-Za-z0-9+/=,]+/g;
 
-        let message = pattern.exec(data);
-        while (message !== null) {
-            // Get the header and value
-            const header = message[1];
-            const value = message[2];
+        // Get the first match
+        let match = pattern.exec(data);
 
-            // Proccess the message according to its type
-            switch (header) {
-                case 'M':
-                    // If the current part isn't the final part
-                    if (parseInt(value.slice(0, 2), 16) !== parseInt(value.slice(3, 5), 16) - 1) {
-                        // If this is the first part of the message
-                        if (parseInt(value.slice(0, 2), 16) === 0) {
-                            // Set the buffer to a new string
-                            this.metadataBuffer = value.slice(6);
-                        }
-                        else {
-                            // ADd the message to the buffer
-                            this.metadataBuffer += value.slice(6);
-                        }
-                    }
-                    else {
-                        // We've got the full message, so process it
-                        const metadataMessage = new MetadataMessage(
-                            this.metadataBuffer || value.slice(6),
-                        );
+        // While there are matches
+        while (match !== null) {
+            // Process the match
+            const result = MessageProcessor.process(match[0]);
 
-                        // Merge the resulting rooms
-                        this.rooms.merge(metadataMessage.rooms);
-                    }
-                    break;
-                default:
-                    break;
+            // If the returned message is a metadata message
+            if (result instanceof MetadataMessage) {
+                // Merge the rooms with the local copy
+                this.rooms.merge(result.rooms);
             }
 
             // Get the next match
-            message = pattern.exec(data);
+            match = pattern.exec(data);
         }
     }
 
