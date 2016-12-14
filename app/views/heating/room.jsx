@@ -38,7 +38,7 @@ const Room = ({ heatingStore, params }) => {
             </div>
 
             <div className="tile-container">
-                <RoomTile id={room.id} label={room.name} displayWide />
+                <RoomTile room={room} displayWide />
 
                 {thermostat}
                 {radiators}

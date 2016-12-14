@@ -1,27 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { observer } from 'mobx-react';
 
 import ClassBuilder from '../../utils/class-builder';
+import Room from '../../house/room';
 
-const RoomTile = ({ id, label, displayWide = false }) => {
+const RoomTile = ({ room, displayWide = false }) => {
     const iconClass = new ClassBuilder();
     iconClass.useIcon();
-    if (label.match(/office/i)) {
+    if (room.name.match(/office/i)) {
         iconClass.iconName = 'flaticon-office';
     }
-    else if (label.match(/stairs/i)) {
+    else if (room.name.match(/stairs/i)) {
         iconClass.iconName = 'flaticon-stairs';
     }
-    else if (label.match(/bed/i)) {
+    else if (room.name.match(/bed/i)) {
         iconClass.iconName = 'flaticon-bedroom';
     }
-    else if (label.match(/living/i)) {
+    else if (room.name.match(/living/i)) {
         iconClass.iconName = 'flaticon-livingroom';
     }
-    else if (label.match(/kitchen/i)) {
+    else if (room.name.match(/kitchen/i)) {
         iconClass.iconName = 'flaticon-kitchen';
     }
-    else if (label.match(/sewing/i)) {
+    else if (room.name.match(/sewing/i)) {
         iconClass.iconName = 'flaticon-sewing';
     }
 
@@ -32,11 +34,12 @@ const RoomTile = ({ id, label, displayWide = false }) => {
     tileClass.useTextShadow();
 
     return (
-        <Link to={`/heating/${id}`}>
+        <Link to={`/heating/${room.id}`}>
             <div className={tileClass}>
                 <div className="tile-content iconic">
                     <span className={iconClass} />
-                    <span className="tile-label">{label}</span>
+                    <span className="tile-label">{room.name}</span>
+                    <span className="tile-badge">{room.actualTemperature}</span>
                 </div>
             </div>
         </Link>
@@ -44,9 +47,8 @@ const RoomTile = ({ id, label, displayWide = false }) => {
 };
 
 RoomTile.propTypes = {
-    id: React.PropTypes.number.isRequired,
-    label: React.PropTypes.string.isRequired,
+    room: React.PropTypes.instanceOf(Room),
     displayWide: React.PropTypes.bool,
 };
 
-export default RoomTile;
+export default observer(RoomTile);

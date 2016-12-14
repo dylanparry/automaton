@@ -7,7 +7,7 @@ import RoomTile from '../../components/heating/room-tile';
 
 const HeatingIndex = ({ heatingStore }) => {
     const rooms = heatingStore.rooms.map(room => (
-        <RoomTile key={room.id} id={room.id} label={room.name} />
+        <RoomTile key={room.id} room={room} />
     ));
 
     return (
