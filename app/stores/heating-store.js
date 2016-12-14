@@ -64,10 +64,6 @@ export default class HeatingStore {
         }
     }
 
-    @action updateDevice() {
-
-    }
-
     @computed get thermostatShouldBeActive() {
         return false;
     }
