@@ -69,4 +69,10 @@ export default class HeatingStore {
 
         return devices.length > 0;
     }
+
+    @computed get programsAreActive() {
+        const devices = this.devices.filter(device => device.setPoint > 10);
+
+        return devices.length > 0;
+    }
 }
