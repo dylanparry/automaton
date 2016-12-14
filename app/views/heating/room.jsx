@@ -17,8 +17,17 @@ const Room = ({ heatingStore, params }) => {
         return null;
     }
 
-    const wallMountedThermostat = room.devices.find(device => device instanceof WallMountedThermostat);
-    const radiatorThermostats = room.devices.filter(device => device instanceof RadiatorThermostat);
+    const thermostat = room.devices.filter(
+        device => device instanceof WallMountedThermostat,
+    ).map(
+        device => <DeviceTile key={device.rfAddress} device={device} />,
+    );
+
+    const radiators = room.devices.filter(
+        device => device instanceof RadiatorThermostat,
+    ).map(
+        device => <DeviceTile key={device.rfAddress} device={device} />,
+    );
 
     return (
         <div>
@@ -31,14 +40,8 @@ const Room = ({ heatingStore, params }) => {
             <div className="tile-container">
                 <RoomTile id={room.id} label={room.name} displayWide />
 
-                {wallMountedThermostat && <DeviceTile device={wallMountedThermostat} />}
-                {
-                    radiatorThermostats.map(
-                        radiator => (
-                            <DeviceTile key={radiator.rfAddress} device={radiator} />
-                        ),
-                    )
-                }
+                {thermostat}
+                {radiators}
             </div>
         </div>
     );
