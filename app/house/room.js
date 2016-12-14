@@ -60,4 +60,24 @@ export default class Room {
 
         return sum / radiators.length >= 20;
     }
+
+    /**
+     * Return true if the room is considered cold
+     */
+    @computed get isCold() {
+        // Some rooms can't report their temperature, and will report it as zero
+        if (this.actualTemperature > 0) {
+            // A temperature was report and it's lower than the set point
+            if (this.actualTemperature < this.setPoint) {
+                // It's cold!
+                return true;
+            }
+
+            // It's not cold!
+            return false;
+        }
+
+        // Assume it is cold
+        return true;
+    }
 }
