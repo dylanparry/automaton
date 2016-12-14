@@ -50,7 +50,7 @@ const RoomTile = ({ room, displayWide = false }) => {
                 <div className="tile-content iconic">
                     <span className={iconClass} />
                     <span className="tile-label">{room.name}</span>
-                    <span className="tile-badge">{room.actualTemperature}</span>
+                    <span className="tile-badge">{room.actualTemperature ? `${room.actualTemperature}°C` : null}</span>
                 </div>
             </div>
         </Link>
