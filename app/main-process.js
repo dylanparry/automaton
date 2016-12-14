@@ -36,6 +36,8 @@ if (process.env.NODE_ENV === 'test') {
                 socket.write(response);
             }
         });
+
+        socket.on('error', () => { });
     });
 
     server.listen(62910, '127.0.0.1');
