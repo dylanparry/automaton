@@ -61,6 +61,10 @@ const RoomTile = ({ room, displayWide = false }) => {
             break;
     }
 
+    if (room.setPoint <= 10 && !(mode === 'boost' || mode === 'holiday')) {
+        mode = 'off';
+    }
+
     return (
         <Link to={`/heating/${room.id}`}>
             <div className={tileClass}>
