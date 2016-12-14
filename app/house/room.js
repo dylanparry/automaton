@@ -1,11 +1,11 @@
-import { map, observable } from 'mobx';
+import { observable } from 'mobx';
 
 export default class Room {
     id = 0;
     name = '';
     rfAddress = '';
 
-    @observable devices = map();
+    @observable devices = [];
 
     constructor({ id, name, rfAddress }) {
         this.id = id;

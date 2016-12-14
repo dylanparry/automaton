@@ -1,5 +1,3 @@
-import { map } from 'mobx';
-
 import Room from '../house/room';
 import RadiatorThermostat from '../devices/radiator-thermostat';
 import WallMountedThermostat from '../devices/wall-mounted-thermostat';
@@ -26,7 +24,7 @@ export default class MetadataMessage {
                 rfAddress,
             });
 
-            this._rooms.set(id, room);
+            this._rooms.push(room);
 
             buffer = buffer.slice(nameLength + 5);
         }
@@ -76,11 +74,14 @@ export default class MetadataMessage {
 
             if (device !== null) {
                 // Get the room
-                const room = this._rooms.get(roomId);
+                const room = this._rooms.find(r => r.id === roomId);
 
                 if (typeof room !== 'undefined') {
                     // Add the device to the room
-                    room.devices.set(rfAddress, device);
+                    room.devices.push(device);
+
+                    // Also add it to the devices array
+                    this._devices.push(device);
                 }
             }
 
@@ -89,8 +90,13 @@ export default class MetadataMessage {
         }
     }
 
-    _rooms = map();
+    _rooms = [];
     get rooms() {
         return this._rooms;
+    }
+
+    _devices = [];
+    get devices() {
+        return this._devices;
     }
 }

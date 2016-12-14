@@ -1,5 +1,5 @@
 import React from 'react';
-import { inject, observer, observableMap } from 'mobx-react';
+import { inject, observer, observableArray } from 'mobx-react';
 
 import BackButton from '../../components/buttons/back-button';
 import RoomTile from '../../components/heating/room-tile';
@@ -10,16 +10,15 @@ import RadiatorThermostat from '../../devices/radiator-thermostat';
 
 const Room = ({ heatingStore, params }) => {
     // Get the room specified by the URL params
-    const room = heatingStore.rooms.values().find(r => r.id === parseInt(params.roomId, 10));
+    const room = heatingStore.rooms.find(r => r.id === parseInt(params.roomId, 10));
 
     // Return a null component if no room found
     if (typeof room === 'undefined') {
         return null;
     }
 
-    const devices = room.devices.values();
-    const wallMountedThermostat = devices.find(device => device instanceof WallMountedThermostat);
-    const radiatorThermostats = devices.filter(device => device instanceof RadiatorThermostat);
+    const wallMountedThermostat = room.devices.find(device => device instanceof WallMountedThermostat);
+    const radiatorThermostats = room.devices.filter(device => device instanceof RadiatorThermostat);
 
     return (
         <div>
@@ -47,7 +46,7 @@ const Room = ({ heatingStore, params }) => {
 
 Room.propTypes = {
     heatingStore: React.PropTypes.shape({
-        rooms: observableMap,
+        rooms: observableArray,
     }),
     params: React.PropTypes.shape({
         roomId: React.PropTypes.string,

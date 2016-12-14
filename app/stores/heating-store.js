@@ -1,4 +1,4 @@
-import { action, computed, map, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 
 import MaxCube from '../house/max-cube';
 import MessageProcessor from '../messages/message-processor';
@@ -6,8 +6,8 @@ import MetadataMessage from '../messages/metadata-message';
 
 export default class HeatingStore {
     @observable cube = null;
-    @observable rooms = map();
-    @observable devices = map();
+    @observable rooms = [];
+    @observable devices = [];
 
     constructor() {
         this.cube = new MaxCube({
@@ -38,7 +38,8 @@ export default class HeatingStore {
             // If the returned message is a metadata message
             if (result instanceof MetadataMessage) {
                 // Merge the rooms with the local copy
-                this.rooms.merge(result.rooms);
+                this.rooms.replace(result.rooms);
+                this.devices.replace(result.devices);
             }
 
             // Get the next match

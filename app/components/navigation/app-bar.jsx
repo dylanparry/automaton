@@ -1,9 +1,9 @@
 import React from 'react';
-import { inject, observer, observableMap } from 'mobx-react';
+import { inject, observer, observableArray } from 'mobx-react';
 import { Link } from 'react-router';
 
 const AppBar = ({ heatingStore }) => {
-    const rooms = heatingStore.rooms.values().map(room => (
+    const rooms = heatingStore.rooms.map(room => (
         <li key={room.id}><Link to={`/heating/${room.id}`}>{room.name}</Link></li>
     ));
 
@@ -36,7 +36,7 @@ const AppBar = ({ heatingStore }) => {
 
 AppBar.propTypes = {
     heatingStore: React.PropTypes.shape({
-        rooms: observableMap,
+        rooms: observableArray,
     }),
 };
 

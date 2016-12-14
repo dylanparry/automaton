@@ -1,12 +1,12 @@
 import React from 'react';
-import { inject, observer, observableMap } from 'mobx-react';
+import { inject, observer, observableArray } from 'mobx-react';
 
 import BackButton from '../../components/buttons/back-button';
 import HeatingTile from '../../components/heating';
 import RoomTile from '../../components/heating/room-tile';
 
 const HeatingIndex = ({ heatingStore }) => {
-    const rooms = heatingStore.rooms.values().map(room => (
+    const rooms = heatingStore.rooms.map(room => (
         <RoomTile key={room.id} id={room.id} label={room.name} />
     ));
 
@@ -29,7 +29,7 @@ const HeatingIndex = ({ heatingStore }) => {
 
 HeatingIndex.propTypes = {
     heatingStore: React.PropTypes.shape({
-        rooms: observableMap,
+        rooms: observableArray,
     }),
 };
 
