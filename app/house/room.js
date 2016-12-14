@@ -15,6 +15,24 @@ export default class Room {
         this.rfAddress = rfAddress;
     }
 
+    /**
+     * Returns the temperature that the room is set to reach
+     */
+    @computed get setPoint() {
+        const thermostat = this.devices.find(
+            device => device instanceof WallMountedThermostat,
+        );
+
+        if (typeof thermostat !== 'undefined') {
+            return `${thermostat.setPoint}°C`;
+        }
+
+        return null;
+    }
+
+    /**
+     * Returns the temperature that the room is currently at
+     */
     @computed get actualTemperature() {
         const thermostat = this.devices.find(
             device => device instanceof WallMountedThermostat,
