@@ -29,9 +29,20 @@ const RoomTile = ({ room, displayWide = false }) => {
 
     const tileClass = new ClassBuilder();
     tileClass.tile = displayWide ? 'tile-wide' : 'tile';
-    tileClass.background = 'bg-steel';
     tileClass.color = 'fg-white';
     tileClass.useTextShadow();
+
+    console.log(room.name, room.radiatorsOn, room.setPoint);
+
+    if (room.radiatorsOn) {
+        tileClass.background = 'bg-lighterBlue';
+    }
+    else if (room.setPoint > 10) {
+        tileClass.background = 'bg-amber';
+    }
+    else {
+        tileClass.background = 'bg-grayLight';
+    }
 
     return (
         <Link to={`/heating/${room.id}`}>
