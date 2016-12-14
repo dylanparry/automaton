@@ -7,9 +7,16 @@ import ClassBuilder from '../../utils/class-builder';
 const HeatingTile = ({ heatingStore }) => {
     const tileClass = new ClassBuilder();
     tileClass.tile = 'tile-wide';
-    tileClass.background = 'bg-steel';
     tileClass.color = 'fg-white';
     tileClass.useTextShadow();
+
+    // Work out background colour
+    if (heatingStore.thermostatShouldBeActive) {
+        tileClass.background = 'bg-lighterBlue';
+    }
+    else {
+        tileClass.background = 'bg-amber';
+    }
 
     return (
         <Link to="/heating">
