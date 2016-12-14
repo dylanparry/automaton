@@ -16,17 +16,17 @@ export default class MessageProcessor {
                     // If this is the first part of the message
                     if (parseInt(value.slice(0, 2), 16) === 0) {
                         // Set the buffer to a new string
-                        this.metadataBuffer = value.slice(6);
+                        MessageProcessor.metadataBuffer = value.slice(6);
                     }
                     else {
                         // Add the message to the buffer
-                        this.metadataBuffer += value.slice(6);
+                        MessageProcessor.metadataBuffer += value.slice(6);
                     }
                 }
                 else {
                     // We've got the full message, so process it
                     return new MetadataMessage(
-                        this.metadataBuffer || value.slice(6),
+                        MessageProcessor.metadataBuffer || value.slice(6),
                     );
                 }
                 break;
