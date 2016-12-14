@@ -31,11 +31,11 @@ const Room = ({ heatingStore, params }) => {
             <div className="tile-container">
                 <RoomTile id={room.id} label={room.name} displayWide />
 
-                {wallMountedThermostat && <DeviceTile label="Thermostat" />}
+                {wallMountedThermostat && <DeviceTile device={wallMountedThermostat} />}
                 {
                     radiatorThermostats.map(
                         radiator => (
-                            <DeviceTile key={radiator.rfAddress} label={radiator.deviceName} />
+                            <DeviceTile key={radiator.rfAddress} device={radiator} />
                         ),
                     )
                 }
