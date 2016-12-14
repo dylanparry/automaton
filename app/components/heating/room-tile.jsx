@@ -32,10 +32,7 @@ const RoomTile = ({ room, displayWide = false }) => {
     tileClass.color = 'fg-white';
     tileClass.useTextShadow();
 
-    // This needs a bit of work.
-    // If the room is cold, and the heat is on, show it as blue.
-    // If the room is warm, and the heat is on (ie. boost), show is as amber
-    // If the room program is over, show it as grey
+    // Decide what colour the tile should be
     if (room.radiatorsOn && room.isCold) {
         tileClass.background = 'bg-lighterBlue';
     }
