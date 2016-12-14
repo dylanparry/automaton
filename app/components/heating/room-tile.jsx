@@ -43,6 +43,24 @@ const RoomTile = ({ room, displayWide = false }) => {
         tileClass.background = 'bg-grayLight';
     }
 
+    let mode;
+    switch (room.mode) {
+        case 0:
+            mode = 'auto';
+            break;
+        case 1:
+            mode = 'manual';
+            break;
+        case 2:
+            mode = 'holiday';
+            break;
+        case 3:
+            mode = 'boost';
+            break;
+        default:
+            break;
+    }
+
     return (
         <Link to={`/heating/${room.id}`}>
             <div className={tileClass}>
@@ -50,6 +68,7 @@ const RoomTile = ({ room, displayWide = false }) => {
                     <span className={iconClass} />
                     <span className="tile-label">{room.name}</span>
                     <span className="tile-badge">{room.actualTemperature ? `${room.actualTemperature}°C` : null}</span>
+                    <span className="tile-badge top left">{mode}</span>
                 </div>
             </div>
         </Link>

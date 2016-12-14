@@ -65,6 +65,8 @@ export default class HeatingStore {
     }
 
     @computed get thermostatShouldBeActive() {
-        return false;
+        const devices = this.devices.filter(device => device.valvePosition >= 20);
+
+        return devices.length > 0;
     }
 }

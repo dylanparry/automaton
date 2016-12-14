@@ -80,4 +80,11 @@ export default class Room {
         // Assume it is cold
         return true;
     }
+
+    @computed get mode() {
+        // Get the first device
+        const device = this.devices[0];
+
+        return device.mode;
+    }
 }
