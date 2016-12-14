@@ -38,7 +38,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack -d --watch",
-    "start": "electron .",
+    "start": "cross-env NODE_ENV=test electron .",
     "test": "jest",
     "lint": "eslint ./ --ext .jsx,.js",
     "prebuild": "cross-env NODE_ENV=production webpack -p",

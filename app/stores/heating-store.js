@@ -12,7 +12,7 @@ export default class HeatingStore {
 
     constructor() {
         this.cube = new MaxCube({
-            ipAddress: '192.168.0.3',
+            ipAddress: process.env.NODE_ENV === 'test' ? '127.0.0.1' : '192.168.0.3',
             port: 62910,
         });
 
