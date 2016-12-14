@@ -3,6 +3,7 @@ import { action, computed, observable } from 'mobx';
 import MaxCube from '../house/max-cube';
 import MessageProcessor from '../messages/message-processor';
 import MetadataMessage from '../messages/metadata-message';
+import DeviceListMessage from '../messages/device-list-message';
 
 export default class HeatingStore {
     @observable cube = null;
@@ -40,6 +41,22 @@ export default class HeatingStore {
                 // Merge the rooms with the local copy
                 this.rooms.replace(result.rooms);
                 this.devices.replace(result.devices);
+            }
+
+            // If the returned message is a device list message
+            if (result instanceof DeviceListMessage) {
+                // Loop through the updates and apply them to each device
+                for (let i = 0; i < result.updates.length; i += 1) {
+                    // Find the device to update
+                    const device = this.devices.find(
+                        d => d.rfAddress === result.updates[i].rfAddress,
+                    );
+
+                    // If a device was found, update it
+                    if (typeof device !== 'undefined') {
+                        Object.assign(device, result.updates[i]);
+                    }
+                }
             }
 
             // Get the next match

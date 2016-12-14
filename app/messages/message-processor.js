@@ -1,4 +1,5 @@
 import MetadataMessage from './metadata-message';
+import DeviceListMessage from './device-list-message';
 
 export default class MessageProcessor {
     static metadataBuffer;
@@ -30,6 +31,8 @@ export default class MessageProcessor {
                     );
                 }
                 break;
+            case 'L':
+                return new DeviceListMessage(value);
             default:
                 break;
         }
