@@ -12,7 +12,7 @@
         body::-webkit-scrollbar {
             width: 0 !important;
         }
-        
+
         [class^="flaticon-"]:before,
         [class*=" flaticon-"]:before,
         [class^="flaticon-"]:after,
@@ -20,24 +20,24 @@
             font-size: inherit !important;
             margin-left: 0 !important;
         }
-        
-        .tile .tile-label {
+
+        .tile .tile-label, .tile-wide .tile-label {
             display: inline-block;
             max-width: 70%;
             left: .25rem;
         }
-        
-        .tile .tile-badge {
+
+        .tile .tile-badge, .tile-wide .tile-badge{
             padding: .425rem .25rem !important;
         }
-        
-        .tile .tile-badge.top.left {
+
+        .tile .tile-badge.top.left, .tile-wide .tile-badge.top.left {
             top: 0 !important;
             left: .25rem !important;
             bottom: inherit;
         }
-        
-        .tile .tile-badge.top.right {
+
+        .tile .tile-badge.top.right, .tile-wide .tile-badge.top.right {
             top: 0 !important;
             right: .25rem !important;
             bottom: inherit;
@@ -52,7 +52,7 @@
         const $ = jQuery = require('jquery');
         require('metro-dist/js/metro');
     </script>
-    <script src="./dist/render-process.js"></script>
+<script src="./dist/render-process.js"></script>
 </body>
 
 </html>
