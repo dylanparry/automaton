@@ -69,14 +69,14 @@ export default class HeatingStore {
     }
 
     @computed get thermostatShouldBeActive() {
-        // Get the number of open valves
-        const openValves = this.devices.filter(device => device.valvePosition >= 20).length;
+        // Get the number of rooms with radiators turned on
+        const roomsNeedingHeat = this.rooms.filter(room => room.radiatorsOn).length;
 
         // Get the number of devices reporting errors
         const devicesInErrorState = this.devices.filter(device => !device.hasNoErrors).length;
 
         // Check if thermostat should be active
-        const thermostatShouldBeActive = openValves > 0 && devicesInErrorState === 0;
+        const thermostatShouldBeActive = roomsNeedingHeat > 0 && devicesInErrorState === 0;
 
         // Turn the thermostat on or off
         if (thermostatShouldBeActive) {
