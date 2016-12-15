@@ -49,8 +49,6 @@ app.on('ready', () => {
         autoHideMenuBar: true,
     });
 
-    mainWindow.webContents.openDevTools();
-
     // Load the React application
     const mainWindowPath = path.join('file:///', __dirname, '../index.html');
     mainWindow.loadURL(mainWindowPath);
