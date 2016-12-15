@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { observer } from 'mobx-react';
 
+import DeviceConstants from '../../constants/device';
 import ClassBuilder from '../../utils/class-builder';
 import Room from '../../house/room';
 
@@ -45,23 +46,26 @@ const RoomTile = ({ room, displayWide = false }) => {
 
     let mode;
     switch (room.mode) {
-        case 0:
+        case DeviceConstants.Status.AUTO:
             mode = 'auto';
             break;
-        case 1:
+        case DeviceConstants.Status.MANUAL:
             mode = 'manual';
             break;
-        case 2:
+        case DeviceConstants.Status.HOLIDAY:
             mode = 'holiday';
             break;
-        case 3:
+        case DeviceConstants.Status.BOOST:
             mode = 'boost';
             break;
         default:
             break;
     }
 
-    if (room.setPoint <= 10 && !(mode === 'boost' || mode === 'holiday')) {
+    if (
+        room.setPoint <= 10 &&
+        room.mode !== DeviceConstants.Status.BOOST &&
+        room.mode !== DeviceConstants.Status.HOLIDAY) {
         mode = 'off';
     }
 

@@ -1,5 +1,7 @@
 import { computed, observable } from 'mobx';
 
+import DeviceConstants from '../constants/device';
+
 export default class Device {
     rfAddress = null;
     serialNumber = null;
@@ -30,11 +32,11 @@ export default class Device {
      */
     @computed get hasNoErrors() {
         return (
-            this.valid === 1 &&
-            this.error === 0 &&
-            this.initialised === 1 &&
-            this.battery === 0 &&
-            this.linkStatus === 0
+            this.valid === DeviceConstants.Valid.VALID &&
+            this.error === DeviceConstants.Error.NO &&
+            this.initialised === DeviceConstants.Initialised.YES &&
+            this.battery === DeviceConstants.Battery.OK &&
+            this.linkStatus === DeviceConstants.LinkStatus.OK
         );
     }
 }
