@@ -9,18 +9,27 @@ import ClassBuilder from '../../utils/class-builder';
 const DeviceTile = ({ device }) => {
     const tileClass = new ClassBuilder();
     tileClass.tile = 'tile';
-    tileClass.background = 'bg-steel';
     tileClass.color = 'fg-white';
     tileClass.useTextShadow();
+
+    // Choose the background colour
+    if (device.hasNoErrors) {
+        tileClass.background = 'bg-green';
+    }
+    else {
+        tileClass.background = 'bg-red';
+    }
 
     const iconClass = new ClassBuilder();
     iconClass.useIcon();
 
+    let badge = null;
     if (device instanceof WallMountedThermostat) {
         iconClass.iconName = 'flaticon-thermostat';
     }
     else if (device instanceof RadiatorThermostat) {
         iconClass.iconName = 'flaticon-radiator';
+        badge = <span className="tile-badge">{device.valvePosition}%</span>;
     }
 
     // Otherwise, it's a radiator
@@ -29,6 +38,7 @@ const DeviceTile = ({ device }) => {
             <div className="tile-content iconic">
                 <span className={iconClass} />
                 <span className="tile-label">{device.deviceName}</span>
+                {badge}
             </div>
         </div>
     );
