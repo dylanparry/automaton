@@ -65,9 +65,14 @@ export default class HeatingStore {
     }
 
     @computed get thermostatShouldBeActive() {
-        const devices = this.devices.filter(device => device.valvePosition >= 20);
+        // Get the number of open valves
+        const openValves = this.devices.filter(device => device.valvePosition >= 20).length;
 
-        return devices.length > 0;
+        // Get the number of devices reporting errors
+        const devicesInErrorState = this.devices.filter(device => !device.hasNoErrors).length;
+
+        // Return true if there are open valves and no devices in error
+        return openValves > 0 && devicesInErrorState === 0;
     }
 
     @computed get programsAreActive() {
