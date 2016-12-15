@@ -5,6 +5,7 @@ import Device from '../../devices/device';
 import WallMountedThermostat from '../../devices/wall-mounted-thermostat';
 import RadiatorThermostat from '../../devices/radiator-thermostat';
 import ClassBuilder from '../../utils/class-builder';
+import DeviceConstants from '../../constants/device';
 
 const DeviceTile = ({ device }) => {
     const tileClass = new ClassBuilder();
@@ -32,6 +33,32 @@ const DeviceTile = ({ device }) => {
         badge = <span className="tile-badge">{device.valvePosition}%</span>;
     }
 
+    // Display icons for any errors
+    const statusIcons = [];
+    if (device.valid === DeviceConstants.Valid.INVALID) {
+        statusIcons.push(<span className="fa fa-fw fa-close" />);
+    }
+    if (device.error === DeviceConstants.Error.YES) {
+        statusIcons.push(<span className="fa fa-fw fa-warning" />);
+    }
+    if (device.initialised === DeviceConstants.Initialised.NO) {
+        statusIcons.push(<span className="fa fa-fw fa-ban" />);
+    }
+    if (device.battery === DeviceConstants.Battery.LOW) {
+        statusIcons.push(<span className="fa fa-fw fa-battery-quarter" />);
+    }
+    if (device.linkStatus === DeviceConstants.LinkStatus.ERROR) {
+        statusIcons.push(<span className="fa fa-fw fa-wifi" />);
+    }
+
+    let statusIcon;
+    if (statusIcons.length > 0) {
+        statusIcon = <span className="tile-badge top right">{statusIcons}</span>;
+    }
+    else {
+        statusIcon = <span className="tile-badge top right"><span className="fa fa-fw fa-check" /></span>;
+    }
+
     // Otherwise, it's a radiator
     return (
         <div className={tileClass}>
@@ -39,6 +66,7 @@ const DeviceTile = ({ device }) => {
                 <span className={iconClass} />
                 <span className="tile-label">{device.deviceName}</span>
                 {badge}
+                {statusIcon}
             </div>
         </div>
     );
