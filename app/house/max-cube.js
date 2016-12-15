@@ -42,6 +42,14 @@ export default class MaxCube {
         });
     }
 
+    // Calls the callback function in case of an error or disconnection
+    errorHandler(callback) {
+        this.socket.on('error', callback);
+        this.socket.on('close', callback);
+        this.socket.on('timeout', callback);
+        this.socket.on('end', callback);
+    }
+
     // Sends a request for device list
     requestDeviceList() {
         // Don't do anything if the cube isn't connected

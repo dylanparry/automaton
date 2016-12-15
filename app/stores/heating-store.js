@@ -11,6 +11,8 @@ export default class HeatingStore {
     @observable rooms = [];
     @observable devices = [];
 
+    deviceListInterval;
+
     constructor() {
         this.cube = new MaxCube({
             ipAddress: process.env.NODE_ENV === 'test' ? '127.0.0.1' : '192.168.0.3',
@@ -19,10 +21,23 @@ export default class HeatingStore {
 
         this.cube.listen(data => this.processMessage(data));
 
+        this.cube.errorHandler(() => {
+            // Stop sending device list requests
+            clearInterval(this.deviceListInterval);
+
+            // Remove all rooms
+            this.rooms.replace([]);
+
+            // Turn off the thermostat
+            Gpio.setInactive();
+        });
+
         // Connect to the cube, then request device list every 10 seconds
-        this.cube.connect().then(() => setInterval(() => {
-            this.cube.requestDeviceList();
-        }, 10000));
+        this.cube.connect().then(() => {
+            this.deviceListInterval = setInterval(() => {
+                this.cube.requestDeviceList();
+            }, 10000);
+        });
 
         // Need to watch this.thermostatShouldBeActive for any changes
         reaction(() => this.thermostatShouldBeActive, () => null);
