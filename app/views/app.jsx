@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AppBar from '../components/navigation/app-bar';
+import IdleTimer from '../components/idle-timer';
 
 const App = ({ children }) => (
     <div>
@@ -8,6 +9,7 @@ const App = ({ children }) => (
         <div style={{ marginTop: 80 }}>
             {children}
         </div>
+        <IdleTimer />
     </div>
 );
 
