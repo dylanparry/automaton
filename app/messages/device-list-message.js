@@ -6,15 +6,15 @@ const radiatorThermostatUpdate = (buffer) => {
     const rfAddress = buffer.slice(1, 4).toString('hex');
 
     const flags = `${leftpad(parseInt(buffer.slice(5, 6).toString('hex'), 16).toString(2), 8)}${leftpad(parseInt(buffer.slice(6, 7).toString('hex'), 16).toString(2), 8)}`;
-    const valid = flags[3];
-    const error = flags[4];
-    const answer = flags[5];
-    const initialised = flags[6];
-    const battery = flags[8];
-    const linkStatus = flags[9];
-    const panel = flags[10];
-    const gateway = flags[11];
-    const dst = flags[12];
+    const valid = parseInt(flags[3], 2);
+    const error = parseInt(flags[4], 2);
+    const answer = parseInt(flags[5], 2);
+    const initialised = parseInt(flags[6], 2);
+    const battery = parseInt(flags[8], 2);
+    const linkStatus = parseInt(flags[9], 2);
+    const panel = parseInt(flags[10], 2);
+    const gateway = parseInt(flags[11], 2);
+    const dst = parseInt(flags[12], 2);
     const mode = parseInt(flags.substr(14), 2);
 
     const valvePosition = parseInt(buffer.slice(7, 8).toString('hex'), 16);
@@ -42,15 +42,15 @@ const wallMountedThermostatUpdate = (buffer) => {
     const rfAddress = buffer.slice(1, 4).toString('hex');
 
     const flags = `${leftpad(parseInt(buffer.slice(5, 6).toString('hex'), 16).toString(2), 8)}${leftpad(parseInt(buffer.slice(6, 7).toString('hex'), 16).toString(2), 8)}`;
-    const valid = flags[3];
-    const error = flags[4];
-    const answer = flags[5];
-    const initialised = flags[6];
-    const battery = flags[8];
-    const linkStatus = flags[9];
-    const panel = flags[10];
-    const gateway = flags[11];
-    const dst = flags[12];
+    const valid = parseInt(flags[3], 2);
+    const error = parseInt(flags[4], 2);
+    const answer = parseInt(flags[5], 2);
+    const initialised = parseInt(flags[6], 2);
+    const battery = parseInt(flags[8], 2);
+    const linkStatus = parseInt(flags[9], 2);
+    const panel = parseInt(flags[10], 2);
+    const gateway = parseInt(flags[11], 2);
+    const dst = parseInt(flags[12], 2);
     const mode = parseInt(flags.substr(14), 2);
 
     const setPoint = parseInt(buffer.slice(8, 9).toString('hex'), 16) / 2;
