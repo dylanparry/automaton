@@ -8,7 +8,7 @@ const AppBar = ({ heatingStore }) => {
     ));
 
     return (
-        <div className="app-bar navy" style={{ position: 'fixed', top: 0, left: 0, zIndex: 2 }}>
+        <div className="app-bar navy" style={{ position: 'fixed', top: 0, left: 0, zIndex: 1000 }}>
             <Link to="/" className="app-bar-element"><span className="fa fa-fw fa-cogs" /> automaton</Link>
             <span className="app-bar-divider" />
             <ul className="app-bar-menu">

@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="./fonts/flaticon/flaticon.css" />
     <style>
+        body {
+            overflow: hidden;
+        }
+
         body::-webkit-scrollbar {
             width: 0 !important;
         }
@@ -20,6 +24,14 @@
         [class*=" flaticon-"]:after {
             font-size: inherit !important;
             margin-left: 0 !important;
+        }
+
+        .tile, .tile-wide {
+            margin: 4px; /* Reduce the margin from 5px to 4px */
+        }
+
+        .tile-wide {
+            width: 308px; /* Reduce the width from 310px to 308px */
         }
 
         .tile .tile-label, .tile-wide .tile-label {

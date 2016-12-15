@@ -46,7 +46,6 @@ app.on('ready', () => {
         title: 'automaton',
         icon: './images/icon.png',
         show: false,
-        kiosk: useKioskMode,
         autoHideMenuBar: true,
     });
 
@@ -60,6 +59,9 @@ app.on('ready', () => {
         if (splashWindow && !splashWindow.isDestroyed()) {
             splashWindow.close();
         }
+
+        // Now set kiosk mode
+        mainWindow.setKiosk(useKioskMode);
 
         // And show the main window
         mainWindow.show();
