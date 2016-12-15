@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { inject, observer, observableArray } from 'mobx-react';
 
 import ClassBuilder from '../../utils/class-builder';
+import DeviceConstants from '../../constants/device';
 
 const HeatingTile = ({ heatingStore }) => {
     const tileClass = new ClassBuilder();
@@ -29,6 +30,23 @@ const HeatingTile = ({ heatingStore }) => {
         mode = 'off';
     }
 
+    // If any device in the house is reporting errors, change the colour and show an icon
+    let statusIcon;
+    for (let i = 0; i < heatingStore.devices.length; i += 1) {
+        const device = heatingStore.devices[i];
+        if (
+            device.valid === DeviceConstants.Valid.INVALID ||
+            device.error === DeviceConstants.Error.YES ||
+            device.initialised === DeviceConstants.Initialised.NO ||
+            device.battery === DeviceConstants.Battery.LOW ||
+            device.linkStatus === DeviceConstants.LinkStatus.ERROR
+        ) {
+            tileClass.background = 'bg-red';
+            mode = 'error';
+            statusIcon = <span className="tile-badge top right"><span className="fa fa-fw fa-warning" /></span>;
+        }
+    }
+
     return (
         <Link to="/heating">
             <div className={tileClass}>
@@ -36,6 +54,7 @@ const HeatingTile = ({ heatingStore }) => {
                     <span className="icon flaticon-thermostat" />
                     <span className="tile-label">Central Heating</span>
                     <span className="tile-badge top left">{mode}</span>
+                    {statusIcon}
                 </div>
             </div>
         </Link>
