@@ -1,9 +1,10 @@
-import { action, computed, observable } from 'mobx';
+import { action, computed, observable, reaction } from 'mobx';
 
 import MaxCube from '../house/max-cube';
 import MessageProcessor from '../messages/message-processor';
 import MetadataMessage from '../messages/metadata-message';
 import DeviceListMessage from '../messages/device-list-message';
+import Gpio from '../utils/gpio';
 
 export default class HeatingStore {
     @observable cube = null;
@@ -22,6 +23,9 @@ export default class HeatingStore {
         this.cube.connect().then(() => setInterval(() => {
             this.cube.requestDeviceList();
         }, 10000));
+
+        // Need to watch this.thermostatShouldBeActive for any changes
+        reaction(() => this.thermostatShouldBeActive, () => null);
     }
 
     @action processMessage(data) {
@@ -71,8 +75,18 @@ export default class HeatingStore {
         // Get the number of devices reporting errors
         const devicesInErrorState = this.devices.filter(device => !device.hasNoErrors).length;
 
-        // Return true if there are open valves and no devices in error
-        return openValves > 0 && devicesInErrorState === 0;
+        // Check if thermostat should be active
+        const thermostatShouldBeActive = openValves > 0 && devicesInErrorState === 0;
+
+        // Turn the thermostat on or off
+        if (thermostatShouldBeActive) {
+            Gpio.setActive();
+        }
+        else {
+            Gpio.setInactive();
+        }
+
+        return thermostatShouldBeActive;
     }
 
     @computed get programsAreActive() {

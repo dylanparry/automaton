@@ -2,6 +2,7 @@ import { app, BrowserWindow } from 'electron';
 import path from 'path';
 
 import TestServer from './utils/test-server';
+import Gpio from './utils/gpio';
 
 // If running in test mode, fire up a local server
 if (process.env.NODE_ENV === 'test') {
@@ -77,7 +78,8 @@ app.on('ready', () => {
 });
 
 app.on('window-all-closed', () => {
-    // Clean up stuff here
+    // Turn off the thermostat
+    Gpio.setInactive();
 
     app.quit();
 });
