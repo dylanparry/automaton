@@ -9,15 +9,32 @@ import HeatingStore from './stores/heating-store';
 // Disable zooming
 webFrame.setZoomLevelLimits(1, 1);
 
-// Stores
-const heatingStore = new HeatingStore();
-window.stores = {
-    heatingStore,
+const connection = window.indexedDB.open('automaton', 1);
+
+connection.onupgradeneeded = ({ target: { result } }) => {
+    const database = result;
+
+    // Create a table for rooms
+    if (!database.objectStoreNames.contains('rooms')) {
+        database.createObjectStore('rooms');
+    }
+
+    // Create a table for thermostat
+    if (!database.objectStoreNames.contains('thermostat')) {
+        database.createObjectStore('thermostat');
+    }
 };
 
-// Create a Provider with props for the stores and the Router as a child
-const provider = React.createElement(Provider, {
-    heatingStore,
-}, React.createElement(Router));
+connection.onsuccess = ({ target: { result } }) => {
+    // Stores
+    const heatingStore = new HeatingStore();
+    const stores = window.stores = {
+        heatingStore,
+        database: result,
+    };
 
-ReactDOM.render(provider, document.getElementById('app'));
+    // Create a Provider with props for the stores and the Router as a child
+    const provider = React.createElement(Provider, stores, React.createElement(Router));
+
+    ReactDOM.render(provider, document.getElementById('app'));
+};
