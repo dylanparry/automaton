@@ -43,4 +43,12 @@ class TemperatureChart extends Component {
     }
 }
 
+TemperatureChart.propTypes = {
+    data: React.PropTypes.arrayOf(React.PropTypes.shape({
+        roomId: React.PropTypes.number,
+        temperature: React.PropTypes.number,
+        created: React.PropTypes.object,
+    })),
+};
+
 export default TemperatureChart;
