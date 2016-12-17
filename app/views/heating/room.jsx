@@ -25,7 +25,10 @@ class Room extends Component {
     }
 
     updateTemperatureData() {
-        const query = this.props.heatingStore.database.transaction(['rooms'], 'readonly').objectStore('rooms').index('roomId').getAll(parseInt(this.props.params.roomId, 10));
+        const query = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
+            .objectStore('rooms')
+            .index('roomId')
+            .getAll(parseInt(this.props.params.roomId, 10));
 
         query.onsuccess = (e) => {
             this.setState({
@@ -36,7 +39,9 @@ class Room extends Component {
 
     render() {
         // Get the room specified by the URL params
-        const room = this.props.heatingStore.rooms.find(r => r.id === parseInt(this.props.params.roomId, 10));
+        const room = this.props.heatingStore.rooms.find(
+            r => r.id === parseInt(this.props.params.roomId, 10),
+        );
 
         // Return a null component if no room found
         if (typeof room === 'undefined') {
@@ -71,7 +76,10 @@ class Room extends Component {
                 </div>
 
                 <div style={{ marginTop: 20 }}>
-                    {this.state.temperatureData && <TemperatureChart data={this.state.temperatureData} />}
+                    {
+                        this.state.temperatureData &&
+                        <TemperatureChart data={this.state.temperatureData} />
+                    }
                 </div>
             </div>
         );
