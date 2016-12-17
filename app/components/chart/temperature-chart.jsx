@@ -21,7 +21,7 @@ class TemperatureChart extends Component {
         const options = {
             axisX: {
                 type: Chartist.FixedScaleAxis,
-                divisor: 2,
+                divisor: 12,
                 labelInterpolationFnc: value => moment(value).format('HH'),
             },
             axisY: {
