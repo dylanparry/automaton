@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import AxisTitle from '../../utils/chartist-plugin-axistitle';
 
-const TemperatureChart = ({ data }) => {
+const TemperatureChart = ({ data, currentTemperature }) => {
     if (data.length === 0) {
         return null;
     }
@@ -14,7 +14,10 @@ const TemperatureChart = ({ data }) => {
         series: [
             {
                 name: 'temperature',
-                data: data.map(item => ({ x: item.created, y: item.temperature })),
+                data: Object.assign(
+                    data.map(item => ({ x: item.created, y: item.temperature })),
+                    { x: new Date(), y: currentTemperature },
+                ),
             },
         ],
     };
@@ -64,6 +67,7 @@ TemperatureChart.propTypes = {
         temperature: React.PropTypes.number,
         created: React.PropTypes.object,
     })),
+    currentTemperature: React.PropTypes.number,
 };
 
 export default TemperatureChart;
