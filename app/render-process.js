@@ -16,18 +16,25 @@ connection.onupgradeneeded = ({ target: { result } }) => {
 
     // Create a table for rooms
     if (!database.objectStoreNames.contains('rooms')) {
-        database.createObjectStore('rooms');
+        const objectStore = database.createObjectStore('rooms', { autoIncrement: true });
+
+        // Add indexes for roomId and created
+        objectStore.createIndex('roomId', 'roomId', { unique: false });
+        objectStore.createIndex('created', 'created', { unique: false });
     }
 
     // Create a table for thermostat
     if (!database.objectStoreNames.contains('thermostat')) {
-        database.createObjectStore('thermostat');
+        const objectStore = database.createObjectStore('thermostat', { autoIncrement: true });
+
+        // Add index for created
+        objectStore.createIndex('created', 'created', { unique: false });
     }
 };
 
 connection.onsuccess = ({ target: { result } }) => {
     // Stores
-    const heatingStore = new HeatingStore();
+    const heatingStore = new HeatingStore(result);
     const stores = window.stores = {
         heatingStore,
         database: result,

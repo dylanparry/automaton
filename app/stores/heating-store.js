@@ -11,9 +11,12 @@ export default class HeatingStore {
     @observable rooms = [];
     @observable devices = [];
 
+    database;
     deviceListInterval;
 
-    constructor() {
+    constructor(database) {
+        this.database = database; // An indexedDB database
+
         this.cube = new MaxCube({
             ipAddress: process.env.NODE_ENV === 'test' ? '127.0.0.1' : '192.168.0.3',
             port: 62910,
@@ -73,6 +76,22 @@ export default class HeatingStore {
 
                     // If a device was found, update it
                     if (typeof device !== 'undefined') {
+                        // If the temperature reported by the device has changed
+                        if (
+                            device.actualTemperature &&
+                            device.actualTemperature !== result.updates[i].actualTemperature
+                        ) {
+                            // Add the new temperature to the database
+                            const transaction = this.database.transaction(['rooms'], 'readwrite');
+                            const store = transaction.objectStore('rooms');
+                            const update = {
+                                roomId: device.roomId,
+                                temperature: result.updates[i].actualTemperature,
+                                created: new Date(),
+                            };
+                            store.add(update);
+                        }
+
                         Object.assign(device, result.updates[i]);
                     }
                 }
@@ -96,9 +115,27 @@ export default class HeatingStore {
         // Turn the thermostat on or off
         if (thermostatShouldBeActive) {
             Gpio.setActive();
+
+            // Update database with value '1'
+            const transaction = this.database.transaction(['thermostat'], 'readwrite');
+            const store = transaction.objectStore('thermostat');
+            const update = {
+                status: 1,
+                created: new Date(),
+            };
+            store.add(update);
         }
         else {
             Gpio.setInactive();
+
+            // Update database with value '0'
+            const transaction = this.database.transaction(['thermostat'], 'readwrite');
+            const store = transaction.objectStore('thermostat');
+            const update = {
+                status: 0,
+                created: new Date(),
+            };
+            store.add(update);
         }
 
         return thermostatShouldBeActive;
