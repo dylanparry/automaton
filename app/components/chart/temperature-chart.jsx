@@ -32,9 +32,6 @@ class TemperatureChart extends Component {
                 temperature: {
                     showPoint: false,
                     showArea: true,
-                    lineSmooth: Chartist.Interpolation.simple({
-                        tension: 0.5,
-                    }),
                 },
             },
 
