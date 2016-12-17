@@ -3,6 +3,8 @@ import Chartist from 'chartist';
 import ChartistGraph from 'react-chartist';
 import moment from 'moment';
 
+import AxisTitle from '../../utils/chartist-plugin-axistitle';
+
 const TemperatureChart = ({ data }) => {
     if (data.length === 0) {
         return null;
@@ -33,11 +35,26 @@ const TemperatureChart = ({ data }) => {
                 showArea: true,
             },
         },
-
+        plugins: [
+            AxisTitle({
+                axisY: {
+                    axisTitle: 'Temp (°C)',
+                    axisClass: 'ct-axis-title',
+                    offset: {
+                        x: 0,
+                        y: 17,
+                    },
+                    flipTitle: true,
+                },
+            }),
+        ],
     };
 
     return (
-        <ChartistGraph data={processedData} options={options} type="Line" />
+        <div style={{ textAlign: 'center' }}>
+            <ChartistGraph data={processedData} options={options} type="Line" />
+            <div style={{ position: 'relative', marginTop: -10 }}>Time of Day</div>
+        </div>
     );
 };
 

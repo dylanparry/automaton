@@ -75,7 +75,7 @@ class Room extends Component {
                     {radiators}
                 </div>
 
-                <div style={{ marginTop: 20 }}>
+                <div style={{ marginTop: 15 }}>
                     {
                         this.state.temperatureData &&
                         <TemperatureChart data={this.state.temperatureData} />
