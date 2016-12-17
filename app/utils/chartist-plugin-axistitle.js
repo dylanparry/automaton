@@ -13,7 +13,7 @@ const axisDefaults = {
 
 const defaultOptions = {
     axisX: Chartist.extend({}, axisDefaults),
-    axisY: Chartist.extend({}, axisDefaults)
+    axisY: Chartist.extend({}, axisDefaults),
 };
 
 // as axisX will usually be at the bottom, set it to be below the labels
