@@ -89,7 +89,7 @@ class Room extends Component {
         </div>
 
         <div className="tile-container devices">
-          <div style={{ width: deviceAreaWidth }}>
+          <div style={{ width: deviceAreaWidth, minWidth: 800 }}>
             <RoomTile room={room} displayWide />
 
             {thermostat}
