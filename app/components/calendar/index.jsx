@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import dateformat from 'dateformat';
+import moment from 'moment';
 
 export default class CalendarTile extends Component {
   static timer;
@@ -7,25 +7,25 @@ export default class CalendarTile extends Component {
   constructor() {
     super();
 
-    const date = new Date();
+    const date = moment();
 
     this.state = {
-      day: dateformat(date, 'd'),
-      suffix: dateformat(date, 'S'),
-      month: dateformat(date, 'mmmm'),
-      time: dateformat(date, 'HH:MM:ss'),
+      day: date.format('D'),
+      suffix: date.format('Do').slice(-2),
+      month: date.format('MMMM'),
+      time: date.format('HH:mm:ss'),
     };
   }
 
   componentDidMount() {
     CalendarTile.timer = setInterval(() => {
-      const date = new Date();
+      const date = moment();
 
       this.setState({
-        day: dateformat(date, 'd'),
-        suffix: dateformat(date, 'S'),
-        month: dateformat(date, 'mmmm'),
-        time: dateformat(date, 'HH:MM:ss'),
+        day: date.format('D'),
+        suffix: date.format('Do').slice(-2),
+        month: date.format('MMMM'),
+        time: date.format('HH:mm:ss'),
       });
     }, 1000);
   }
