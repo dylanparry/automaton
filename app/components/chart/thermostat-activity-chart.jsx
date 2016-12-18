@@ -31,6 +31,7 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
       low: 0,
       high: 1,
       onlyInteger: true,
+      labelInterpolationFnc: () => '', // Blank labels
     },
     series: {
       thermostat: {
@@ -43,7 +44,7 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'center', marginLeft: -35 }}>
       <ChartistGraph data={processedData} options={options} type="Line" />
       <div style={{ position: 'relative', marginTop: -10 }}>Time of Day – Coloured sections denote period when heating was on</div>
     </div>
