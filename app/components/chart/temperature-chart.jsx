@@ -14,10 +14,10 @@ const TemperatureChart = ({ data, currentTemperature }) => {
     series: [
       {
         name: 'temperature',
-        data: Object.assign(
-          data.map(item => ({ x: item.created, y: Math.round(item.temperature) })),
+        data: [
+          ...data.map(item => ({ x: item.created, y: Math.round(item.temperature) })),
           { x: new Date(), y: Math.round(currentTemperature) },
-        ),
+        ],
       },
     ],
   };

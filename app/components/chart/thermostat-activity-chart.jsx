@@ -12,10 +12,11 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
     series: [
       {
         name: 'thermostat',
-        data: Object.assign(
-          data.map(item => ({ x: item.created, y: item.status })),
+        data: [
+          { x: moment().subtract(1, 'd').toDate(), y: 0 }, // Insert a record 24 hours ago
+          ...data.map(item => ({ x: item.created, y: item.status })),
           { x: new Date(), y: currentStatus },
-        ),
+        ],
       },
     ],
   };
