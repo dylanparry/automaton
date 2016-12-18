@@ -10,6 +10,7 @@ export default class HeatingStore {
   @observable cube = null;
   @observable rooms = [];
   @observable devices = [];
+  @observable thermostatIsActive = false;
 
   database;
   deviceListInterval;
@@ -43,7 +44,9 @@ export default class HeatingStore {
     });
 
     // Need to watch this.thermostatShouldBeActive for any changes
-    reaction(() => this.thermostatShouldBeActive, () => null);
+    reaction(() => this.thermostatShouldBeActive, (value) => {
+      this.thermostatIsActive = value; // Store the value for later
+    });
   }
 
   @action processMessage(data) {

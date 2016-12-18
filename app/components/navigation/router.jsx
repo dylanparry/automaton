@@ -7,6 +7,7 @@ import HomeIndex from '../../views/home';
 
 import HeatingIndex from '../../views/heating';
 import HeatingRoom from '../../views/heating/room';
+import HeatingActivity from '../../views/heating/activity';
 
 import WeatherIndex from '../../views/weather';
 import WeatherToday from '../../views/weather/today';
@@ -21,6 +22,7 @@ export default () => (
 
       <Route path="heating">
         <IndexRoute component={HeatingIndex} /> {/* Heating home screen */}
+        <Route path="activity" component={HeatingActivity} /> {/* Heating activity charts */}
         <Route path=":roomId" component={HeatingRoom} /> {/* Room summary */}
       </Route>
 

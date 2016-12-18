@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { inject, observer, observableArray } from 'mobx-react';
 
 import BackButton from '../../components/buttons/back-button';
@@ -22,6 +23,15 @@ const HeatingIndex = ({ heatingStore }) => {
         <HeatingTile />
 
         {rooms}
+
+        <Link to="/heating/activity">
+          <div className="tile bg-teal fg-white text-shadow">
+            <div className="tile-content iconic">
+              <span className="icon fa fa-bar-chart" />
+              <span className="tile-label">Activity Chart</span>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
