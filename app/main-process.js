@@ -9,6 +9,11 @@ if (process.env.NODE_ENV === 'test') {
     TestServer.create();
 }
 
+// Quit the app if there's already an instance running
+if (app.makeSingleInstance()) {
+    app.quit();
+}
+
 // When the app is ready
 app.on('ready', () => {
     // If running on a Pi, it'll be using an ARM processor running Linux
