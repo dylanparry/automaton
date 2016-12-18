@@ -69,7 +69,7 @@ class Room extends Component {
                 </div>
 
                 <div className="tile-container">
-                    <RoomTile room={room} />
+                    <RoomTile room={room} displayWide />
 
                     {thermostat}
                     {radiators}

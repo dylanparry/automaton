@@ -6,7 +6,7 @@ import DeviceConstants from '../../constants/device';
 import ClassBuilder from '../../utils/class-builder';
 import Room from '../../house/room';
 
-const RoomTile = ({ room }) => {
+const RoomTile = ({ room, displayWide }) => {
     const iconClass = new ClassBuilder();
     iconClass.useIcon();
     if (room.name.match(/office/i)) {
@@ -29,7 +29,7 @@ const RoomTile = ({ room }) => {
     }
 
     const tileClass = new ClassBuilder();
-    tileClass.tile = 'tile';
+    tileClass.tile = displayWide ? 'tile-wide' : 'tile';
     tileClass.color = 'fg-white';
     tileClass.useTextShadow();
 
@@ -103,6 +103,7 @@ const RoomTile = ({ room }) => {
 
 RoomTile.propTypes = {
     room: React.PropTypes.instanceOf(Room),
+    displayWide: React.PropTypes.bool,
 };
 
 export default observer(RoomTile);
