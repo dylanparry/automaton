@@ -24,7 +24,7 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
     height: '300px',
     axisX: {
       type: Chartist.FixedScaleAxis,
-      divisor: 12,
+      divisor: 23, // Doesn't include a label for the current hour
       labelInterpolationFnc: value => moment(value).format('HH'),
     },
     axisY: {

@@ -29,7 +29,7 @@ const TemperatureChart = ({ data, currentTemperature }) => {
   const options = {
     axisX: {
       type: Chartist.FixedScaleAxis,
-      divisor: 12,
+      divisor: 23, // Doesn't include a label for the current hour
       labelInterpolationFnc: value => moment(value).format('HH'),
     },
     axisY: {
