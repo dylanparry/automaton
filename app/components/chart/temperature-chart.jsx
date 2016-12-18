@@ -21,7 +21,6 @@ const TemperatureChart = ({ data, currentTemperature }) => {
       },
     ],
   };
-
   // Get the high and low points for the chart
   const highest = Math.max(...data.map(item => Math.round(item.temperature))) + 1;
   const lowest = Math.min(...data.map(item => Math.round(item.temperature))) - 1;
@@ -29,7 +28,7 @@ const TemperatureChart = ({ data, currentTemperature }) => {
   const options = {
     axisX: {
       type: Chartist.FixedScaleAxis,
-      divisor: 23, // Doesn't include a label for the current hour
+      divisor: 24,
       labelInterpolationFnc: value => moment(value).format('HH'),
     },
     axisY: {
