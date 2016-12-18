@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import moment from 'moment';
 
 import BackButton from '../../components/buttons/back-button';
 import ThermostatActivityChart from '../../components/chart/thermostat-activity-chart';
@@ -14,14 +15,32 @@ class HeatingActivity extends Component {
   }
 
   componentWillMount() {
-    const query = this.props.heatingStore.database.transaction(['thermostat'], 'readonly')
-      .objectStore('thermostat')
-      .getAll();
+    // Delete any data older than 24 hours
+    const deleteStore = this.props.heatingStore.database.transaction(['thermostat'], 'readwrite')
+      .objectStore('thermostat');
 
-    query.onsuccess = (e) => {
-      this.setState({
-        thermostatData: e.target.result,
-      });
+    const deleteQuery = deleteStore.index('created')
+      .openCursor(IDBKeyRange.upperBound(moment().subtract(24, 'h').toDate()));
+
+    deleteQuery.onsuccess = (deleteResults) => {
+      const cursor = deleteResults.target.result;
+
+      // Delete the items selected
+      if (cursor) {
+        deleteStore.delete(cursor.primaryKey);
+        cursor.continue();
+      }
+
+      // Now get the leftover data
+      const selectQuery = this.props.heatingStore.database.transaction(['thermostat'], 'readonly')
+        .objectStore('thermostat')
+        .getAll();
+
+      selectQuery.onsuccess = (selectResults) => {
+        this.setState({
+          thermostatData: selectResults.target.result,
+        });
+      };
     };
   }
 

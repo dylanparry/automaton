@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer, observableArray } from 'mobx-react';
+import moment from 'moment';
 
 import BackButton from '../../components/buttons/back-button';
 import RoomTile from '../../components/heating/room-tile';
@@ -20,20 +21,33 @@ class Room extends Component {
   }
 
   componentDidMount() {
-    // Update the chart data
-    this.updateTemperatureData();
-  }
+    // Delete any data older than 24 hours
+    const deleteStore = this.props.heatingStore.database.transaction(['rooms'], 'readwrite')
+      .objectStore('rooms');
 
-  updateTemperatureData() {
-    const query = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
-      .objectStore('rooms')
-      .index('roomId')
-      .getAll(parseInt(this.props.params.roomId, 10));
+    const deleteQuery = deleteStore.index('created')
+      .openCursor(IDBKeyRange.upperBound(moment().subtract(24, 'h').toDate()));
 
-    query.onsuccess = (e) => {
-      this.setState({
-        temperatureData: e.target.result,
-      });
+    deleteQuery.onsuccess = (deleteResults) => {
+      const cursor = deleteResults.target.result;
+
+      // Delete the items selected
+      if (cursor) {
+        deleteStore.delete(cursor.primaryKey);
+        cursor.continue();
+      }
+
+      // Now get the data for the room
+      const selectQuery = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
+        .objectStore('rooms')
+        .index('roomId')
+        .getAll(parseInt(this.props.params.roomId, 10));
+
+      selectQuery.onsuccess = (selectResults) => {
+        this.setState({
+          temperatureData: selectResults.target.result,
+        });
+      };
     };
   }
 
