@@ -60,6 +60,12 @@ class Room extends Component {
             device => <DeviceTile key={device.rfAddress} device={device} />,
         );
 
+        /*
+        The width of the device area is the number of devices × their width (inc margins), plus
+        the width of the room tile (wide tile)
+        */
+        const deviceAreaWidth = (room.devices.length * 160) + 310;
+
         return (
             <div>
                 <div className="margin20">
@@ -68,11 +74,13 @@ class Room extends Component {
                     <h1>{room.name}</h1>
                 </div>
 
-                <div className="tile-container">
-                    <RoomTile room={room} displayWide />
+                <div className="tile-container devices">
+                    <div style={{ width: deviceAreaWidth }}>
+                        <RoomTile room={room} displayWide />
 
-                    {thermostat}
-                    {radiators}
+                        {thermostat}
+                        {radiators}
+                    </div>
                 </div>
 
                 <div style={{ marginTop: 15 }}>
@@ -81,7 +89,7 @@ class Room extends Component {
                         <TemperatureChart data={this.state.temperatureData} currentTemperature={room.actualTemperature} />
                     }
                 </div>
-            </div>
+            </div >
         );
     }
 }
