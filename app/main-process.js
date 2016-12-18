@@ -4,13 +4,24 @@ import path from 'path';
 import TestServer from './utils/test-server';
 import Gpio from './utils/gpio';
 
+// The main window gets set later
+let mainWindow = null;
+
 // If running in test mode, fire up a local server
 if (process.env.NODE_ENV === 'test') {
     TestServer.create();
 }
 
 // Quit the app if there's already an instance running
-if (app.makeSingleInstance()) {
+const shouldQuit = app.makeSingleInstance(() => {
+    // A second instance was attempted, so focus on this one
+    if (mainWindow) {
+        mainWindow.focus();
+    }
+});
+
+// If the app is a second instance, quit it before it starts up properly
+if (shouldQuit) {
     app.quit();
 }
 
@@ -43,7 +54,7 @@ app.on('ready', () => {
     });
 
     // Create a new window set to 800x480 or fullscreen
-    let mainWindow = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         width: 800,
         height: 480,
         useContentSize: true,
