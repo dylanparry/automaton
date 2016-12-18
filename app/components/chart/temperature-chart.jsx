@@ -5,9 +5,6 @@ import moment from 'moment';
 
 import AxisTitle from '../../utils/chartist-plugin-axistitle';
 
-// Rounds a number to the nearest 0.5 value
-const roundToHalf = number => Math.round(number * 2) / 2;
-
 const TemperatureChart = ({ data, currentTemperature }) => {
     if (data.length === 0) {
         return null;
@@ -18,8 +15,8 @@ const TemperatureChart = ({ data, currentTemperature }) => {
             {
                 name: 'temperature',
                 data: Object.assign(
-                    data.map(item => ({ x: item.created, y: roundToHalf(item.temperature) })),
-                    { x: new Date(), y: roundToHalf(currentTemperature) },
+                    data.map(item => ({ x: item.created, y: Math.round(item.temperature) })),
+                    { x: new Date(), y: Math.round(currentTemperature) },
                 ),
             },
         ],
