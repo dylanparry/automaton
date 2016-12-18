@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default () => (
-    <p>Settings Summary</p>
+  <p>Settings Summary</p>
 );

@@ -12,36 +12,36 @@ webFrame.setZoomLevelLimits(1, 1);
 const connection = window.indexedDB.open('automaton', 1);
 
 connection.onupgradeneeded = ({ target: { result } }) => {
-    const database = result;
+  const database = result;
 
-    // Create a table for rooms
-    if (!database.objectStoreNames.contains('rooms')) {
-        const objectStore = database.createObjectStore('rooms', { autoIncrement: true });
+  // Create a table for rooms
+  if (!database.objectStoreNames.contains('rooms')) {
+    const objectStore = database.createObjectStore('rooms', { autoIncrement: true });
 
-        // Add indexes for roomId and created
-        objectStore.createIndex('roomId', 'roomId', { unique: false });
-        objectStore.createIndex('created', 'created', { unique: false });
-    }
+    // Add indexes for roomId and created
+    objectStore.createIndex('roomId', 'roomId', { unique: false });
+    objectStore.createIndex('created', 'created', { unique: false });
+  }
 
-    // Create a table for thermostat
-    if (!database.objectStoreNames.contains('thermostat')) {
-        const objectStore = database.createObjectStore('thermostat', { autoIncrement: true });
+  // Create a table for thermostat
+  if (!database.objectStoreNames.contains('thermostat')) {
+    const objectStore = database.createObjectStore('thermostat', { autoIncrement: true });
 
-        // Add index for created
-        objectStore.createIndex('created', 'created', { unique: false });
-    }
+    // Add index for created
+    objectStore.createIndex('created', 'created', { unique: false });
+  }
 };
 
 connection.onsuccess = ({ target: { result } }) => {
-    // Stores
-    const heatingStore = new HeatingStore(result);
-    const stores = window.stores = {
-        heatingStore,
-        database: result,
-    };
+  // Stores
+  const heatingStore = new HeatingStore(result);
+  const stores = window.stores = {
+    heatingStore,
+    database: result,
+  };
 
-    // Create a Provider with props for the stores and the Router as a child
-    const provider = React.createElement(Provider, stores, React.createElement(Router));
+  // Create a Provider with props for the stores and the Router as a child
+  const provider = React.createElement(Provider, stores, React.createElement(Router));
 
-    ReactDOM.render(provider, document.getElementById('app'));
+  ReactDOM.render(provider, document.getElementById('app'));
 };

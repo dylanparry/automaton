@@ -4,5 +4,5 @@ import Device from './device';
 
 export default class RadiatorThermostat extends Device {
 
-    @observable valvePosition = 0;
+  @observable valvePosition = 0;
 }
