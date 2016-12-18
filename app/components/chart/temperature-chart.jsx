@@ -10,20 +10,23 @@ const TemperatureChart = ({ data, currentTemperature }) => {
     return null;
   }
 
+  const rounded = data.map(item => ({ x: item.created, y: Math.round(item.temperature) }));
+
   const processedData = {
     series: [
       {
         name: 'temperature',
         data: [
-          ...data.map(item => ({ x: item.created, y: Math.round(item.temperature) })),
+          { x: moment().subtract(1, 'd').toDate(), y: rounded[0].y },
+          ...rounded.slice(1),
           { x: new Date(), y: Math.round(currentTemperature) },
         ],
       },
     ],
   };
   // Get the high and low points for the chart
-  const highest = Math.max(...data.map(item => Math.round(item.temperature))) + 1;
-  const lowest = Math.min(...data.map(item => Math.round(item.temperature))) - 1;
+  const highest = Math.max(...rounded.map(item => item.y)) + 1;
+  const lowest = Math.min(...rounded.map(item => item.y)) - 1;
 
   const options = {
     axisX: {
