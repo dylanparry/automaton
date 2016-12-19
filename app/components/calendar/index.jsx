@@ -2,36 +2,32 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 export default class CalendarTile extends Component {
-  static timer;
-
   constructor() {
     super();
 
+    this.state = this.date;
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      this.setState(this.date);
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  // Return the date split into an object
+  get date() {
     const date = moment();
 
-    this.state = {
+    return {
       day: date.format('D'),
       suffix: date.format('Do').slice(-2),
       month: date.format('MMMM'),
       time: date.format('HH:mm:ss'),
     };
-  }
-
-  componentDidMount() {
-    CalendarTile.timer = setInterval(() => {
-      const date = moment();
-
-      this.setState({
-        day: date.format('D'),
-        suffix: date.format('Do').slice(-2),
-        month: date.format('MMMM'),
-        time: date.format('HH:mm:ss'),
-      });
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(CalendarTile.timer);
   }
 
   render() {
