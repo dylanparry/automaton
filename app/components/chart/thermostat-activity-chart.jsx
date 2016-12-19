@@ -13,7 +13,8 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
       {
         name: 'thermostat',
         data: [
-          { x: moment().subtract(1, 'd').toDate(), y: 0 }, // Insert a record 24 hours ago
+          // Insert a record 24 hours ago set to the opposite of the first value in the dataset
+          { x: moment().subtract(1, 'd').toDate(), y: data[0] === 0 ? 1 : 0 },
           ...data.map(item => ({ x: item.created, y: item.status })),
           { x: new Date(), y: currentStatus },
         ],
