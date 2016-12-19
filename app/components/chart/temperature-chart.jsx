@@ -33,7 +33,7 @@ const TemperatureChart = ({ data, currentTemperature }) => {
     ],
   };
   // Get the high and low points for the chart
-  const highest = Math.floor(Math.max(...rounded.map(item => item.y)) + 0.5);
+  const highest = Math.ceil(Math.max(...rounded.map(item => item.y)) + 0.5);
   const lowest = Math.floor(Math.min(...rounded.map(item => item.y)) - 0.5);
 
   const options = {
