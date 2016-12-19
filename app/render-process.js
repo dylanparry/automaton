@@ -37,7 +37,6 @@ connection.onsuccess = ({ target: { result } }) => {
   const heatingStore = new HeatingStore(result);
   const stores = window.stores = {
     heatingStore,
-    database: result,
   };
 
   // Create a Provider with props for the stores and the Router as a child

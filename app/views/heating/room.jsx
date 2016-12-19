@@ -118,4 +118,4 @@ Room.propTypes = {
   }),
 };
 
-export default inject('heatingStore', 'database')(observer(Room));
+export default inject('heatingStore')(observer(Room));
