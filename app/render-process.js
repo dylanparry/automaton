@@ -34,9 +34,8 @@ connection.onupgradeneeded = ({ target: { result } }) => {
 
 connection.onsuccess = ({ target: { result } }) => {
   // Stores
-  const heatingStore = new HeatingStore(result);
   const stores = window.stores = {
-    heatingStore,
+    heatingStore: new HeatingStore(result),
   };
 
   // Create a Provider with props for the stores and the Router as a child
