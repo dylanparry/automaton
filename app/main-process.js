@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 
 import TestServer from './utils/test-server';
@@ -102,3 +102,13 @@ app.on('window-all-closed', () => {
   app.quit();
 });
 
+// Listen for quit commands
+ipcMain.on('quit', () => {
+  app.quit();
+});
+
+// Listen for restart commands
+ipcMain.on('relaunch', () => {
+  app.relaunch();
+  app.quit();
+});
