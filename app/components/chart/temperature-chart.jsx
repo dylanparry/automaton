@@ -18,7 +18,7 @@ const TemperatureChart = ({ data, currentTemperature }) => {
         name: 'temperature',
         data: [
           { x: moment().subtract(1, 'd').toDate(), y: rounded[0].y },
-          ...rounded.slice(1),
+          ...rounded,
           { x: new Date(), y: Math.round(currentTemperature * 2) / 2 },
         ],
       },
