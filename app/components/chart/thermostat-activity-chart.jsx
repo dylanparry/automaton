@@ -13,11 +13,17 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
       {
         name: 'thermostat',
         data: [
-          // Insert a record 24 hours ago set to the opposite of the first value in the dataset,
-          // the time is reset to the hour to ensure X axis distribution is correct
+          // Ensure data starts on a full hour
           { x: moment().subtract(1, 'd').minutes(0).toDate(), y: data[0] === 0 ? 1 : 0 },
+
+          // The real data
           ...data.map(item => ({ x: item.created, y: item.status })),
-          { x: new Date(), y: currentStatus },
+
+          // A value for now
+          { x: moment().toDate(), y: currentStatus },
+
+          // Pad out data to next full hour
+          { x: moment().add(1, 'h').minutes(0).toDate(), y: 0 },
         ],
       },
     ],
@@ -27,7 +33,7 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
     height: '300px',
     axisX: {
       type: Chartist.FixedScaleAxis,
-      divisor: 24,
+      divisor: 25,
       labelInterpolationFnc: value => moment(value).format('HH'),
     },
     axisY: {

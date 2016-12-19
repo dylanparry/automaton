@@ -1,4 +1,5 @@
 import { action, computed, observable, reaction } from 'mobx';
+import moment from 'moment';
 
 import MaxCube from '../house/max-cube';
 import MessageProcessor from '../messages/message-processor';
@@ -104,7 +105,7 @@ export default class HeatingStore {
               const update = {
                 roomId: device.roomId,
                 temperature: result.updates[i].actualTemperature,
-                created: new Date(),
+                created: moment().toDate(),
               };
               store.add(update);
             }
@@ -138,7 +139,7 @@ export default class HeatingStore {
       const store = transaction.objectStore('thermostat');
       const update = {
         status: 1,
-        created: new Date(),
+        created: moment().toDate(),
       };
       store.add(update);
     }
@@ -150,7 +151,7 @@ export default class HeatingStore {
       const store = transaction.objectStore('thermostat');
       const update = {
         status: 0,
-        created: new Date(),
+        created: moment().toDate(),
       };
       store.add(update);
     }

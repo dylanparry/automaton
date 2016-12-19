@@ -17,9 +17,17 @@ const TemperatureChart = ({ data, currentTemperature }) => {
       {
         name: 'temperature',
         data: [
+          // Ensure that data starts on a full hour
           { x: moment().subtract(1, 'd').minutes(0).toDate(), y: rounded[0].y },
+
+          // The real data
           ...rounded,
-          { x: new Date(), y: Math.round(currentTemperature * 2) / 2 },
+
+          // A value for now
+          { x: moment().toDate(), y: Math.round(currentTemperature * 2) / 2 },
+
+          // Pad out the data until the next full hour
+          { x: moment().add(1, 'h').minutes(0).toDate(), y: Math.round(currentTemperature * 2) / 2 },
         ],
       },
     ],
@@ -31,7 +39,7 @@ const TemperatureChart = ({ data, currentTemperature }) => {
   const options = {
     axisX: {
       type: Chartist.FixedScaleAxis,
-      divisor: 24,
+      divisor: 25,
       labelInterpolationFnc: value => moment(value).format('HH'),
     },
     axisY: {

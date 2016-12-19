@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
+import moment from 'moment';
+
 import Backlight from '../../utils/backlight';
 
 export default class IdleTimer extends Component {
@@ -7,7 +9,7 @@ export default class IdleTimer extends Component {
     super();
 
     this.state = {
-      time: new Date().getTime(),
+      time: moment.utc(),
       idle: false,
     };
 
@@ -58,7 +60,7 @@ export default class IdleTimer extends Component {
 
   checkIdleTime() {
     // The current time less the last time the user did anything
-    if (new Date().getTime() - this.state.time >= 60000) { // Time is one minute
+    if (moment.utc().diff(this.state.time) >= 60000) { // Time is one minute
       // Screen has been idle too long
       this.setIdle();
     }
@@ -70,7 +72,7 @@ export default class IdleTimer extends Component {
 
   updateTime() {
     this.setState({
-      time: new Date().getTime(),
+      time: moment.utc(),
     });
   }
 
