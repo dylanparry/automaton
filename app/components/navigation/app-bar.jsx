@@ -16,7 +16,7 @@ const AppBar = ({ heatingStore }) => {
           <a className="dropdown-toggle"><span className="fa fa-fw fa-thermometer" /> Central Heating</a>
           <ul className="d-menu navy" data-role="dropdown">
             <li><Link to="/heating">Heating Summary</Link></li>
-            <li><Link to="/heating/activity">Heating Activity Charts</Link></li>
+            <li><Link to="/heating/activity">Heating Activity Chart</Link></li>
             <li className="menu-title">Heating by Room</li>
             {rooms}
           </ul>
