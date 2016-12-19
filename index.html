@@ -2,15 +2,15 @@
 <html>
 
 <head>
-    <title>Automaton</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro.css" />
-    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro-schemes.css" />
-    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="./fonts/flaticon/flaticon.css" />
-    <link rel="stylesheet" href="./node_modules/chartist/dist/chartist.css" />
-    <style>
+  <title>Automaton</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="./node_modules/metro-dist/css/metro.css" />
+  <link rel="stylesheet" href="./node_modules/metro-dist/css/metro-schemes.css" />
+  <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="./fonts/flaticon/flaticon.css" />
+  <link rel="stylesheet" href="./node_modules/chartist/dist/chartist.css" />
+  <style>
         body {
             overflow: hidden;
         }
@@ -69,15 +69,19 @@
             right: .25rem !important;
             bottom: inherit;
         }
+
+        .thermostat-activity-chart .ct-area {
+          fill-opacity: 0.5;
+        }
     </style>
 </head>
 
 <body>
-    <div id="app"></div>
+  <div id="app"></div>
 
-    <script>
-        const $ = jQuery = require('jquery');
-        require('metro-dist/js/metro');
+  <script>
+      const $ = jQuery = require('jquery');
+      require('metro-dist/js/metro');
     </script>
 <script src="./dist/render-process.js"></script>
 </body>
