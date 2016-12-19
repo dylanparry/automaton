@@ -73,7 +73,7 @@ const DeviceTile = ({ device }) => {
 };
 
 DeviceTile.propTypes = {
-  device: React.PropTypes.instanceOf(Device),
+  device: React.PropTypes.instanceOf(Device).isRequired,
 };
 
 export default observer(DeviceTile);

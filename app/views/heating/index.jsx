@@ -40,7 +40,7 @@ const HeatingIndex = ({ heatingStore }) => {
 HeatingIndex.propTypes = {
   heatingStore: React.PropTypes.shape({
     rooms: observableArray,
-  }),
+  }).isRequired,
 };
 
 export default inject('heatingStore')(observer(HeatingIndex));

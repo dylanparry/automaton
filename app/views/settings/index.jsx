@@ -35,7 +35,7 @@ Settings.propTypes = {
   heatingStore: React.PropTypes.shape({
     connectToCube: React.PropTypes.func,
     disconnectFromCube: React.PropTypes.func,
-  }),
+  }).isRequired,
 };
 
 export default inject('heatingStore')(Settings);

@@ -74,7 +74,7 @@ const HeatingTile = ({ heatingStore }) => {
 HeatingTile.propTypes = {
   heatingStore: React.PropTypes.shape({
     devices: observableArray,
-  }),
+  }).isRequired,
 };
 
 export default inject('heatingStore')(observer(HeatingTile));

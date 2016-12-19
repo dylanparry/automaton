@@ -112,10 +112,10 @@ Room.propTypes = {
   heatingStore: React.PropTypes.shape({
     rooms: observableArray,
     database: React.PropTypes.object,
-  }),
+  }).isRequired,
   params: React.PropTypes.shape({
     roomId: React.PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default inject('heatingStore')(observer(Room));

@@ -81,8 +81,8 @@ TemperatureChart.propTypes = {
     roomId: React.PropTypes.number,
     temperature: React.PropTypes.number,
     created: React.PropTypes.object,
-  })),
-  currentTemperature: React.PropTypes.number,
+  })).isRequired,
+  currentTemperature: React.PropTypes.number.isRequired,
 };
 
 export default TemperatureChart;

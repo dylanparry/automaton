@@ -102,7 +102,7 @@ const RoomTile = ({ room, displayWide }) => {
 };
 
 RoomTile.propTypes = {
-  room: React.PropTypes.instanceOf(Room),
+  room: React.PropTypes.instanceOf(Room).isRequired,
   displayWide: React.PropTypes.bool,
 };
 

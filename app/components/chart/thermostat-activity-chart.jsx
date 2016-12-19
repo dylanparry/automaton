@@ -64,8 +64,8 @@ ThermostatActivityChart.propTypes = {
   data: React.PropTypes.arrayOf(React.PropTypes.shape({
     state: React.PropTypes.number,
     created: React.PropTypes.object,
-  })),
-  currentStatus: React.PropTypes.number,
+  })).isRequired,
+  currentStatus: React.PropTypes.number.isRequired,
 };
 
 export default ThermostatActivityChart;

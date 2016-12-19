@@ -63,7 +63,7 @@ HeatingActivity.propTypes = {
   heatingStore: React.PropTypes.shape({
     database: React.PropTypes.object,
     thermostatIsActive: React.PropTypes.bool,
-  }),
+  }).isRequired,
 };
 
 export default inject('heatingStore')(observer(HeatingActivity));

@@ -38,7 +38,7 @@ const AppBar = ({ heatingStore }) => {
 AppBar.propTypes = {
   heatingStore: React.PropTypes.shape({
     rooms: observableArray,
-  }),
+  }).isRequired,
 };
 
 export default inject('heatingStore')(observer(AppBar));
