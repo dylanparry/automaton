@@ -3,11 +3,35 @@
 
 <head>
     <title>Automaton</title>
-    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro.min.css" />
-    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="./icons/flaticon/flaticon.css" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro.css" />
+    <link rel="stylesheet" href="./node_modules/metro-dist/css/metro-schemes.css" />
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="./fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="./node_modules/chartist/dist/chartist.css" />
     <style>
+        body {
+            overflow: hidden;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0 !important;
+        }
+
+        .tile-container.devices {
+            height: 158px;
+            width: 800px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+
+        .tile-container.devices::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+
+        }
+
         [class^="flaticon-"]:before,
         [class*=" flaticon-"]:before,
         [class^="flaticon-"]:after,
@@ -15,18 +39,34 @@
             font-size: inherit !important;
             margin-left: 0 !important;
         }
-        
-        .tile .tile-label {
+
+        .tile, .tile-wide {
+            margin: 4px; /* Reduce the margin from 5px to 4px */
+        }
+
+        .tile-wide {
+            width: 308px; /* Reduce the width from 310px to 308px */
+        }
+
+        .tile .tile-label, .tile-wide .tile-label {
             display: inline-block;
             max-width: 70%;
+            left: .25rem;
         }
-        
-        .tile .tile-badge {
+
+        .tile .tile-badge, .tile-wide .tile-badge{
             padding: .425rem .25rem !important;
         }
-        
-        .tile .tile-badge.top {
+
+        .tile .tile-badge.top.left, .tile-wide .tile-badge.top.left {
             top: 0 !important;
+            left: .25rem !important;
+            bottom: inherit;
+        }
+
+        .tile .tile-badge.top.right, .tile-wide .tile-badge.top.right {
+            top: 0 !important;
+            right: .25rem !important;
             bottom: inherit;
         }
     </style>
@@ -36,9 +76,10 @@
     <div id="app"></div>
 
     <script>
-        require('babel-register');
-        require('./src/index.jsx');
+        const $ = jQuery = require('jquery');
+        require('metro-dist/js/metro');
     </script>
+<script src="./dist/render-process.js"></script>
 </body>
 
 </html>
