@@ -12,7 +12,11 @@ const HeatingTile = ({ heatingStore }) => {
   tileClass.useTextShadow();
 
   // Work out background colour
-  if (heatingStore.thermostatShouldBeActive) {
+  if (!heatingStore.connected) {
+    // The cube isn't connected
+    tileClass.background = 'bg-grayLight';
+  }
+  else if (heatingStore.thermostatShouldBeActive) {
     // The thermostat should be active
     tileClass.background = 'bg-lighterBlue';
   }
@@ -28,6 +32,9 @@ const HeatingTile = ({ heatingStore }) => {
   let mode = heatingStore.thermostatShouldBeActive ? 'active' : 'auto';
   if (!heatingStore.thermostatShouldBeActive && !heatingStore.programsAreActive) {
     mode = 'off';
+  }
+  if (!heatingStore.connected) {
+    mode = 'cube disconnected';
   }
 
   // If any device in the house is reporting errors, change the colour and show an icon
@@ -45,6 +52,9 @@ const HeatingTile = ({ heatingStore }) => {
       mode = 'error';
       statusIcon = <span className="tile-badge top right"><span className="fa fa-fw fa-warning" /></span>;
     }
+  }
+  if (!heatingStore.connected) {
+    statusIcon = <span className="tile-badge top right"><span className="fa fa-fw fa-warning" /></span>;
   }
 
   return (

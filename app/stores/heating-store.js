@@ -7,6 +7,7 @@ import DeviceListMessage from '../messages/device-list-message';
 import Gpio from '../utils/gpio';
 
 export default class HeatingStore {
+  @observable connected = false;
   @observable cube = null;
   @observable rooms = [];
   @observable devices = [];
@@ -36,17 +37,30 @@ export default class HeatingStore {
       Gpio.setInactive();
     });
 
-    // Connect to the cube, then request device list every 10 seconds
-    this.cube.connect().then(() => {
-      this.deviceListInterval = setInterval(() => {
-        this.cube.requestDeviceList();
-      }, 10000);
-    });
+    // Connect to the cube
+    this.connectToCube();
 
     // Need to watch this.thermostatShouldBeActive for any changes
     reaction(() => this.thermostatShouldBeActive, (value) => {
       this.thermostatIsActive = value; // Store the value for later
     });
+  }
+
+  connectToCube() {
+    // Connect to the cube, then request device list every 10 seconds
+    this.cube.connect().then(() => {
+      this.connected = true;
+
+      this.deviceListInterval = setInterval(() => {
+        this.cube.requestDeviceList();
+      }, 10000);
+    });
+  }
+
+  disconnectFromCube() {
+    // Disconnect the cube
+    this.cube.disconnect();
+    this.connected = false;
   }
 
   @action processMessage(data) {
