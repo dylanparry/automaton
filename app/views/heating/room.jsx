@@ -11,6 +11,12 @@ import RadiatorThermostat from '../../devices/radiator-thermostat';
 
 import TemperatureChart from '../../components/chart/temperature-chart';
 
+const style = {
+  chart: {
+    marginTop: 15,
+  },
+};
+
 class Room extends Component {
   constructor(props) {
     super(props);
@@ -97,7 +103,7 @@ class Room extends Component {
           </div>
         </div>
 
-        <div style={{ marginTop: 15 }}>
+        <div style={style.chart}>
           {
             this.state.temperatureData &&
             <TemperatureChart

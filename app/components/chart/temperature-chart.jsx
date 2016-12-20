@@ -5,6 +5,17 @@ import moment from 'moment';
 
 import AxisTitle from '../../utils/chartist-plugin-axistitle';
 
+const style = {
+  container: {
+    textAlign: 'center',
+  },
+
+  label: {
+    position: 'relative',
+    marginTop: -10,
+  },
+};
+
 const TemperatureChart = ({ data, currentTemperature }) => {
   if (data.length === 0) {
     return null;
@@ -69,9 +80,9 @@ const TemperatureChart = ({ data, currentTemperature }) => {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={style.container}>
       <ChartistGraph data={processedData} options={options} type="Line" />
-      <div style={{ position: 'relative', marginTop: -10 }}>Time of Day</div>
+      <div style={style.label}>Time of Day</div>
     </div>
   );
 };

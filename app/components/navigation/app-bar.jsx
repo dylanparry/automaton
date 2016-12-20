@@ -2,13 +2,22 @@ import React from 'react';
 import { inject, observer, observableArray } from 'mobx-react';
 import { Link } from 'react-router';
 
+const style = {
+  container: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 1000,
+  },
+};
+
 const AppBar = ({ heatingStore }) => {
   const rooms = heatingStore.rooms.map(room => (
     <li key={room.id}><Link to={`/heating/${room.id}`}>{room.name}</Link></li>
   ));
 
   return (
-    <div className="app-bar navy" style={{ position: 'fixed', top: 0, left: 0, zIndex: 1000 }}>
+    <div className="app-bar navy" style={style.container}>
       <Link to="/" className="app-bar-element"><span className="fa fa-fw fa-cogs" /> automaton</Link>
       <span className="app-bar-divider" />
       <ul className="app-bar-menu">

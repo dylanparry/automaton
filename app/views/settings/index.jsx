@@ -7,6 +7,12 @@ import BackButton from '../../components/buttons/back-button';
 import ActionButton from '../../components/buttons/action-button';
 import Power from '../../utils/power';
 
+const style = {
+  container: {
+    marginTop: 40,
+  },
+};
+
 const cubeAction = (cb) => {
   cb();
   hashHistory.push('/');
@@ -19,7 +25,7 @@ const Settings = ({ heatingStore }) => (
 
       <h1>Settings</h1>
 
-      <div style={{ marginTop: 40 }}>
+      <div style={style.container}>
         <ActionButton title="Quit Automaton" icon="fa fa-window-close" action={() => ipcRenderer.send('quit')} />
         <ActionButton title="Relaunch Automaton" icon="fa fa-repeat" action={() => ipcRenderer.send('relaunch')} />
         <ActionButton title="Power Off" icon="fa fa-power-off" action={() => Power.shutdown()} />

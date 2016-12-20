@@ -4,6 +4,21 @@ import moment from 'moment';
 
 import Backlight from '../../utils/backlight';
 
+const style = {
+  show: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 999999,
+  },
+
+  hide: {
+    display: 'none',
+  },
+};
+
 export default class IdleTimer extends Component {
   constructor() {
     super();
@@ -77,15 +92,17 @@ export default class IdleTimer extends Component {
   }
 
   render() {
-    const style = this.state.idle
-      ? { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 999999 }
-      : { display: 'none' };
-
     // The test env can't dim the brightness, so simulate it with a semi-transparent overlay
     if (process.env.NODE_ENV === 'test') {
       Object.assign(style, { background: 'rgba(0, 0, 0, 0.5)' });
     }
 
-    return <div id="idle-timer" onClick={this.setActive} style={style} />; // eslint-disable-line jsx-a11y/no-static-element-interactions
+    /* eslint-disable jsx-a11y/no-static-element-interactions */
+    return (
+      <div
+        id="idle-timer"
+        onClick={this.setActive}
+        style={this.state.idle ? style.show : style.hide} />
+    );
   }
 }
