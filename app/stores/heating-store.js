@@ -159,10 +159,10 @@ export default class HeatingStore {
     return thermostatShouldBeActive;
   }
 
-  @computed get programsAreActive() {
-    const devices = this.devices.filter(device => device.setPoint > 10);
+  @computed get hasActiveProgram() {
+    const rooms = this.rooms.filter(room => room.hasActiveProgram);
 
-    return devices.length > 0;
+    return rooms.length > 0;
   }
 
   @computed get hasErrors() {

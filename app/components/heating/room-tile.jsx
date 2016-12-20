@@ -18,7 +18,7 @@ const getBackgroundColour = (room) => {
   }
 
   // If there are active programs, and the room is warm
-  if (room.setPoint > 10) {
+  if (room.hasActiveProgram) {
     return 'bg-amber';
   }
 

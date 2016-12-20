@@ -17,7 +17,7 @@ const getBackgroundColour = (heatingStore) => {
     // The thermostat should be active
     return 'bg-lighterBlue';
   }
-  else if (!heatingStore.thermostatShouldBeActive && heatingStore.programsAreActive) {
+  else if (!heatingStore.thermostatShouldBeActive && heatingStore.hasActiveProgram) {
     // The thermostat should not be active, but there are active programs
     return 'bg-amber';
   }
@@ -38,7 +38,7 @@ const getMode = (heatingStore) => {
   }
 
   // If the thermostat is off, and all programs are ended
-  if (!heatingStore.thermostatShouldBeActive && !heatingStore.programsAreActive) {
+  if (!heatingStore.thermostatShouldBeActive && !heatingStore.hasActiveProgram) {
     return 'off';
   }
 

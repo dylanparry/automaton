@@ -105,4 +105,12 @@ export default class Room {
     // No devices reported errors, so return false
     return false;
   }
+
+  /**
+   * Returns true if there is an active program for this room
+   */
+  @computed get hasActiveProgram() {
+    // Programs are active if the set point is greater than 10°C
+    return this.setPoint && this.setPoint > 10;
+  }
 }
