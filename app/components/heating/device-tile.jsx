@@ -54,9 +54,9 @@ const DeviceTile = ({ device }) => {
   tileClass.useTextShadow();
 
   // Choose the background colour
-  tileClass.background = device.hasNoErrors
-    ? 'bg-green'
-    : 'bg-red';
+  tileClass.background = device.hasErrors
+    ? 'bg-red'
+    : 'bg-green';
 
   const iconClass = new ClassBuilder();
   iconClass.useIcon();

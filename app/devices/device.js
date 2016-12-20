@@ -30,13 +30,13 @@ export default class Device {
   /**
    * Returns true if any of the properties are in an error state
    */
-  @computed get hasNoErrors() {
+  @computed get hasErrors() {
     return (
-      this.valid === DeviceConstants.Valid.VALID &&
-      this.error === DeviceConstants.Error.NO &&
-      this.initialised === DeviceConstants.Initialised.YES &&
-      this.battery === DeviceConstants.Battery.OK &&
-      this.linkStatus === DeviceConstants.LinkStatus.OK
+      this.valid === DeviceConstants.Valid.INVALID &&
+      this.error === DeviceConstants.Error.YES &&
+      this.initialised === DeviceConstants.Initialised.NO &&
+      this.battery === DeviceConstants.Battery.LOW &&
+      this.linkStatus === DeviceConstants.LinkStatus.ERROR
     );
   }
 }

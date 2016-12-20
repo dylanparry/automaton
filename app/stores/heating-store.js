@@ -125,7 +125,7 @@ export default class HeatingStore {
     const roomsNeedingHeat = this.rooms.filter(room => room.radiatorsOn).length;
 
     // Get the number of devices reporting errors
-    const devicesInErrorState = this.devices.filter(device => !device.hasNoErrors).length;
+    const devicesInErrorState = this.devices.filter(device => device.hasErrors).length;
 
     // Check if thermostat should be active
     const thermostatShouldBeActive = roomsNeedingHeat > 0 && devicesInErrorState === 0;
