@@ -19,13 +19,11 @@ const getDeviceIcon = (device) => {
   return null;
 };
 
-const getDeviceBadge = (device) => {
-  if (device instanceof RadiatorThermostat) {
-    return <span className="tile-badge">{device.valvePosition}%</span>;
-  }
-
-  return null;
-};
+const getDeviceBadge = device => (
+  device instanceof RadiatorThermostat
+    ? <span className="tile-badge">{device.valvePosition}%</span>
+    : null
+);
 
 const getStatusIcons = (device) => {
   const statusIcons = [];
