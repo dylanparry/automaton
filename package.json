@@ -74,6 +74,13 @@
         {
           "allowAfterThis": true
         }
+      ],
+      "react/jsx-closing-bracket-location": [
+        2,
+        {
+          "nonEmpty": "tag-aligned",
+          "selfClosing": "after-props"
+        }
       ]
     },
     "env": {

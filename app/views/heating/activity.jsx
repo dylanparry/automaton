@@ -53,7 +53,9 @@ class HeatingActivity extends Component {
           <h1>Heating Activity Chart</h1>
         </div>
 
-        <ThermostatActivityChart data={this.state.thermostatData} currentStatus={this.props.heatingStore.thermostatIsActive ? 1 : 0} />
+        <ThermostatActivityChart
+          data={this.state.thermostatData}
+          currentStatus={this.props.heatingStore.thermostatIsActive ? 1 : 0} />
       </div>
     );
   }

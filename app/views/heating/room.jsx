@@ -100,7 +100,9 @@ class Room extends Component {
         <div style={{ marginTop: 15 }}>
           {
             this.state.temperatureData &&
-            <TemperatureChart data={this.state.temperatureData} currentTemperature={room.actualTemperature} />
+            <TemperatureChart
+              data={this.state.temperatureData}
+              currentTemperature={room.actualTemperature} />
           }
         </div>
       </div >
