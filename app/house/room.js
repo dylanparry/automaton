@@ -1,6 +1,5 @@
 import { computed, observable } from 'mobx';
 
-import DeviceConstants from '../constants/device';
 import WallMountedThermostat from '../devices/wall-mounted-thermostat';
 import RadiatorThermostat from '../devices/radiator-thermostat';
 
