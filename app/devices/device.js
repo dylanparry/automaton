@@ -32,10 +32,10 @@ export default class Device {
    */
   @computed get hasErrors() {
     return (
-      this.valid === DeviceConstants.Valid.INVALID &&
-      this.error === DeviceConstants.Error.YES &&
-      this.initialised === DeviceConstants.Initialised.NO &&
-      this.battery === DeviceConstants.Battery.LOW &&
+      this.valid === DeviceConstants.Valid.INVALID ||
+      this.error === DeviceConstants.Error.YES ||
+      this.initialised === DeviceConstants.Initialised.NO ||
+      this.battery === DeviceConstants.Battery.LOW ||
       this.linkStatus === DeviceConstants.LinkStatus.ERROR
     );
   }
