@@ -28,24 +28,20 @@ const getDeviceBadge = device => (
 const getStatusIcons = (device) => {
   const statusIcons = [];
 
-  if (device.valid === DeviceConstants.Valid.INVALID) {
-    statusIcons.push(<span className="fa fa-fw fa-close" />);
-  }
+  const tests = [
+    ['valid', DeviceConstants.Valid.INVALID, 'close'],
+    ['error', DeviceConstants.Error.YES, 'warning'],
+    ['initialised', DeviceConstants.Initialised.NO, 'ban'],
+    ['battery', DeviceConstants.Battery.LOW, 'battery-quarter'],
+    ['linkStatus', DeviceConstants.LinkStatus.ERROR, 'wifi'],
+  ];
 
-  if (device.error === DeviceConstants.Error.YES) {
-    statusIcons.push(<span className="fa fa-fw fa-warning" />);
-  }
+  for (let i = 0; i < tests.length; i += 1) {
+    const test = tests[i];
 
-  if (device.initialised === DeviceConstants.Initialised.NO) {
-    statusIcons.push(<span className="fa fa-fw fa-ban" />);
-  }
-
-  if (device.battery === DeviceConstants.Battery.LOW) {
-    statusIcons.push(<span className="fa fa-fw fa-battery-quarter" />);
-  }
-
-  if (device.linkStatus === DeviceConstants.LinkStatus.ERROR) {
-    statusIcons.push(<span className="fa fa-fw fa-wifi" />);
+    if (device[test[0]] === test[1]) {
+      statusIcons.push(<span className={`fa fa-fw fa-${test[2]}`} />);
+    }
   }
 
   return statusIcons;
