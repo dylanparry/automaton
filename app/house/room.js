@@ -1,5 +1,6 @@
 import { computed, observable } from 'mobx';
 
+import DeviceConstants from '../constants/device';
 import WallMountedThermostat from '../devices/wall-mounted-thermostat';
 import RadiatorThermostat from '../devices/radiator-thermostat';
 
@@ -86,5 +87,29 @@ export default class Room {
     const device = this.devices[0];
 
     return device.mode;
+  }
+
+  /**
+   * Returns true if any device in the room is reporting a status error
+   */
+  @computed get hasErrors() {
+    // Loop through each device in the room
+    for (let i = 0; i < this.devices.length; i += 1) {
+      const device = this.devices[i];
+
+      // If it's reporting an error of any sort, return true and end function early
+      if (
+        device.valid === DeviceConstants.Valid.INVALID ||
+        device.error === DeviceConstants.Error.YES ||
+        device.initialised === DeviceConstants.Initialised.NO ||
+        device.battery === DeviceConstants.Battery.LOW ||
+        device.linkStatus === DeviceConstants.LinkStatus.ERROR
+      ) {
+        return true;
+      }
+    }
+
+    // No devices reported errors, so return false
+    return false;
   }
 }

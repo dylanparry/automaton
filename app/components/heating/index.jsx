@@ -3,59 +3,60 @@ import { Link } from 'react-router';
 import { inject, observer, observableArray } from 'mobx-react';
 
 import ClassBuilder from '../../utils/class-builder';
-import DeviceConstants from '../../constants/device';
+
+const getBackgroundColour = (heatingStore) => {
+  if (!heatingStore.connected) {
+    // The cube isn't connected
+    return 'bg-grayLight';
+  }
+  else if (heatingStore.hasErrors) {
+    // At least one error was reported
+    return 'bg-red';
+  }
+  else if (heatingStore.thermostatShouldBeActive) {
+    // The thermostat should be active
+    return 'bg-lighterBlue';
+  }
+  else if (!heatingStore.thermostatShouldBeActive && heatingStore.programsAreActive) {
+    // The thermostat should not be active, but there are active programs
+    return 'bg-amber';
+  }
+
+  // There are no active programs, and the thermostat isn't active
+  return 'bg-grayLight';
+};
+
+const getMode = (heatingStore) => {
+  // If the cube isn't connected
+  if (!heatingStore.connected) {
+    return 'cube disconnected';
+  }
+
+  // If any errors were reported
+  if (heatingStore.hasErrors) {
+    return 'error';
+  }
+
+  // If the thermostat is off, and all programs are ended
+  if (!heatingStore.thermostatShouldBeActive && !heatingStore.programsAreActive) {
+    return 'off';
+  }
+
+  // No errors etc, so mode should be 'active' or 'auto'
+  return heatingStore.thermostatShouldBeActive ? 'active' : 'auto';
+};
 
 const HeatingTile = ({ heatingStore }) => {
   const tileClass = new ClassBuilder();
   tileClass.tile = 'tile-wide';
   tileClass.color = 'fg-white';
   tileClass.useTextShadow();
+  tileClass.background = getBackgroundColour(heatingStore);
 
-  // Work out background colour
-  if (!heatingStore.connected) {
-    // The cube isn't connected
-    tileClass.background = 'bg-grayLight';
-  }
-  else if (heatingStore.thermostatShouldBeActive) {
-    // The thermostat should be active
-    tileClass.background = 'bg-lighterBlue';
-  }
-  else if (!heatingStore.thermostatShouldBeActive && heatingStore.programsAreActive) {
-    // The thermostat should not be active, but there are active programs
-    tileClass.background = 'bg-amber';
-  }
-  else {
-    // There are no active programs, and the thermostat isn't active
-    tileClass.background = 'bg-grayLight';
-  }
-
-  let mode = heatingStore.thermostatShouldBeActive ? 'active' : 'auto';
-  if (!heatingStore.thermostatShouldBeActive && !heatingStore.programsAreActive) {
-    mode = 'off';
-  }
-  if (!heatingStore.connected) {
-    mode = 'cube disconnected';
-  }
-
-  // If any device in the house is reporting errors, change the colour and show an icon
-  let statusIcon;
-  for (let i = 0; i < heatingStore.devices.length; i += 1) {
-    const device = heatingStore.devices[i];
-    if (
-      device.valid === DeviceConstants.Valid.INVALID ||
-      device.error === DeviceConstants.Error.YES ||
-      device.initialised === DeviceConstants.Initialised.NO ||
-      device.battery === DeviceConstants.Battery.LOW ||
-      device.linkStatus === DeviceConstants.LinkStatus.ERROR
-    ) {
-      tileClass.background = 'bg-red';
-      mode = 'error';
-      statusIcon = <span className="tile-badge top right"><span className="fa fa-fw fa-warning" /></span>;
-    }
-  }
-  if (!heatingStore.connected) {
-    statusIcon = <span className="tile-badge top right"><span className="fa fa-fw fa-warning" /></span>;
-  }
+  // If any errors were reported, or the cube isn't connected
+  const statusIcon = heatingStore.hasErrors || !heatingStore.connected
+    ? < span className="tile-badge top right" > <span className="fa fa-fw fa-warning" /></span>
+    : null;
 
   return (
     <Link to="/heating">
@@ -63,7 +64,7 @@ const HeatingTile = ({ heatingStore }) => {
         <div className="tile-content iconic">
           <span className="icon flaticon-thermostat" />
           <span className="tile-label">Central Heating</span>
-          <span className="tile-badge top left">{mode}</span>
+          <span className="tile-badge top left">{getMode(heatingStore)}</span>
           {statusIcon}
         </div>
       </div>

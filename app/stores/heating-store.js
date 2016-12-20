@@ -164,4 +164,19 @@ export default class HeatingStore {
 
     return devices.length > 0;
   }
+
+  @computed get hasErrors() {
+    // Loop through the rooms
+    for (let i = 0; i < this.rooms.length; i += 1) {
+      const room = this.rooms[i];
+
+      // If any room has an error, return true and end the function early
+      if (room.hasErrors) {
+        return true;
+      }
+    }
+
+    // No rooms had errors, so return false
+    return false;
+  }
 }
