@@ -98,13 +98,7 @@ export default class Room {
       const device = this.devices[i];
 
       // If it's reporting an error of any sort, return true and end function early
-      if (
-        device.valid === DeviceConstants.Valid.INVALID ||
-        device.error === DeviceConstants.Error.YES ||
-        device.initialised === DeviceConstants.Initialised.NO ||
-        device.battery === DeviceConstants.Battery.LOW ||
-        device.linkStatus === DeviceConstants.LinkStatus.ERROR
-      ) {
+      if (device.hasErrors) {
         return true;
       }
     }
