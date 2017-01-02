@@ -34,7 +34,7 @@ const getMode = (room) => {
 
   // When the room program is over, and it's not in boost or holiday mode, it's 'off'
   if (
-    room.setPoint <= 10 &&
+    !room.hasActiveProgram &&
     room.mode !== DeviceConstants.Status.BOOST &&
     room.mode !== DeviceConstants.Status.HOLIDAY) {
     return 'off';
