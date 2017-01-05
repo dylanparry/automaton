@@ -108,7 +108,7 @@ class Room extends Component {
             this.state.temperatureData &&
             <TemperatureChart
               data={this.state.temperatureData}
-              currentTemperature={room.actualTemperature} />
+              currentTemperature={room.actualTemperature || 0} />
           }
         </div>
       </div >
