@@ -24,7 +24,7 @@ const getDeviceBadge = (device) => {
     return <span className="tile-badge">{device.valvePosition}%</span>;
   }
   else if (device instanceof WallMountedThermostat) {
-    return <span className="tile-badge">{device.setPoint}°C</span>;
+    return <span className="tile-badge">{device.setPoint > 5 ? `${device.setPoint}°C` : 'off'}</span>;
   }
 
   return null;
