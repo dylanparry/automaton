@@ -72,6 +72,17 @@ const getIcon = (room) => {
   return null;
 };
 
+const getStatusIcon = (room) => {
+  if (room.hasErrors) {
+    return <span className="fa fa-fw fa-warning" />;
+  }
+  else if (room.radiatorsOn) {
+    return <span className="fa fa-fw fa-fire" />;
+  }
+
+  return null;
+};
+
 const RoomTile = ({ room, displayWide }) => {
   const iconClass = new ClassBuilder();
   iconClass.useIcon();
@@ -83,11 +94,6 @@ const RoomTile = ({ room, displayWide }) => {
   tileClass.useTextShadow();
   tileClass.background = getBackgroundColour(room);
 
-  // If any device in the room is reporting errors, change the colour and show an icon
-  const statusIcon = room.hasErrors
-    ? <span className="tile-badge top right"><span className="fa fa-fw fa-warning" /></span>
-    : null;
-
   return (
     <Link to={`/heating/${room.id}`}>
       <div className={tileClass}>
@@ -96,7 +102,7 @@ const RoomTile = ({ room, displayWide }) => {
           <span className="tile-label">{room.name}</span>
           <span className="tile-badge">{room.actualTemperature ? `${room.actualTemperature}°C` : null}</span>
           <span className="tile-badge top left">{getMode(room)}</span>
-          {statusIcon}
+          <span className="tile-badge top right">{getStatusIcon(room)}</span>
         </div>
       </div>
     </Link>
