@@ -48,17 +48,20 @@ export default class Room {
   }
 
   /**
-   * Returns the valve position for the radiators in the room
+   * Returns true if any radiator in the room is on
    */
   @computed get radiatorsOn() {
-    const radiators = this.devices.filter(device => device instanceof RadiatorThermostat);
+    const radiatorStatuses = this.devices.filter(
+      device => device instanceof RadiatorThermostat,
+    ).map(radiator => radiator.isOn);
 
-    let sum = 0;
-    for (let i = 0; i < radiators.length; i += 1) {
-      sum += radiators[i].valvePosition;
+    for (let i = 0; i < radiatorStatuses.length; i += 1) {
+      if (radiatorStatuses[i]) {
+        return true;
+      }
     }
 
-    return sum / radiators.length >= 20;
+    return false;
   }
 
   /**
