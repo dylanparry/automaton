@@ -41,10 +41,10 @@ const getMode = (room) => {
   }
 
   const modes = [
-    [DeviceConstants.Status.AUTO, `Auto (${room.setPoint}°C)`],
-    [DeviceConstants.Status.MANUAL, `Manual (${room.setPoint}°C)`],
-    [DeviceConstants.Status.HOLIDAY, 'Holiday'],
-    [DeviceConstants.Status.BOOST, 'Boost'],
+    [DeviceConstants.Status.AUTO, 'auto'],
+    [DeviceConstants.Status.MANUAL, 'manual'],
+    [DeviceConstants.Status.HOLIDAY, 'holiday'],
+    [DeviceConstants.Status.BOOST, 'boost'],
   ];
 
   return modes[room.mode][1];
