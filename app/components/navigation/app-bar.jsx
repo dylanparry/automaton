@@ -18,7 +18,7 @@ const AppBar = ({ heatingStore }) => {
 
   return (
     <div className="app-bar navy" style={style.container}>
-      <Link to="/" className="app-bar-element"><span className="fa fa-fw fa-cogs" /> automaton</Link>
+      <Link to="/" className="app-bar-element branding no-hover"><span className="fa fa-fw fa-cogs" /> automaton</Link>
       <span className="app-bar-divider" />
       <ul className="app-bar-menu">
         <li>
