@@ -33,6 +33,9 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
           // A value for now
           { x: moment().toDate(), y: currentStatus },
 
+          // A value for just after now so it doesn't show any data after the current time
+          { x: moment().add(1, 's').toDate(), y: 0 },
+
           // Pad out data to next full hour
           { x: moment().add(1, 'h').minutes(0).toDate(), y: 0 },
         ],
