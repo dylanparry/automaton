@@ -27,33 +27,16 @@ class Room extends Component {
   }
 
   componentDidMount() {
-    // Delete any data older than 24 hours
-    const deleteStore = this.props.heatingStore.database.transaction(['rooms'], 'readwrite')
-      .objectStore('rooms');
+    // Now get the data for the room
+    const query = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
+      .objectStore('rooms')
+      .index('roomId')
+      .getAll(parseInt(this.props.params.roomId, 10));
 
-    const deleteQuery = deleteStore.index('created')
-      .openCursor(IDBKeyRange.upperBound(moment().subtract(24, 'h').toDate()));
-
-    deleteQuery.onsuccess = (deleteResults) => {
-      const cursor = deleteResults.target.result;
-
-      // Delete the items selected
-      if (cursor) {
-        deleteStore.delete(cursor.primaryKey);
-        cursor.continue();
-      }
-
-      // Now get the data for the room
-      const selectQuery = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
-        .objectStore('rooms')
-        .index('roomId')
-        .getAll(parseInt(this.props.params.roomId, 10));
-
-      selectQuery.onsuccess = (selectResults) => {
-        this.setState({
-          temperatureData: selectResults.target.result,
-        });
-      };
+    query.onsuccess = (result) => {
+      this.setState({
+        temperatureData: result.target.result,
+      });
     };
   }
 

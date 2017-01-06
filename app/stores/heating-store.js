@@ -45,6 +45,9 @@ export default class HeatingStore {
     reaction(() => this.thermostatShouldBeActive, (value) => {
       this.thermostatIsActive = value; // Store the value for later
     });
+
+    // Update the database with the latest temperature data
+    this.updateTemperatureDatabase();
   }
 
   connectToCube() {
@@ -62,6 +65,49 @@ export default class HeatingStore {
     // Disconnect the cube
     this.cube.disconnect();
     this.connected = false;
+  }
+
+  updateTemperatureDatabase() {
+    // Only run if on a quarter hour
+    const minutes = moment().minutes();
+    if (minutes === 0 || minutes === 15 || minutes === 30 || minutes === 45) {
+      // Begin a transaction
+      const transaction = this.database.transaction(['rooms'], 'readwrite');
+      const store = transaction.objectStore('rooms');
+
+      // Loop through the rooms
+      for (let i = 0; i < this.rooms.length; i += 1) {
+        const room = this.rooms[i];
+
+        // If the room reports a temperature, store it in the database
+        if (room.actualTemperature !== null) {
+          const update = {
+            roomId: room.id,
+            temperature: room.actualTemperature,
+            created: moment().toDate(),
+          };
+          store.add(update);
+        }
+      }
+
+      // Select any data older than 24 hours
+      const query = store.index('created')
+        .openCursor(IDBKeyRange.upperBound(moment().subtract(24, 'h').toDate()));
+
+      // When done selecting, delete the old data
+      query.onsuccess = (result) => {
+        const cursor = result.target.result;
+
+        // Delete the items selected
+        if (cursor) {
+          store.delete(cursor.primaryKey);
+          cursor.continue();
+        }
+      };
+    }
+
+    // Call this function again in 1 minute
+    setTimeout(this.updateTemperatureDatabase.bind(this), 60000);
   }
 
   @action processMessage(data) {
@@ -94,22 +140,6 @@ export default class HeatingStore {
 
           // If a device was found, update it
           if (typeof device !== 'undefined') {
-            // If the temperature reported by the device has changed
-            if (
-              device.actualTemperature &&
-              device.actualTemperature !== result.updates[i].actualTemperature
-            ) {
-              // Add the new temperature to the database
-              const transaction = this.database.transaction(['rooms'], 'readwrite');
-              const store = transaction.objectStore('rooms');
-              const update = {
-                roomId: device.roomId,
-                temperature: result.updates[i].actualTemperature,
-                created: moment().toDate(),
-              };
-              store.add(update);
-            }
-
             Object.assign(device, result.updates[i]);
           }
         }
