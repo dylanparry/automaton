@@ -63,6 +63,7 @@ app.on('ready', () => {
     icon: './images/icon.png',
     show: false,
     autoHideMenuBar: true,
+    alwaysOnTop: true,
   });
 
   // Load the React application
