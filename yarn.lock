@@ -3180,15 +3180,15 @@ mksnapshot@^0.3.0:
     fs-extra "0.26.7"
     request "2.55.0"
 
-mobx-react@^4.0.3:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.0.4.tgz#5d979d8b67b7bfd3f093b5b06a50ed5b552c3410"
+mobx-react@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.1.0.tgz#0b4927a8c4457dbb296c512693acdf9073d9afc7"
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
-mobx@^2.6.5:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-2.7.0.tgz#cf3d82d18c0ca7f458d8f2a240817b3dc7e54a01"
+mobx@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.0.0.tgz#6d9fb326d51bac9994dd8fe6762ace6ba2bef2ac"
 
 moment@^2.17.1:
   version "2.17.1"
@@ -3680,9 +3680,9 @@ react-chartist@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-chartist/-/react-chartist-0.11.0.tgz#85a2dd68f40c90995a87ac1e237d5194dd9745a8"
 
-react-dom@^15.4.1:
-  version "15.4.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.1.tgz#d54c913261aaedb17adc20410d029dcc18a1344a"
+react-dom@^15.4.2:
+  version "15.4.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
   dependencies:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
@@ -3698,9 +3698,9 @@ react-router@^3.0.0:
     loose-envify "^1.2.0"
     warning "^3.0.0"
 
-react@^15.4.1:
-  version "15.4.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.1.tgz#498e918602677a3983cd0fd206dfe700389a0dd6"
+react@^15.4.2:
+  version "15.4.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
   dependencies:
     fbjs "^0.8.4"
     loose-envify "^1.1.0"
