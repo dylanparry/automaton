@@ -64,17 +64,6 @@
     "parser": "babel-eslint",
     "extends": "airbnb",
     "rules": {
-      "brace-style": [
-        "error",
-        "stroustrup"
-      ],
-      "class-methods-use-this": 0,
-      "no-underscore-dangle": [
-        "error",
-        {
-          "allowAfterThis": true
-        }
-      ],
       "react/jsx-closing-bracket-location": [
         2,
         {

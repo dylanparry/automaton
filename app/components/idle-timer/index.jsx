@@ -78,8 +78,7 @@ export default class IdleTimer extends Component {
     if (moment.utc().diff(this.state.time) >= 60000) { // Time is one minute
       // Screen has been idle too long
       this.setIdle();
-    }
-    else {
+    } else {
       // Check again in another 10 seconds
       setTimeout(this.checkIdleTime, 10000);
     }

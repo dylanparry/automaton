@@ -13,12 +13,11 @@ export default class RadiatorThermostat extends Device {
    * so that it doesn't drop below it as soon as the heating starts to cool down
    */
   @computed get isOn() {
-    // When not active, check if the valve has opened enough
     if (!this.active && this.valvePosition >= 40) {
+      // The heating isn't currently on, but the valves have opened
       this.active = true;
-    }
-    // When already active, check if the valve has closed
-    else if (this.active && this.valvePosition === 0) {
+    } else if (this.active && this.valvePosition === 0) {
+      // The heating is already on, and the valve has now closed
       this.active = false;
     }
 

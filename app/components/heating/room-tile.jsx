@@ -75,8 +75,7 @@ const getIcon = (room) => {
 const getStatusIcon = (room) => {
   if (room.hasErrors) {
     return <span className="fa fa-fw fa-warning" />;
-  }
-  else if (room.radiatorsOn) {
+  } else if (room.radiatorsOn) {
     return <span className="fa fa-fw fa-fire" />;
   }
 

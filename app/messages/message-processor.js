@@ -18,13 +18,11 @@ export default class MessageProcessor {
           if (parseInt(value.slice(0, 2), 16) === 0) {
             // Set the buffer to a new string
             MessageProcessor.metadataBuffer = value.slice(6);
-          }
-          else {
+          } else {
             // Add the message to the buffer
             MessageProcessor.metadataBuffer += value.slice(6);
           }
-        }
-        else {
+        } else {
           // We've got the full message, so process it
           return new MetadataMessage(
             MessageProcessor.metadataBuffer || value.slice(6),

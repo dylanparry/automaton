@@ -69,7 +69,9 @@ const ThermostatActivityChart = ({ data, currentStatus }) => {
   return (
     <div style={style.container} className="thermostat-activity-chart">
       <ChartistGraph data={processedData} options={options} type="Line" />
-      <div style={style.label}>Time of Day – Coloured sections denote periods when heating was on</div>
+      <div style={style.label}>
+        Time of Day – Coloured sections denote periods when heating was on
+      </div>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { inject, observer, observableArray } from 'mobx-react';
-import moment from 'moment';
 
 import BackButton from '../../components/buttons/back-button';
 import RoomTile from '../../components/heating/room-tile';

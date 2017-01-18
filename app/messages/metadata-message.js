@@ -3,6 +3,9 @@ import RadiatorThermostat from '../devices/radiator-thermostat';
 import WallMountedThermostat from '../devices/wall-mounted-thermostat';
 
 export default class MetadataMessage {
+  rooms = [];
+  devices = [];
+
   constructor(data) {
     // Create a Base64 buffer from the data
     let buffer = new Buffer(data, 'base64');
@@ -24,7 +27,7 @@ export default class MetadataMessage {
         rfAddress,
       });
 
-      this._rooms.push(room);
+      this.rooms.push(room);
 
       buffer = buffer.slice(nameLength + 5);
     }
@@ -74,29 +77,19 @@ export default class MetadataMessage {
 
       if (device !== null) {
         // Get the room
-        const room = this._rooms.find(r => r.id === roomId);
+        const room = this.rooms.find(r => r.id === roomId);
 
         if (typeof room !== 'undefined') {
           // Add the device to the room
           room.devices.push(device);
 
           // Also add it to the devices array
-          this._devices.push(device);
+          this.devices.push(device);
         }
       }
 
       // Remove the current device from the buffer
       buffer = buffer.slice(buffer[14] + 16);
     }
-  }
-
-  _rooms = [];
-  get rooms() {
-    return this._rooms;
-  }
-
-  _devices = [];
-  get devices() {
-    return this._devices;
   }
 }

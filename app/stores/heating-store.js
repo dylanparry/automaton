@@ -172,8 +172,7 @@ export default class HeatingStore {
         created: moment().toDate(),
       };
       store.add(update);
-    }
-    else {
+    } else {
       Gpio.setInactive();
 
       // Update database with value '0'

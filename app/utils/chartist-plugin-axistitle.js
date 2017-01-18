@@ -30,8 +30,7 @@ const AxisTitle = (options) => {
     chart.on('created', (data) => {
       if (!processedOptions.axisX.axisTitle && !processedOptions.axisY.axisTitle) {
         throw new Error('ctAxisTitle plugin - You must provide at least one axis title');
-      }
-      else if (!data.axisX && !data.axisY) {
+      } else if (!data.axisX && !data.axisY) {
         throw new Error('ctAxisTitle plugin can only be used on charts that have at least one axis');
       }
 

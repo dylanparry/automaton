@@ -103,8 +103,5 @@ export default class DeviceListMessage {
     }
   }
 
-  _updates = [];
-  get updates() {
-    return this._updates;
-  }
+  updates = [];
 }

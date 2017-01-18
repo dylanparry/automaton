@@ -8,16 +8,13 @@ const getBackgroundColour = (heatingStore) => {
   if (!heatingStore.connected) {
     // The cube isn't connected
     return 'bg-grayLight';
-  }
-  else if (heatingStore.hasErrors) {
+  } else if (heatingStore.hasErrors) {
     // At least one error was reported
     return 'bg-red';
-  }
-  else if (heatingStore.thermostatShouldBeActive) {
+  } else if (heatingStore.thermostatShouldBeActive) {
     // The thermostat should be active
     return 'bg-lighterBlue';
-  }
-  else if (!heatingStore.thermostatShouldBeActive && heatingStore.hasActiveProgram) {
+  } else if (!heatingStore.thermostatShouldBeActive && heatingStore.hasActiveProgram) {
     // The thermostat should not be active, but there are active programs
     return 'bg-amber';
   }
@@ -55,7 +52,7 @@ const HeatingTile = ({ heatingStore }) => {
 
   // If any errors were reported, or the cube isn't connected
   const statusIcon = heatingStore.hasErrors || !heatingStore.connected
-    ? < span className="tile-badge top right" > <span className="fa fa-fw fa-warning" /></span>
+    ? <span className="tile-badge top right" > <span className="fa fa-fw fa-warning" /></span>
     : null;
 
   return (

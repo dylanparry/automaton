@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+// Return the date split into an object
+const getDate = () => {
+  const date = moment();
+
+  return {
+    day: date.format('D'),
+    suffix: date.format('Do').slice(-2),
+    month: date.format('MMMM'),
+    time: date.format('HH:mm:ss'),
+  };
+};
+
 const style = {
   container: {
     marginTop: 35,
@@ -22,29 +34,17 @@ export default class CalendarTile extends Component {
   constructor() {
     super();
 
-    this.state = this.date;
+    this.state = getDate();
   }
 
   componentDidMount() {
     this.timer = setInterval(() => {
-      this.setState(this.date);
+      this.setState(getDate());
     }, 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
-  }
-
-  // Return the date split into an object
-  get date() {
-    const date = moment();
-
-    return {
-      day: date.format('D'),
-      suffix: date.format('Do').slice(-2),
-      month: date.format('MMMM'),
-      time: date.format('HH:mm:ss'),
-    };
   }
 
   render() {
