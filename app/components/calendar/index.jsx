@@ -55,7 +55,7 @@ export default class CalendarTile extends Component
   render()
   {
     return (
-      <div className="tile bg-teal fg-white">
+      <div className="tile bg-teal fg-white text-shadow">
         <div className="tile-content">
           <div style={style.container}>
             <div style={style.month}>{this.state.day}<sup>{this.state.suffix}</sup></div>
