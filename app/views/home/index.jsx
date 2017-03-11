@@ -12,8 +12,8 @@ export default () => (
     </div>
 
     <div className="tile-container">
-      <HeatingTile />
       <WeatherTile />
+      <HeatingTile />
       <CalendarTile />
       <ClockTile />
     </div>
