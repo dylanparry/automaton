@@ -64,6 +64,10 @@
     "parser": "babel-eslint",
     "extends": "airbnb",
     "rules": {
+      "brace-style": [
+        "error",
+        "allman"
+      ],
       "react/jsx-closing-bracket-location": [
         2,
         {
