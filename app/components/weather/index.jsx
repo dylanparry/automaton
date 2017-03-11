@@ -3,9 +3,10 @@ import { Link } from 'react-router';
 
 import ClassBuilder from '../../utils/class-builder';
 
-const WeatherTile = () => {
+const WeatherTile = () =>
+{
   const tileClass = new ClassBuilder();
-  tileClass.tile = 'tile-wide';
+  tileClass.tile = 'tile-large';
   tileClass.background = 'bg-steel';
   tileClass.color = 'fg-white';
   tileClass.useTextShadow();
