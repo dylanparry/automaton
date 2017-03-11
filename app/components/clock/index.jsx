@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+import ClassBuilder from '../../utils/class-builder';
+
 // Return the date split into an object
 const getDate = () =>
 {
@@ -47,8 +49,14 @@ export default class ClockTile extends Component
 
   render()
   {
+    const tileClass = new ClassBuilder();
+    tileClass.background = 'bg-lightBlue';
+    tileClass.color = 'fg-white';
+    tileClass.tile = 'tile-wide';
+    tileClass.useTextShadow();
+
     return (
-      <div className="tile-wide bg-lightBlue fg-white">
+      <div className={tileClass}>
         <div className="tile-content">
           <div style={style.container}>
             <div style={style.time}>{this.state.time}</div>
