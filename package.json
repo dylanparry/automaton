@@ -39,11 +39,11 @@
     "webpack": "^2.2.1"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack -d --watch",
+    "dev": "webpack --watch --progress --colors",
     "start": "cross-env NODE_ENV=test electron .",
     "test": "jest",
     "lint": "eslint ./ --ext .jsx,.js",
-    "prebuild": "cross-env NODE_ENV=production webpack -p",
+    "prebuild": "webpack -p --progress --colors --env.production",
     "build": "electron-packager . --out packages --overwrite --arch armv7l --platform linux --asar && electron-packager . --out packages --overwrite --arch x64 --platform win32 --asar"
   },
   "babel": {
