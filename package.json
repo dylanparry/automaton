@@ -36,7 +36,7 @@
     "react-dom": "^15.4.2",
     "react-router": "^3.0.0",
     "request": "^2.79.0",
-    "webpack": "2.2.0"
+    "webpack": "^2.2.1"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack -d --watch",
