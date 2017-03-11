@@ -23,7 +23,7 @@ const style = {
   },
 };
 
-export default class CalendarTile extends Component
+export default class ClockTile extends Component
 {
   constructor()
   {
@@ -48,7 +48,7 @@ export default class CalendarTile extends Component
   render()
   {
     return (
-      <div className="tile bg-green fg-white">
+      <div className="tile-wide bg-green fg-white">
         <div className="tile-content">
           <div style={style.container}>
             <div style={style.time}>{this.state.time}</div>
