@@ -5,6 +5,7 @@ import { webFrame } from 'electron';
 
 import Router from './components/navigation/router';
 import HeatingStore from './stores/heating-store';
+import WeatherStore from './stores/weather-store';
 
 // Disable zooming
 webFrame.setZoomLevelLimits(1, 1);
@@ -40,6 +41,7 @@ connection.onsuccess = ({ target: { result } }) =>
   // Stores
   const stores = {
     heatingStore: new HeatingStore(result),
+    weatherStore: new WeatherStore(process.env.WEATHER_DOT_COM_API_KEY),
   };
 
   // Create a Provider with props for the stores and the Router as a child
