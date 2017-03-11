@@ -3756,9 +3756,9 @@ rcedit@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/rcedit/-/rcedit-0.7.0.tgz#560b2920165034a135316e6a111f8274b9cec521"
 
-react-chartist@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/react-chartist/-/react-chartist-0.11.0.tgz#85a2dd68f40c90995a87ac1e237d5194dd9745a8"
+react-chartist@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/react-chartist/-/react-chartist-0.12.0.tgz#a5412f5e0e2b82779650dbda42ac222e8a604611"
 
 react-dom@^15.4.2:
   version "15.4.2"
