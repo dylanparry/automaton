@@ -90,7 +90,7 @@ export default class WeatherStore
 
     if (result.status === 200)
     {
-      this.astronomyData = result.data;
+      this.hourlyForecastData = result.data;
     }
   }
 
@@ -101,7 +101,7 @@ export default class WeatherStore
 
     if (result.status === 200)
     {
-      this.astronomyData = result.data;
+      this.tenDayForecastData = result.data;
     }
   }
 }
