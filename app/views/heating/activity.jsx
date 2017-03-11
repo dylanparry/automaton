@@ -5,8 +5,10 @@ import moment from 'moment';
 import BackButton from '../../components/buttons/back-button';
 import ThermostatActivityChart from '../../components/chart/thermostat-activity-chart';
 
-class HeatingActivity extends Component {
-  constructor(props) {
+class HeatingActivity extends Component
+{
+  constructor(props)
+  {
     super(props);
 
     this.state = {
@@ -14,7 +16,8 @@ class HeatingActivity extends Component {
     };
   }
 
-  componentWillMount() {
+  componentWillMount()
+  {
     // Delete any data older than 24 hours
     const deleteStore = this.props.heatingStore.database.transaction(['thermostat'], 'readwrite')
       .objectStore('thermostat');
@@ -22,11 +25,13 @@ class HeatingActivity extends Component {
     const deleteQuery = deleteStore.index('created')
       .openCursor(IDBKeyRange.upperBound(moment().subtract(24, 'h').toDate()));
 
-    deleteQuery.onsuccess = (deleteResults) => {
+    deleteQuery.onsuccess = (deleteResults) =>
+    {
       const cursor = deleteResults.target.result;
 
       // Delete the items selected
-      if (cursor) {
+      if (cursor)
+      {
         deleteStore.delete(cursor.primaryKey);
         cursor.continue();
       }
@@ -36,7 +41,8 @@ class HeatingActivity extends Component {
         .objectStore('thermostat')
         .getAll();
 
-      selectQuery.onsuccess = (selectResults) => {
+      selectQuery.onsuccess = (selectResults) =>
+      {
         this.setState({
           thermostatData: selectResults.target.result,
         });
@@ -44,7 +50,8 @@ class HeatingActivity extends Component {
     };
   }
 
-  render() {
+  render()
+  {
     return (
       <div>
         <div className="margin20">

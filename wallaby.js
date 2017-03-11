@@ -1,4 +1,5 @@
-module.exports = function wallabyConfig(wallaby) {
+module.exports = function wallabyConfig(wallaby)
+{
   return {
     files: [
       'app/**/*.js',

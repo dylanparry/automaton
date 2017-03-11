@@ -7,7 +7,8 @@ import MetadataMessage from '../messages/metadata-message';
 import DeviceListMessage from '../messages/device-list-message';
 import Gpio from '../utils/gpio';
 
-export default class HeatingStore {
+export default class HeatingStore
+{
   @observable connected = false;
   @observable cube = null;
   @observable rooms = [];
@@ -17,7 +18,8 @@ export default class HeatingStore {
   database;
   deviceListInterval;
 
-  constructor(database) {
+  constructor(database)
+  {
     this.database = database; // An indexedDB database
 
     this.cube = new MaxCube({
@@ -27,7 +29,8 @@ export default class HeatingStore {
 
     this.cube.listen(data => this.processMessage(data));
 
-    this.cube.errorHandler(() => {
+    this.cube.errorHandler(() =>
+    {
       // Stop sending device list requests
       clearInterval(this.deviceListInterval);
 
@@ -42,7 +45,8 @@ export default class HeatingStore {
     this.connectToCube();
 
     // Need to watch this.thermostatShouldBeActive for any changes
-    reaction(() => this.thermostatShouldBeActive, (value) => {
+    reaction(() => this.thermostatShouldBeActive, (value) =>
+    {
       this.thermostatIsActive = value; // Store the value for later
     });
 
@@ -50,37 +54,45 @@ export default class HeatingStore {
     this.updateTemperatureDatabase();
   }
 
-  connectToCube() {
+  connectToCube()
+  {
     // Connect to the cube, then request device list every 10 seconds
-    this.cube.connect().then(() => {
+    this.cube.connect().then(() =>
+    {
       this.connected = true;
 
-      this.deviceListInterval = setInterval(() => {
+      this.deviceListInterval = setInterval(() =>
+      {
         this.cube.requestDeviceList();
       }, 10000);
     });
   }
 
-  disconnectFromCube() {
+  disconnectFromCube()
+  {
     // Disconnect the cube
     this.cube.disconnect();
     this.connected = false;
   }
 
-  updateTemperatureDatabase() {
+  updateTemperatureDatabase()
+  {
     // Only run if on a quarter hour
     const minutes = moment().minutes();
-    if (minutes === 0 || minutes === 15 || minutes === 30 || minutes === 45) {
+    if (minutes === 0 || minutes === 15 || minutes === 30 || minutes === 45)
+    {
       // Begin a transaction
       const transaction = this.database.transaction(['rooms'], 'readwrite');
       const store = transaction.objectStore('rooms');
 
       // Loop through the rooms
-      for (let i = 0; i < this.rooms.length; i += 1) {
+      for (let i = 0; i < this.rooms.length; i += 1)
+      {
         const room = this.rooms[i];
 
         // If the room reports a temperature, store it in the database
-        if (room.actualTemperature !== null) {
+        if (room.actualTemperature !== null)
+        {
           const update = {
             roomId: room.id,
             temperature: room.actualTemperature,
@@ -95,11 +107,13 @@ export default class HeatingStore {
         .openCursor(IDBKeyRange.upperBound(moment().subtract(24, 'h').toDate()));
 
       // When done selecting, delete the old data
-      query.onsuccess = (result) => {
+      query.onsuccess = (result) =>
+      {
         const cursor = result.target.result;
 
         // Delete the items selected
-        if (cursor) {
+        if (cursor)
+        {
           store.delete(cursor.primaryKey);
           cursor.continue();
         }
@@ -110,7 +124,8 @@ export default class HeatingStore {
     setTimeout(this.updateTemperatureDatabase.bind(this), 60000);
   }
 
-  @action processMessage(data) {
+  @action processMessage(data)
+  {
     // Sometimes we get more than one message at the same time
     const pattern = /[A-Z]:[A-Za-z0-9+/=,]+/g;
 
@@ -118,28 +133,33 @@ export default class HeatingStore {
     let match = pattern.exec(data);
 
     // While there are matches
-    while (match !== null) {
+    while (match !== null)
+    {
       // Process the match
       const result = MessageProcessor.process(match[0]);
 
       // If the returned message is a metadata message
-      if (result instanceof MetadataMessage) {
+      if (result instanceof MetadataMessage)
+      {
         // Merge the rooms with the local copy
         this.rooms.replace(result.rooms);
         this.devices.replace(result.devices);
       }
 
       // If the returned message is a device list message
-      if (result instanceof DeviceListMessage) {
+      if (result instanceof DeviceListMessage)
+      {
         // Loop through the updates and apply them to each device
-        for (let i = 0; i < result.updates.length; i += 1) {
+        for (let i = 0; i < result.updates.length; i += 1)
+        {
           // Find the device to update
           const device = this.devices.find(
             d => d.rfAddress === result.updates[i].rfAddress,
           );
 
           // If a device was found, update it
-          if (typeof device !== 'undefined') {
+          if (typeof device !== 'undefined')
+          {
             Object.assign(device, result.updates[i]);
           }
         }
@@ -150,7 +170,8 @@ export default class HeatingStore {
     }
   }
 
-  @computed get thermostatShouldBeActive() {
+  @computed get thermostatShouldBeActive()
+  {
     // Get the number of rooms with radiators turned on
     const roomsNeedingHeat = this.rooms.filter(room => room.radiatorsOn).length;
 
@@ -161,7 +182,8 @@ export default class HeatingStore {
     const thermostatShouldBeActive = roomsNeedingHeat > 0 && devicesInErrorState === 0;
 
     // Turn the thermostat on or off
-    if (thermostatShouldBeActive) {
+    if (thermostatShouldBeActive)
+    {
       Gpio.setActive();
 
       // Update database with value '1'
@@ -172,7 +194,9 @@ export default class HeatingStore {
         created: moment().toDate(),
       };
       store.add(update);
-    } else {
+    }
+    else
+    {
       Gpio.setInactive();
 
       // Update database with value '0'
@@ -188,19 +212,23 @@ export default class HeatingStore {
     return thermostatShouldBeActive;
   }
 
-  @computed get hasActiveProgram() {
+  @computed get hasActiveProgram()
+  {
     const rooms = this.rooms.filter(room => room.hasActiveProgram);
 
     return rooms.length > 0;
   }
 
-  @computed get hasErrors() {
+  @computed get hasErrors()
+  {
     // Loop through the rooms
-    for (let i = 0; i < this.rooms.length; i += 1) {
+    for (let i = 0; i < this.rooms.length; i += 1)
+    {
       const room = this.rooms[i];
 
       // If any room has an error, return true and end the function early
-      if (room.hasErrors) {
+      if (room.hasErrors)
+      {
         return true;
       }
     }

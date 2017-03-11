@@ -11,7 +11,8 @@ const style = {
   },
 };
 
-const AppBar = ({ heatingStore }) => {
+const AppBar = ({ heatingStore }) =>
+{
   const rooms = heatingStore.rooms.map(room => (
     <li key={room.id}><Link to={`/heating/${room.id}`}>{room.name}</Link></li>
   ));

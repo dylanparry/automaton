@@ -6,19 +6,23 @@ import DeviceConstants from '../../constants/device';
 import ClassBuilder from '../../utils/class-builder';
 import Room from '../../house/room';
 
-const getBackgroundColour = (room) => {
+const getBackgroundColour = (room) =>
+{
   // Check for errors
-  if (room.hasErrors) {
+  if (room.hasErrors)
+  {
     return 'bg-red';
   }
 
   // When the radiators are on, and the room is cold
-  if (room.radiatorsOn && room.isCold) {
+  if (room.radiatorsOn && room.isCold)
+  {
     return 'bg-lighterBlue';
   }
 
   // If there are active programs, and the room is warm
-  if (room.hasActiveProgram) {
+  if (room.hasActiveProgram)
+  {
     return 'bg-amber';
   }
 
@@ -26,9 +30,11 @@ const getBackgroundColour = (room) => {
   return 'bg-grayLight';
 };
 
-const getMode = (room) => {
+const getMode = (room) =>
+{
   // Check for errors
-  if (room.hasErrors) {
+  if (room.hasErrors)
+  {
     return 'error';
   }
 
@@ -36,7 +42,8 @@ const getMode = (room) => {
   if (
     !room.hasActiveProgram &&
     room.mode !== DeviceConstants.Status.BOOST &&
-    room.mode !== DeviceConstants.Status.HOLIDAY) {
+    room.mode !== DeviceConstants.Status.HOLIDAY)
+  {
     return 'off';
   }
 
@@ -50,7 +57,8 @@ const getMode = (room) => {
   return modes[room.mode][1];
 };
 
-const getIcon = (room) => {
+const getIcon = (room) =>
+{
   const tests = [
     ['office', 'flaticon-office'],
     ['stairs', 'flaticon-stairs'],
@@ -60,11 +68,13 @@ const getIcon = (room) => {
     ['sewing', 'flaticon-sewing'],
   ];
 
-  for (let i = 0; i < tests.length; i += 1) {
+  for (let i = 0; i < tests.length; i += 1)
+  {
     const test = tests[i];
     const regexp = new RegExp(test[0], 'i');
 
-    if (room.name.match(regexp)) {
+    if (room.name.match(regexp))
+    {
       return test[1];
     }
   }
@@ -72,17 +82,22 @@ const getIcon = (room) => {
   return null;
 };
 
-const getStatusIcon = (room) => {
-  if (room.hasErrors) {
+const getStatusIcon = (room) =>
+{
+  if (room.hasErrors)
+  {
     return <span className="fa fa-fw fa-warning" />;
-  } else if (room.radiatorsOn) {
+  }
+  else if (room.radiatorsOn)
+  {
     return <span className="fa fa-fw fa-fire" />;
   }
 
   return null;
 };
 
-const RoomTile = ({ room, displayWide }) => {
+const RoomTile = ({ room, displayWide }) =>
+{
   const iconClass = new ClassBuilder();
   iconClass.useIcon();
   iconClass.iconName = getIcon(room);

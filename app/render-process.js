@@ -11,11 +11,13 @@ webFrame.setZoomLevelLimits(1, 1);
 
 const connection = window.indexedDB.open('automaton', 1);
 
-connection.onupgradeneeded = ({ target: { result } }) => {
+connection.onupgradeneeded = ({ target: { result } }) =>
+{
   const database = result;
 
   // Create a table for rooms
-  if (!database.objectStoreNames.contains('rooms')) {
+  if (!database.objectStoreNames.contains('rooms'))
+  {
     const objectStore = database.createObjectStore('rooms', { autoIncrement: true });
 
     // Add indexes for roomId and created
@@ -24,7 +26,8 @@ connection.onupgradeneeded = ({ target: { result } }) => {
   }
 
   // Create a table for thermostat
-  if (!database.objectStoreNames.contains('thermostat')) {
+  if (!database.objectStoreNames.contains('thermostat'))
+  {
     const objectStore = database.createObjectStore('thermostat', { autoIncrement: true });
 
     // Add index for created
@@ -32,9 +35,10 @@ connection.onupgradeneeded = ({ target: { result } }) => {
   }
 };
 
-connection.onsuccess = ({ target: { result } }) => {
+connection.onsuccess = ({ target: { result } }) =>
+{
   // Stores
-  const stores = window.stores = {
+  const stores = {
     heatingStore: new HeatingStore(result),
   };
 

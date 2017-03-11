@@ -19,8 +19,10 @@ const style = {
   },
 };
 
-export default class IdleTimer extends Component {
-  constructor() {
+export default class IdleTimer extends Component
+{
+  constructor()
+  {
     super();
 
     this.state = {
@@ -36,7 +38,8 @@ export default class IdleTimer extends Component {
     document.body.addEventListener('mousemove', this.updateTime);
   }
 
-  componentDidMount() {
+  componentDidMount()
+  {
     // Start checking for idle time
     this.checkIdleTime();
 
@@ -46,7 +49,8 @@ export default class IdleTimer extends Component {
 
   returnToHomeScreen = null; // eslint-disable-line
 
-  setIdle() {
+  setIdle()
+  {
     this.setState({
       idle: true,
     });
@@ -54,12 +58,14 @@ export default class IdleTimer extends Component {
     Backlight.toMinimumBrightness();
 
     // Return to the home screen after five minutes
-    this.returnToHomeScreen = setTimeout(() => {
+    this.returnToHomeScreen = setTimeout(() =>
+    {
       hashHistory.push('/');
     }, 300000);
   }
 
-  setActive() {
+  setActive()
+  {
     // Cancel the timeout to return to the home screen
     clearTimeout(this.returnToHomeScreen);
 
@@ -73,26 +79,33 @@ export default class IdleTimer extends Component {
     this.checkIdleTime();
   }
 
-  checkIdleTime() {
+  checkIdleTime()
+  {
     // The current time less the last time the user did anything
-    if (moment.utc().diff(this.state.time) >= 60000) { // Time is one minute
+    if (moment.utc().diff(this.state.time) >= 60000)
+    { // Time is one minute
       // Screen has been idle too long
       this.setIdle();
-    } else {
+    }
+    else
+    {
       // Check again in another 10 seconds
       setTimeout(this.checkIdleTime, 10000);
     }
   }
 
-  updateTime() {
+  updateTime()
+  {
     this.setState({
       time: moment.utc(),
     });
   }
 
-  render() {
+  render()
+  {
     // The test env can't dim the brightness, so simulate it with a semi-transparent overlay
-    if (process.env.NODE_ENV === 'test') {
+    if (process.env.NODE_ENV === 'test')
+    {
       Object.assign(style, { background: 'rgba(0, 0, 0, 0.5)' });
     }
 

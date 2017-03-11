@@ -14,8 +14,10 @@ const style = {
   },
 };
 
-const ThermostatActivityChart = ({ data, currentStatus }) => {
-  if (data.length === 0) {
+const ThermostatActivityChart = ({ data, currentStatus }) =>
+{
+  if (data.length === 0)
+  {
     return null;
   }
 

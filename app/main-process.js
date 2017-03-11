@@ -8,25 +8,30 @@ import Gpio from './utils/gpio';
 let mainWindow = null;
 
 // If running in test mode, fire up a local server
-if (process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === 'test')
+{
   TestServer.create();
 }
 
 // Quit the app if there's already an instance running
-const shouldQuit = app.makeSingleInstance(() => {
+const shouldQuit = app.makeSingleInstance(() =>
+{
   // A second instance was attempted, so focus on this one
-  if (mainWindow) {
+  if (mainWindow)
+  {
     mainWindow.focus();
   }
 });
 
 // If the app is a second instance, quit it before it starts up properly
-if (shouldQuit) {
+if (shouldQuit)
+{
   app.quit();
 }
 
 // When the app is ready
-app.on('ready', () => {
+app.on('ready', () =>
+{
   // If running on a Pi, it'll be using an ARM processor running Linux
   const useKioskMode = process.arch === 'arm' && process.platform === 'linux';
 
@@ -44,12 +49,14 @@ app.on('ready', () => {
   // Load the splash screen image
   const splashPath = path.join('file:///', __dirname, '../images/splash.png');
   splashWindow.loadURL(splashPath);
-  splashWindow.webContents.on('did-finish-load', () => {
+  splashWindow.webContents.on('did-finish-load', () =>
+  {
     splashWindow.show();
   });
 
   // Dispose of the splash screen when closed
-  splashWindow.on('close', () => {
+  splashWindow.on('close', () =>
+  {
     splashWindow = null;
   });
 
@@ -71,9 +78,11 @@ app.on('ready', () => {
   mainWindow.loadURL(mainWindowPath);
 
   // Wait for the window to finish loading its contents
-  mainWindow.webContents.on('did-finish-load', () => {
+  mainWindow.webContents.on('did-finish-load', () =>
+  {
     // Hide the splash window
-    if (splashWindow && !splashWindow.isDestroyed()) {
+    if (splashWindow && !splashWindow.isDestroyed())
+    {
       splashWindow.close();
     }
 
@@ -85,18 +94,21 @@ app.on('ready', () => {
   });
 
   // Dispose of the main window when closed
-  mainWindow.on('close', () => {
+  mainWindow.on('close', () =>
+  {
     mainWindow = null;
   });
 
   // If the main window becomes unresponsive, restart the app
-  mainWindow.on('unresponsive', () => {
+  mainWindow.on('unresponsive', () =>
+  {
     app.relaunch();
     app.quit();
   });
 });
 
-app.on('window-all-closed', () => {
+app.on('window-all-closed', () =>
+{
   // Turn off the thermostat
   Gpio.setInactive();
 
@@ -104,12 +116,14 @@ app.on('window-all-closed', () => {
 });
 
 // Listen for quit commands
-ipcMain.on('quit', () => {
+ipcMain.on('quit', () =>
+{
   app.quit();
 });
 
 // Listen for restart commands
-ipcMain.on('relaunch', () => {
+ipcMain.on('relaunch', () =>
+{
   app.relaunch();
   app.quit();
 });

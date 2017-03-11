@@ -16,8 +16,10 @@ const style = {
   },
 };
 
-const TemperatureChart = ({ data, currentTemperature }) => {
-  if (data.length === 0) {
+const TemperatureChart = ({ data, currentTemperature }) =>
+{
+  if (data.length === 0)
+  {
     return null;
   }
 

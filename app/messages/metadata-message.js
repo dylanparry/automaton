@@ -2,11 +2,13 @@ import Room from '../house/room';
 import RadiatorThermostat from '../devices/radiator-thermostat';
 import WallMountedThermostat from '../devices/wall-mounted-thermostat';
 
-export default class MetadataMessage {
+export default class MetadataMessage
+{
   rooms = [];
   devices = [];
 
-  constructor(data) {
+  constructor(data)
+  {
     // Create a Base64 buffer from the data
     let buffer = new Buffer(data, 'base64');
 
@@ -15,7 +17,8 @@ export default class MetadataMessage {
     buffer = buffer.slice(3);
 
     // Get details of each rooms
-    for (let i = 0; i < roomCount; i += 1) {
+    for (let i = 0; i < roomCount; i += 1)
+    {
       const id = parseInt(buffer[0], 10);
       const nameLength = buffer[1];
       const name = buffer.slice(2, nameLength + 2).toString('utf-8');
@@ -37,7 +40,8 @@ export default class MetadataMessage {
     buffer = buffer.slice(1);
 
     // Get details of each device
-    for (let i = 0; i < deviceCount; i += 1) {
+    for (let i = 0; i < deviceCount; i += 1)
+    {
       // Get device properties
       const deviceType = buffer[0];
       const rfAddress = buffer.slice(1, 4).toString('hex');
@@ -47,7 +51,8 @@ export default class MetadataMessage {
 
       let device;
 
-      switch (deviceType) {
+      switch (deviceType)
+      {
         case 1:
         case 2:
           device = new RadiatorThermostat({
@@ -75,11 +80,13 @@ export default class MetadataMessage {
           device = null;
       }
 
-      if (device !== null) {
+      if (device !== null)
+      {
         // Get the room
         const room = this.rooms.find(r => r.id === roomId);
 
-        if (typeof room !== 'undefined') {
+        if (typeof room !== 'undefined')
+        {
           // Add the device to the room
           room.devices.push(device);
 

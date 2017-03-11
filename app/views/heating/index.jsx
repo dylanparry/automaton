@@ -6,7 +6,8 @@ import BackButton from '../../components/buttons/back-button';
 import HeatingTile from '../../components/heating';
 import RoomTile from '../../components/heating/room-tile';
 
-const HeatingIndex = ({ heatingStore }) => {
+const HeatingIndex = ({ heatingStore }) =>
+{
   const rooms = heatingStore.rooms.map(room => (
     <RoomTile key={room.id} room={room} />
   ));

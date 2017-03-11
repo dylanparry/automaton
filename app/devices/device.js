@@ -2,7 +2,8 @@ import { computed, observable } from 'mobx';
 
 import DeviceConstants from '../constants/device';
 
-export default class Device {
+export default class Device
+{
   rfAddress = null;
   serialNumber = null;
   deviceName = null;
@@ -20,7 +21,8 @@ export default class Device {
   @observable mode = null;
   @observable setPoint = 0;
 
-  constructor({ rfAddress, serialNumber, deviceName, roomId }) {
+  constructor({ rfAddress, serialNumber, deviceName, roomId })
+  {
     this.rfAddress = rfAddress;
     this.serialNumber = serialNumber;
     this.deviceName = deviceName;
@@ -30,7 +32,8 @@ export default class Device {
   /**
    * Returns true if any of the properties are in an error state
    */
-  @computed get hasErrors() {
+  @computed get hasErrors()
+  {
     return (
       this.valid === DeviceConstants.Valid.INVALID ||
       this.error === DeviceConstants.Error.YES ||

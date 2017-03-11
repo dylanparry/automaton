@@ -7,29 +7,37 @@ import RadiatorThermostat from '../../devices/radiator-thermostat';
 import ClassBuilder from '../../utils/class-builder';
 import DeviceConstants from '../../constants/device';
 
-const getDeviceIcon = (device) => {
-  if (device instanceof WallMountedThermostat) {
+const getDeviceIcon = (device) =>
+{
+  if (device instanceof WallMountedThermostat)
+  {
     return 'flaticon-thermostat';
   }
 
-  if (device instanceof RadiatorThermostat) {
+  if (device instanceof RadiatorThermostat)
+  {
     return 'flaticon-radiator';
   }
 
   return null;
 };
 
-const getDeviceBadge = (device) => {
-  if (device instanceof RadiatorThermostat) {
+const getDeviceBadge = (device) =>
+{
+  if (device instanceof RadiatorThermostat)
+  {
     return <span className="tile-badge">{device.valvePosition}%</span>;
-  } else if (device instanceof WallMountedThermostat) {
+  }
+  else if (device instanceof WallMountedThermostat)
+  {
     return <span className="tile-badge">{device.setPoint > 5 ? `${device.setPoint}°C` : 'off'}</span>;
   }
 
   return null;
 };
 
-const getStatusIcons = (device) => {
+const getStatusIcons = (device) =>
+{
   const statusIcons = [];
 
   const tests = [
@@ -40,10 +48,12 @@ const getStatusIcons = (device) => {
     ['linkStatus', DeviceConstants.LinkStatus.ERROR, 'wifi'],
   ];
 
-  for (let i = 0; i < tests.length; i += 1) {
+  for (let i = 0; i < tests.length; i += 1)
+  {
     const test = tests[i];
 
-    if (device[test[0]] === test[1]) {
+    if (device[test[0]] === test[1])
+    {
       statusIcons.push(<span className={`fa fa-fw fa-${test[2]}`} />);
     }
   }
@@ -51,7 +61,8 @@ const getStatusIcons = (device) => {
   return statusIcons;
 };
 
-const DeviceTile = ({ device }) => {
+const DeviceTile = ({ device }) =>
+{
   const tileClass = new ClassBuilder();
   tileClass.tile = 'tile';
   tileClass.color = 'fg-white';

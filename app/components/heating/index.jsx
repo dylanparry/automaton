@@ -4,17 +4,25 @@ import { inject, observer, observableArray } from 'mobx-react';
 
 import ClassBuilder from '../../utils/class-builder';
 
-const getBackgroundColour = (heatingStore) => {
-  if (!heatingStore.connected) {
+const getBackgroundColour = (heatingStore) =>
+{
+  if (!heatingStore.connected)
+  {
     // The cube isn't connected
     return 'bg-grayLight';
-  } else if (heatingStore.hasErrors) {
+  }
+  else if (heatingStore.hasErrors)
+  {
     // At least one error was reported
     return 'bg-red';
-  } else if (heatingStore.thermostatShouldBeActive) {
+  }
+  else if (heatingStore.thermostatShouldBeActive)
+  {
     // The thermostat should be active
     return 'bg-lighterBlue';
-  } else if (!heatingStore.thermostatShouldBeActive && heatingStore.hasActiveProgram) {
+  }
+  else if (!heatingStore.thermostatShouldBeActive && heatingStore.hasActiveProgram)
+  {
     // The thermostat should not be active, but there are active programs
     return 'bg-amber';
   }
@@ -23,19 +31,23 @@ const getBackgroundColour = (heatingStore) => {
   return 'bg-grayLight';
 };
 
-const getMode = (heatingStore) => {
+const getMode = (heatingStore) =>
+{
   // If the cube isn't connected
-  if (!heatingStore.connected) {
+  if (!heatingStore.connected)
+  {
     return 'cube disconnected';
   }
 
   // If any errors were reported
-  if (heatingStore.hasErrors) {
+  if (heatingStore.hasErrors)
+  {
     return 'error';
   }
 
   // If the thermostat is off, and all programs are ended
-  if (!heatingStore.thermostatShouldBeActive && !heatingStore.hasActiveProgram) {
+  if (!heatingStore.thermostatShouldBeActive && !heatingStore.hasActiveProgram)
+  {
     return 'off';
   }
 
@@ -43,7 +55,8 @@ const getMode = (heatingStore) => {
   return heatingStore.thermostatShouldBeActive ? 'active' : 'auto';
 };
 
-const HeatingTile = ({ heatingStore }) => {
+const HeatingTile = ({ heatingStore }) =>
+{
   const tileClass = new ClassBuilder();
   tileClass.tile = 'tile-wide';
   tileClass.color = 'fg-white';

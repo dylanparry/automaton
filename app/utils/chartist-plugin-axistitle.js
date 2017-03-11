@@ -23,14 +23,20 @@ defaultOptions.axisX.offset.y = 40;
 // TODO - implement a cleaner fix.
 defaultOptions.axisY.offset.y = -1;
 
-const AxisTitle = (options) => {
+const AxisTitle = (options) =>
+{
   const processedOptions = Chartist.extend({}, defaultOptions, options);
 
-  return function ctAxisTitle(chart) {
-    chart.on('created', (data) => {
-      if (!processedOptions.axisX.axisTitle && !processedOptions.axisY.axisTitle) {
+  return function ctAxisTitle(chart)
+  {
+    chart.on('created', (data) =>
+    {
+      if (!processedOptions.axisX.axisTitle && !processedOptions.axisY.axisTitle)
+      {
         throw new Error('ctAxisTitle plugin - You must provide at least one axis title');
-      } else if (!data.axisX && !data.axisY) {
+      }
+      else if (!data.axisX && !data.axisY)
+      {
         throw new Error('ctAxisTitle plugin can only be used on charts that have at least one axis');
       }
 
@@ -39,18 +45,21 @@ const AxisTitle = (options) => {
       let title;
 
       // position axis X title
-      if (processedOptions.axisX.axisTitle && data.axisX) {
+      if (processedOptions.axisX.axisTitle && data.axisX)
+      {
         xPos = (data.axisX.axisLength / 2) +
           data.options.axisY.offset +
           data.options.chartPadding.left;
 
         yPos = data.options.chartPadding.top;
 
-        if (data.options.axisY.position === 'end') {
+        if (data.options.axisY.position === 'end')
+        {
           xPos -= data.options.axisY.offset;
         }
 
-        if (data.options.axisX.position === 'end') {
+        if (data.options.axisX.position === 'end')
+        {
           yPos += data.axisY.axisLength;
         }
 
@@ -67,17 +76,20 @@ const AxisTitle = (options) => {
       }
 
       // position axis Y title
-      if (processedOptions.axisY.axisTitle && data.axisY) {
+      if (processedOptions.axisY.axisTitle && data.axisY)
+      {
         xPos = 0;
 
 
         yPos = (data.axisY.axisLength / 2) + data.options.chartPadding.top;
 
-        if (data.options.axisX.position === 'start') {
+        if (data.options.axisX.position === 'start')
+        {
           yPos += data.options.axisX.offset;
         }
 
-        if (data.options.axisY.position === 'end') {
+        if (data.options.axisY.position === 'end')
+        {
           xPos = data.axisX.axisLength;
         }
 

@@ -2,7 +2,8 @@ import leftpad from 'leftpad';
 
 const hexBufferToBinaryString = (buffer, length) => leftpad(parseInt(buffer.toString('hex'), 16).toString(2), length);
 
-const radiatorThermostatUpdate = (buffer) => {
+const radiatorThermostatUpdate = (buffer) =>
+{
   const rfAddress = buffer.slice(1, 4).toString('hex');
 
   const flags = `${leftpad(parseInt(buffer.slice(5, 6).toString('hex'), 16).toString(2), 8)}${leftpad(parseInt(buffer.slice(6, 7).toString('hex'), 16).toString(2), 8)}`;
@@ -38,7 +39,8 @@ const radiatorThermostatUpdate = (buffer) => {
   };
 };
 
-const wallMountedThermostatUpdate = (buffer) => {
+const wallMountedThermostatUpdate = (buffer) =>
+{
   const rfAddress = buffer.slice(1, 4).toString('hex');
 
   const flags = `${leftpad(parseInt(buffer.slice(5, 6).toString('hex'), 16).toString(2), 8)}${leftpad(parseInt(buffer.slice(6, 7).toString('hex'), 16).toString(2), 8)}`;
@@ -74,15 +76,19 @@ const wallMountedThermostatUpdate = (buffer) => {
   };
 };
 
-export default class DeviceListMessage {
-  constructor(data) {
+export default class DeviceListMessage
+{
+  constructor(data)
+  {
     // Loop through the data and pull out each sub message
     let buffer = new Buffer(data, 'base64');
 
-    while (buffer.length > 0) {
+    while (buffer.length > 0)
+    {
       // Variable for calculating the temperature
 
-      switch (buffer[0]) {
+      switch (buffer[0])
+      {
         case 8:
           // An ECO Button
           break;

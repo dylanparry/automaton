@@ -40,12 +40,17 @@ const deviceListMessages = [
   'L:CxMZdgYSGAAkAAAACxMf4gISGCwiAAAADBTuNgYSGAQkAAAAygsTCkPsEhgAJAAAAAsUWsBcEhgAFAAAAAsUXc4OEhgAFAAAAAsUXCVcEhgAJAAAAAsUXCbhEhgAIAAAAA==\r\n',
 ];
 
-export default class TestServer {
-  static create() {
-    const server = net.createServer((socket) => {
-      socket.on('data', (buffer) => {
+export default class TestServer
+{
+  static create()
+  {
+    const server = net.createServer((socket) =>
+    {
+      socket.on('data', (buffer) =>
+      {
         const request = buffer.toString('utf-8');
-        if (request === 'l:\r\n') {
+        if (request === 'l:\r\n')
+        {
           const response = deviceListMessages[
             Math.floor(Math.random() * deviceListMessages.length)
           ];
@@ -53,18 +58,23 @@ export default class TestServer {
         }
       });
 
-      socket.on('error', () => { });
+      socket.on('error', () =>
+      {
+        // Do nothing
+      });
     });
 
     server.listen(62910, '127.0.0.1');
 
-    server.on('connection', (socket) => {
+    server.on('connection', (socket) =>
+    {
       // Write out the hello and metadata messages
       socket.write(helloMessage);
       socket.write(metadataMessage);
 
       // Loop through the configuration messages and write them all out
-      for (let i = 0; i < configurationMessages.length; i += 1) {
+      for (let i = 0; i < configurationMessages.length; i += 1)
+      {
         socket.write(configurationMessages[i]);
       }
 

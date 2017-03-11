@@ -13,7 +13,8 @@ const style = {
   },
 };
 
-const cubeAction = (cb) => {
+const cubeAction = (cb) =>
+{
   cb();
   hashHistory.push('/');
 };

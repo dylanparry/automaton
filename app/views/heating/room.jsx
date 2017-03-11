@@ -16,8 +16,10 @@ const style = {
   },
 };
 
-class Room extends Component {
-  constructor(props) {
+class Room extends Component
+{
+  constructor(props)
+  {
     super(props);
 
     this.state = {
@@ -25,28 +27,32 @@ class Room extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount()
+  {
     // Now get the data for the room
     const query = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
       .objectStore('rooms')
       .index('roomId')
       .getAll(parseInt(this.props.params.roomId, 10));
 
-    query.onsuccess = (result) => {
+    query.onsuccess = (result) =>
+    {
       this.setState({
         temperatureData: result.target.result,
       });
     };
   }
 
-  render() {
+  render()
+  {
     // Get the room specified by the URL params
     const room = this.props.heatingStore.rooms.find(
       r => r.id === parseInt(this.props.params.roomId, 10),
     );
 
     // Return a null component if no room found
-    if (typeof room === 'undefined') {
+    if (typeof room === 'undefined')
+    {
       return null;
     }
 
