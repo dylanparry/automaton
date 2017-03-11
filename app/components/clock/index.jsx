@@ -7,25 +7,18 @@ const getDate = () =>
   const date = moment();
 
   return {
-    day: date.format('D'),
-    suffix: date.format('Do').slice(-2),
-    month: date.format('MMMM'),
+    time: date.format('HH:mm:ss'),
   };
 };
 
 const style = {
   container: {
-    marginTop: 35,
+    marginTop: 55,
     textAlign: 'center',
   },
 
-  month: {
-    fontSize: 50,
-    fontWeight: 'bold',
-  },
-
-  day: {
-    fontSize: 18,
+  time: {
+    fontSize: 30,
     fontWeight: 'bold',
   },
 };
@@ -58,8 +51,7 @@ export default class CalendarTile extends Component
       <div className="tile bg-teal fg-white">
         <div className="tile-content">
           <div style={style.container}>
-            <div style={style.month}>{this.state.day}<sup>{this.state.suffix}</sup></div>
-            <div style={style.day}>{this.state.month}</div>
+            <div style={style.time}>{this.state.time}</div>
           </div>
         </div>
       </div>
