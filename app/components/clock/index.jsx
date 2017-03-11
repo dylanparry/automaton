@@ -48,7 +48,7 @@ export default class ClockTile extends Component
   render()
   {
     return (
-      <div className="tile-wide bg-green fg-white">
+      <div className="tile-wide bg-lightBlue fg-white">
         <div className="tile-content">
           <div style={style.container}>
             <div style={style.time}>{this.state.time}</div>
