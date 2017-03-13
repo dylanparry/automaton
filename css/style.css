@@ -88,7 +88,8 @@ body::-webkit-scrollbar
 }
 
 .tile .tile-badge.top.right,
-.tile-wide .tile-badge.top.right
+.tile-wide .tile-badge.top.right,
+.tile-large .tile-badge.top.right
 {
   top: 0 !important;
   right: .425rem !important;
