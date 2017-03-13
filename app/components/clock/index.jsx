@@ -96,11 +96,7 @@ export default class ClockTile extends Component
           }),
         }),
       }),
-    }),
-  };
-
-  static defaultProps = {
-    weatherStore: null,
+    }).isRequired,
   };
 
   constructor()
