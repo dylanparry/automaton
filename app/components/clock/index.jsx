@@ -27,20 +27,43 @@ const getDate = () =>
 // Return the sun position as a percentage
 const getSunPosition = (sunrise, sunset) =>
 {
-  // Get the total number of minutes of daylight hours
-  const minutesBetweenSunriseAndSunset = sunrise.diff(sunset, 'minutes');
+  // time now
+  const now = moment();
 
-  // Get the current number of minutes after sunrise
-  const minutesSinceSunrise = sunrise.diff(moment(), 'minutes');
+  // If before sunrise
+  if (now.isBefore(sunrise))
+  {
+    return 0;
+  }
 
-  // If it's after sunset, return 100%
-  if (minutesSinceSunrise > minutesBetweenSunriseAndSunset)
+  // If after sunset
+  if (now.isAfter(sunset))
   {
     return 100;
   }
 
+  // Get the total number of minutes of daylight hours
+  const minutesBetweenSunriseAndSunset = sunrise.diff(sunset, 'minutes');
+
+  // Get the current number of minutes after sunrise
+  const minutesSinceSunrise = sunrise.diff(now, 'minutes');
+
   // Calculate the percentage of daylight that has already gone to nearest 5%
-  return round5((minutesSinceSunrise / minutesBetweenSunriseAndSunset) * 100);
+  const percentage = round5((minutesSinceSunrise / minutesBetweenSunriseAndSunset) * 100);
+
+  // Don't return higher than 95%
+  if (percentage > 95)
+  {
+    return 95;
+  }
+
+  // Don't return lower than 5%
+  if (percentage < 5)
+  {
+    return 5;
+  }
+
+  return percentage;
 };
 
 const style = {
@@ -129,7 +152,7 @@ export default class ClockTile extends Component
     return (
       <div className={tileClass}>
         <div className="tile-content">
-          {time.isAfter(sunrise) && time.isBefore(sunset) && <img src={`./images/azimuth/${sunPosition}.png`} alt="50%" />}
+          <img src={`./images/azimuth/${sunPosition}.png`} alt="50%" />
           <div style={style.time}>{this.state.time}</div>
         </div>
       </div>
