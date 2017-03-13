@@ -4,6 +4,16 @@ import moment from 'moment';
 
 import ClassBuilder from '../../utils/class-builder';
 
+const round5 = (x) =>
+{
+  if (x % 5 >= 2.5)
+  {
+    return (parseInt(x / 5, 10) * 5) + 5;
+  }
+
+  return parseInt(x / 5, 10) * 5;
+};
+
 // Return the date split into an object
 const getDate = () =>
 {
@@ -14,15 +24,34 @@ const getDate = () =>
   };
 };
 
-const style = {
-  container: {
-    marginTop: 55,
-    textAlign: 'center',
-  },
+// Return the sun position as a percentage
+const getSunPosition = (sunrise, sunset) =>
+{
+  // Get the total number of minutes of daylight hours
+  const minutesBetweenSunriseAndSunset = sunrise.diff(sunset, 'minutes');
 
+  // Get the current number of minutes after sunrise
+  const minutesSinceSunrise = sunrise.diff(moment(), 'minutes');
+
+  // If it's after sunset, return 100%
+  if (minutesSinceSunrise > minutesBetweenSunriseAndSunset)
+  {
+    return 100;
+  }
+
+  // Calculate the percentage of daylight that has already gone to nearest 5%
+  return round5((minutesSinceSunrise / minutesBetweenSunriseAndSunset) * 100);
+};
+
+const style = {
   time: {
+    textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 15,
   },
 };
 
@@ -88,6 +117,8 @@ export default class ClockTile extends Component
       .hour(this.props.weatherStore.astronomyData.sun_phase.sunset.hour)
       .minute(this.props.weatherStore.astronomyData.sun_phase.sunset.minute);
 
+    const sunPosition = getSunPosition(sunrise, sunset);
+
     const tileClass = new ClassBuilder();
     // If it's before sunrise or after sunset, tile should be dark. Otherwise blue
     tileClass.background = time.isBefore(sunrise) || time.isAfter(sunset) ? 'bg-grayDark' : 'bg-lightBlue';
@@ -98,9 +129,8 @@ export default class ClockTile extends Component
     return (
       <div className={tileClass}>
         <div className="tile-content">
-          <div style={style.container}>
-            <div style={style.time}>{this.state.time}</div>
-          </div>
+          {time.isAfter(sunrise) && time.isBefore(sunset) && <img src={`./images/azimuth/${sunPosition}.png`} alt="50%" />}
+          <div style={style.time}>{this.state.time}</div>
         </div>
       </div>
     );
