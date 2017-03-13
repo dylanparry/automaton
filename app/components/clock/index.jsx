@@ -144,7 +144,7 @@ export default class ClockTile extends Component
 
     const tileClass = new ClassBuilder();
     // If it's before sunrise or after sunset, tile should be dark. Otherwise blue
-    tileClass.background = time.isBefore(sunrise) || time.isAfter(sunset) ? 'bg-grayDark' : 'bg-lightBlue';
+    tileClass.background = time.isBefore(sunrise) || time.isAfter(sunset) ? 'bg-gray' : 'bg-lightBlue';
     tileClass.color = 'fg-white';
     tileClass.tile = 'tile-wide';
     tileClass.useTextShadow();
