@@ -1,0 +1,15 @@
+{
+  "files.exclude": {
+    "**/dist/": true,
+    "**/packages/": true,
+    "**/web.config": true,
+    "**/npm-debug.log*": true,
+    "**/yarn.lock": true
+  },
+  "auto-run-command.rules": [
+    {
+      "condition": "always",
+      "command": "workbench.action.tasks.build"
+    }
+  ]
+}

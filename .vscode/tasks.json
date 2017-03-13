@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "_runner": "terminal",
+  "tasks": [
+    {
+      "taskName": "yarn-dev",
+      "command": "yarn dev",
+      "isShellCommand": true,
+      "isBackground": true,
+      "isBuildCommand": true
+    },
+    {
+      "taskName": "yarn-start",
+      "command": "yarn start",
+      "isShellCommand": true,
+      "isBackground": true
+    }
+  ]
+}
