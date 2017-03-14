@@ -188,8 +188,8 @@ const WeatherTile = ({ weatherStore }) =>
           <p style={{ fontSize: 100, marginTop: 45, marginBottom: 35, textAlign: 'center' }}>
             <span className={`wi ${icon}`} />
           </p>
-          <p><strong>Currently:</strong> {weather.weather}</p>
-          <p><strong>Wind:</strong> {weather.wind_string}. Feels like {weather.feelslike_c}°C.</p>
+          <p style={{ lineHeight: 1.5 }}><strong>Currently:</strong> {weather.weather}</p>
+          <p style={{ lineHeight: 1.5 }}><strong>Wind:</strong> {weather.wind_string}. Feels like {weather.feelslike_c}°C.</p>
         </div>
       </div>
     </Link>
