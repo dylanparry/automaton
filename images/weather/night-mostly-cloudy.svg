@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="29.93284mm"
-   height="22.725327mm"
-   viewBox="0 0 29.932842 22.725324"
+   width="29.981367mm"
+   height="22.907669mm"
+   viewBox="0 0 29.981369 22.907667"
    version="1.1"
    id="svg32"
    inkscape:version="0.92.1 r15371"
@@ -26,14 +26,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.9195959"
-     inkscape:cx="23.181865"
-     inkscape:cy="41.600972"
+     inkscape:cx="67.186636"
+     inkscape:cy="41.222188"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -52,15 +52,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(9.5456073,-173.90035)">
+     transform="translate(9.6124249,-173.78483)">
     <g
        aria-label=""
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.45806885px;line-height:1.25;font-family:'Weather Icons';-inkscape-font-specification:'Weather Icons';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.6614517"
        id="text5789">
       <path
          d="m -9.6124249,189.84545 q 0,-2.3771 1.4856826,-4.23743 1.4856826,-1.86033 3.7723419,-2.39001 0.6459489,-2.82926 2.9067702,-4.63791 2.26082135,-1.82158 5.1805106,-1.82158 2.8550943,0 5.0771587,1.7699 2.2349829,1.7699 2.9067699,4.53456 h 0.452165 q 1.860333,0 3.436448,0.90433 1.576115,0.89141 2.493363,2.45461 0.917247,1.56319 0.917247,3.42353 0,1.82157 -0.87849,3.37185 -0.865572,1.55028 -2.390011,2.49336 -1.511521,0.93017 -3.320178,0.98184 H -2.9979076 q -2.7646615,-0.12918 -4.6895894,-2.10579 -1.9249279,-1.9766 -1.9249279,-4.74126 z m 2.3512542,0 q 0,1.79573 1.240222,3.12639 1.2531409,1.31773 3.0230411,1.40817 H 12.427353 q 1.7699,-0.0904 3.023041,-1.40817 1.253141,-1.33066 1.253141,-3.12639 0,-1.80866 -1.343574,-3.1264 -1.343573,-1.33065 -3.190987,-1.33065 H 9.9339903 q -0.2325417,0 -0.2325417,-0.24546 l -0.1033518,-0.78806 q -0.2325416,-2.23498 -1.9249278,-3.7465 -1.6923863,-1.51152 -3.9402886,-1.51152 -2.2608213,0 -3.94028859,1.51152 -1.66654831,1.51152 -1.88617091,3.7465 l -0.1033518,0.78806 q 0,0.24546 -0.2712986,0.24546 h -0.7234628 q -1.7311432,0.2067 -2.9067703,1.47276 -1.1627081,1.26606 -1.1627081,2.98429 z"
-         style="stroke-width:0.6614517;fill:#ffffff;fill-opacity:1"
-         id="path5795" />
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.6614517"
+         id="path5795"
+         inkscape:connector-curvature="0" />
     </g>
     <path
        inkscape:connector-curvature="0"

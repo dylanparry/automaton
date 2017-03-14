@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:ns="ns_ai;"
+   xmlns:i="ns_ai;"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -11,9 +11,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="22.750198mm"
-   height="21.728907mm"
-   viewBox="0 0 22.7502 21.728904"
+   width="22.750273mm"
+   height="21.728916mm"
+   viewBox="0 0 22.750274 21.728914"
    version="1.1"
    id="svg32"
    inkscape:version="0.92.1 r15371"
@@ -28,14 +28,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="-31.047601"
-     inkscape:cy="26.02039"
+     inkscape:cx="12.613393"
+     inkscape:cy="31.199018"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -54,7 +54,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(23.944516,-190.29693)">
+     transform="translate(23.94459,-190.29693)">
     <switch
        id="switch454"
        transform="matrix(0.26458333,0,0,0.26458333,-23.942399,187.46801)"
@@ -65,12 +65,12 @@
          y="0"
          x="0"
          requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/">
-        <ns:pgfRef
+        <i:pgfRef
            xlink:href="#adobe_illustrator_pgf" />
       </foreignObject>
       <g
          id="g452"
-         ns:extraneous="self"
+         i:extraneous="self"
          style="fill:#c83737">
         <path
            id="path450"
@@ -95,12 +95,12 @@
          y="0"
          x="0"
          requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/">
-        <ns:pgfRef
+        <i:pgfRef
            xlink:href="#adobe_illustrator_pgf" />
       </foreignObject>
       <g
          id="g452-0"
-         ns:extraneous="self"
+         i:extraneous="self"
          style="fill:#ffffff;fill-opacity:1">
         <path
            inkscape:connector-curvature="0"
