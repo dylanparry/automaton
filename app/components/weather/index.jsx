@@ -19,7 +19,7 @@ const propTypes = {
         }),
       }),
       moon_phase: React.PropTypes.shape({
-        ageOfMoon: React.PropTypes.number,
+        ageOfMoon: React.PropTypes.string,
       }),
     }),
     current_observation: React.PropTypes.shape({
