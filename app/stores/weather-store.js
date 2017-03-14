@@ -147,7 +147,7 @@ export default class WeatherStore
     request.onsuccess = async () =>
     {
       // Check if there was any data from last hour
-      if (request.result && moment().diff(request.result.date, 'minutes') < 60)
+      if (request.result && moment().isSame(request.result.date, 'hour'))
       {
         // Use the existing data
         this.hourlyForecastData = request.result.data;
