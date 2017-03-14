@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:i="&amp;ns_ai;"
+   xmlns:i="ns_ai;"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -12,8 +12,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="19.88238mm"
-   height="19.88238mm"
-   viewBox="0 0 19.88238 19.88238"
+   height="19.882643mm"
+   viewBox="0 0 19.88238 19.882643"
    version="1.1"
    id="svg56"
    inkscape:version="0.92.1 r15371"
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="1126.1444"
-     inkscape:cy="-228.14129"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="32.37287"
+     inkscape:cy="35.147182"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,9 +55,39 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(192.12571,-68.588572)">
+    <g
+       transform="translate(-147.46757,-26.486661)"
+       id="layer1-7"
+       inkscape:label="Layer 1">
+      <switch
+         transform="matrix(0.26458333,0,0,0.26458333,-46.92993,92.485125)"
+         id="switch214"
+         style="fill:#000000;fill-opacity:0.19607843">
+        <foreignObject
+           requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
+           x="0"
+           y="0"
+           width="1"
+           height="1">
+          <i:pgfRef
+             xlink:href="#adobe_illustrator_pgf" />
+        </foreignObject>
+        <g
+           i:extraneous="self"
+           id="g212"
+           style="fill:#000000;fill-opacity:0.19607843">
+          <path
+             style="fill:#000000;fill-opacity:0.19607843"
+             inkscape:connector-curvature="0"
+             d="m 8.5862968,47.387386 c 0,6.803 1.6760002,13.086 5.0290002,18.849 3.353,5.762 7.91,10.319 13.672,13.672 5.762,3.353 12.044,5.028 18.848,5.028 6.804,0 13.079,-1.676 18.823,-5.028 5.746,-3.353 10.295,-7.91 13.647,-13.672 3.353,-5.763 5.028,-12.046 5.028,-18.849 0,-6.803 -1.678,-13.078 -5.028,-18.823 -3.354,-5.745 -7.901,-10.294 -13.647,-13.647 -5.744,-3.353 -12.02,-5.0290004 -18.823,-5.0290004 -6.803,0 -13.086,1.6760004 -18.848,5.0290004 -5.762,3.353 -10.319,7.902 -13.672,13.647 -3.353,5.745 -5.0290002,12.02 -5.0290002,18.823 z"
+             id="path210" />
+        </g>
+      </switch>
+    </g>
     <switch
        id="switch62"
-       transform="matrix(0.26458333,0,0,0.26458333,-192.12571,65.798012)">
+       transform="matrix(0.26458333,0,0,0.26458333,-192.12571,65.798012)"
+       style="fill:#eeeeee;fill-opacity:1">
       <foreignObject
          height="1"
          width="1"
@@ -69,12 +99,13 @@
       </foreignObject>
       <g
          id="g60"
-         i:extraneous="self">
+         i:extraneous="self"
+         style="fill:#eeeeee;fill-opacity:1">
         <path
            id="path58"
            d="m 0,48.145 c 0,-5.111 0.993,-9.985 2.979,-14.624 1.985,-4.64 4.654,-8.634 8.008,-11.987 3.353,-3.353 7.349,-6.021 11.987,-8.008 4.638,-1.987 9.497,-2.979 14.574,-2.979 5.111,0 9.985,0.993 14.624,2.979 4.64,1.986 8.635,4.655 11.987,8.008 3.354,3.354 6.021,7.348 8.008,11.987 1.987,4.639 2.979,9.513 2.979,14.624 0,5.078 -0.992,9.937 -2.979,14.576 -1.986,4.639 -4.654,8.634 -8.008,11.985 -3.354,3.354 -7.349,6.021 -11.987,8.008 -4.638,1.987 -9.513,2.979 -14.624,2.979 -5.077,0 -9.936,-0.992 -14.574,-2.979 C 18.334,80.728 14.339,78.06 10.987,74.706 7.633,71.353 4.965,67.358 2.979,62.721 0.993,58.083 0,53.223 0,48.145 Z m 4.004,0 c 0,4.524 0.888,8.862 2.661,13.013 1.774,4.15 4.158,7.723 7.153,10.718 2.995,2.995 6.566,5.379 10.718,7.153 4.15,1.773 8.488,2.66 13.013,2.66 4.559,0 8.903,-0.887 13.037,-2.66 4.136,-1.774 7.707,-4.158 10.72,-7.153 3.011,-2.995 5.402,-6.566 7.178,-10.718 1.772,-4.15 2.66,-8.488 2.66,-13.013 0,-6.056 -1.506,-11.662 -4.518,-16.821 C 63.615,26.164 59.529,22.079 54.37,19.068 49.21,16.057 43.603,14.55 37.549,14.55 c -4.523,0 -8.861,0.888 -13.013,2.661 -4.15,1.774 -7.724,4.167 -10.718,7.179 -2.995,3.011 -5.379,6.584 -7.153,10.718 -1.774,4.134 -2.661,8.479 -2.661,13.037 z"
            inkscape:connector-curvature="0"
-           style="fill:#ffffff" />
+           style="fill:#eeeeee;fill-opacity:1" />
       </g>
     </switch>
   </g>

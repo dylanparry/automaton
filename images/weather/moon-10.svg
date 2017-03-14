@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:i="&amp;ns_ai;"
+   xmlns:i="ns_ai;"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -11,9 +11,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="11.821054mm"
+   width="19.856186mm"
    height="19.856449mm"
-   viewBox="0 0 11.821055 19.856449"
+   viewBox="0 0 19.856187 19.856449"
    version="1.1"
    id="svg32"
    inkscape:version="0.92.1 r15371"
@@ -27,15 +27,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="1759.5456"
-     inkscape:cy="234.09663"
+     inkscape:zoom="11.2"
+     inkscape:cx="49.41573"
+     inkscape:cy="37.488048"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,10 +54,41 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(359.71314,-190.91494)">
+     transform="translate(367.79859,-190.92129)">
+    <g
+       transform="translate(-336.39799,93.943397)"
+       id="layer1-6"
+       inkscape:label="Layer 1"
+       style="fill:#000000;fill-opacity:0.19607843">
+      <switch
+         transform="matrix(0.26458333,0,0,0.26458333,-31.400602,94.161139)"
+         id="switch214"
+         style="fill:#000000;fill-opacity:0.19607843">
+        <foreignObject
+           requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
+           x="0"
+           y="0"
+           width="1"
+           height="1">
+          <i:pgfRef
+             xlink:href="#adobe_illustrator_pgf" />
+        </foreignObject>
+        <g
+           i:extraneous="self"
+           id="g212"
+           style="fill:#000000;fill-opacity:0.19607843">
+          <path
+             style="fill:#000000;fill-opacity:0.19607843"
+             inkscape:connector-curvature="0"
+             d="m 0,48.145 c 0,6.803 1.676,13.086 5.029,18.849 3.353,5.762 7.91,10.319 13.672,13.672 5.762,3.353 12.044,5.028 18.848,5.028 6.804,0 13.079,-1.676 18.823,-5.028 5.746,-3.353 10.295,-7.91 13.647,-13.672 3.353,-5.763 5.028,-12.046 5.028,-18.849 0,-6.803 -1.678,-13.078 -5.028,-18.823 -3.354,-5.745 -7.901,-10.294 -13.647,-13.647 -5.744,-3.353 -12.02,-5.029 -18.823,-5.029 -6.803,0 -13.086,1.676 -18.848,5.029 C 12.939,19.028 8.382,23.577 5.029,29.322 1.676,35.067 0,41.342 0,48.145 Z"
+             id="path210" />
+        </g>
+      </switch>
+    </g>
     <switch
        id="switch134"
-       transform="matrix(0.26458333,0,0,0.26458333,-367.7488,188.09819)">
+       transform="matrix(0.26458333,0,0,0.26458333,-367.7488,188.09819)"
+       style="fill:#eeeeee;fill-opacity:1">
       <foreignObject
          height="1"
          width="1"
@@ -69,12 +100,13 @@
       </foreignObject>
       <g
          id="g132"
-         i:extraneous="self">
+         i:extraneous="self"
+         style="fill:#eeeeee;fill-opacity:1">
         <path
            id="path130"
            d="m 30.371,48.145 c 0,15.885 2.376,28.402 7.129,37.549 6.803,0 13.086,-1.676 18.848,-5.027 5.762,-3.351 10.32,-7.91 13.672,-13.672 3.354,-5.764 5.029,-12.047 5.029,-18.85 0,-6.803 -1.676,-13.078 -5.029,-18.823 C 66.668,23.577 62.11,19.028 56.348,15.675 50.586,12.322 44.304,10.646 37.5,10.646 32.748,22.04 30.371,34.54 30.371,48.145 Z"
            inkscape:connector-curvature="0"
-           style="fill:#ffffff" />
+           style="fill:#eeeeee;fill-opacity:1" />
       </g>
     </switch>
   </g>

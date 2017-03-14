@@ -1,80 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:i="&amp;ns_ai;"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="22.440636mm"
-   height="9.611783mm"
-   viewBox="0 0 22.440638 9.6117815"
-   version="1.1"
-   id="svg32"
-   inkscape:version="0.92.1 r15371"
-   sodipodi:docname="unknown.svg">
-  <defs
-     id="defs26" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="347.054"
-     inkscape:cy="194.66348"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata29">
+<svg 
+  xmlns:i="ns_ai;" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:cc="http://creativecommons.org/ns#" 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:svg="http://www.w3.org/2000/svg" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" 
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="22.440636mm" height="9.611783mm" viewBox="0 0 22.440638 9.6117815" version="1.1" id="svg32" inkscape:version="0.92.1 r15371" sodipodi:docname="unknown.svg">
+  <defs id="defs26" />
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.35" inkscape:cx="347.054" inkscape:cy="194.66348" inkscape:document-units="mm" inkscape:current-layer="layer1" showgrid="false" inkscape:window-width="1920" inkscape:window-height="1017" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" />
+  <metadata id="metadata29">
     <rdf:RDF>
-      <cc:Work
-         rdf:about="">
+      <cc:Work rdf:about="">
         <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-14.008603,-190.72622)">
-    <switch
-       id="switch550"
-       transform="matrix(0.26458333,0,0,0.26458333,13.995638,182.44503)">
-      <foreignObject
-         height="1"
-         width="1"
-         y="0"
-         x="0"
-         requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/">
-        <i:pgfRef
-           xlink:href="#adobe_illustrator_pgf" />
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-14.008603,-190.72622)">
+    <switch id="switch550" transform="matrix(0.26458333,0,0,0.26458333,13.995638,182.44503)">
+      <foreignObject height="1" width="1" y="0" x="0" requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/">
+        <i:pgfRef xlink:href="#adobe_illustrator_pgf" />
       </foreignObject>
-      <g
-         id="g548"
-         i:extraneous="self">
-        <path
-           id="path546"
-           d="M 0.049,66.797 H 10.156 V 47.852 h 0.098 L 20.947,66.797 H 31.299 V 32.129 H 21.192 V 50.635 H 21.094 L 10.987,32.129 H 0.049 Z m 33.984,0.83 h 7.422 L 55.029,31.299 h -7.373 z m 14.942,-0.83 h 10.791 l 1.514,-4.932 h 11.035 l 1.465,4.932 H 84.864 L 72.218,32.129 H 61.77 Z M 63.623,54.395 66.943,43.75 h 0.146 l 3.125,10.645 z"
-           inkscape:connector-curvature="0"
-           style="fill:#ffffff" />
+      <g id="g548" i:extraneous="self">
+        <path id="path546" d="M 0.049,66.797 H 10.156 V 47.852 h 0.098 L 20.947,66.797 H 31.299 V 32.129 H 21.192 V 50.635 H 21.094 L 10.987,32.129 H 0.049 Z m 33.984,0.83 h 7.422 L 55.029,31.299 h -7.373 z m 14.942,-0.83 h 10.791 l 1.514,-4.932 h 11.035 l 1.465,4.932 H 84.864 L 72.218,32.129 H 61.77 Z M 63.623,54.395 66.943,43.75 h 0.146 l 3.125,10.645 z" inkscape:connector-curvature="0" style="fill:#ffffff" />
       </g>
     </switch>
   </g>

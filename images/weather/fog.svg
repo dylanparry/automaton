@@ -1,82 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:i="&amp;#38;ns_ai;"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="34.118813mm"
-   height="24.210697mm"
-   viewBox="0 0 34.118813 24.210697"
-   version="1.1"
-   id="svg32"
-   inkscape:version="0.92.1 r15371"
-   sodipodi:docname="fog.svg">
-  <defs
-     id="defs26" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="49.195788"
-     inkscape:cy="46.018836"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata29">
+<svg 
+  xmlns:i="ns_ai;" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:cc="http://creativecommons.org/ns#" 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:svg="http://www.w3.org/2000/svg" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" 
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="34.118813mm" height="24.210697mm" viewBox="0 0 34.118813 24.210697" version="1.1" id="svg32" inkscape:version="0.92.1 r15371" sodipodi:docname="fog.svg">
+  <defs id="defs26" />
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="7.9195959" inkscape:cx="49.195788" inkscape:cy="46.018836" inkscape:document-units="mm" inkscape:current-layer="layer1" showgrid="false" inkscape:window-width="1920" inkscape:window-height="1017" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" />
+  <metadata id="metadata29">
     <rdf:RDF>
-      <cc:Work
-         rdf:about="">
+      <cc:Work rdf:about="">
         <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(218.89869,-40.722033)">
-    <switch
-       id="switch38"
-       transform="matrix(0.26458333,0,0,0.26458333,-218.89869,37.957666)"
-       style="fill:#dddddd;fill-opacity:1">
-      <foreignObject
-         height="1"
-         width="1"
-         y="0"
-         x="0"
-         requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/">
-        <i:pgfRef
-           xlink:href="#adobe_illustrator_pgf" />
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(218.89869,-40.722033)">
+    <switch id="switch38" transform="matrix(0.26458333,0,0,0.26458333,-218.89869,37.957666)" style="fill:#dddddd;fill-opacity:1">
+      <foreignObject height="1" width="1" y="0" x="0" requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/">
+        <i:pgfRef xlink:href="#adobe_illustrator_pgf" />
       </foreignObject>
-      <g
-         id="g36"
-         i:extraneous="self"
-         style="fill:#dddddd;fill-opacity:1">
-        <path
-           id="path34"
-           d="M 0,81.495 C 0,80.224 0.439,79.167 1.318,78.32 2.197,77.472 3.287,77.049 4.589,77.049 h 97.218 c 1.301,0 2.367,0.414 3.197,1.244 0.83,0.83 1.244,1.896 1.244,3.199 0,1.203 -0.431,2.213 -1.293,3.025 -0.863,0.814 -1.912,1.221 -3.148,1.222 H 4.589 C 3.287,85.739 2.197,85.332 1.318,84.517 0.439,83.706 0,82.697 0,81.495 Z M 13.623,65.137 c 0,-1.27 0.456,-2.311 1.367,-3.125 0.781,-0.781 1.807,-1.172 3.076,-1.172 h 97.267 c 1.205,0 2.213,0.414 3.026,1.244 0.813,0.83 1.222,1.848 1.222,3.053 0,1.236 -0.408,2.287 -1.222,3.148 -0.813,0.862 -1.823,1.295 -3.026,1.295 H 18.066 c -1.237,0 -2.286,-0.439 -3.149,-1.318 -0.863,-0.879 -1.294,-1.92 -1.294,-3.125 z m 0.684,-12.403 c 0,0.455 0.26,0.685 0.781,0.685 h 7.471 c 0.325,0 0.667,-0.277 1.025,-0.83 1.237,-2.702 3.084,-4.916 5.542,-6.642 2.458,-1.725 5.152,-2.702 8.081,-2.93 l 2.881,-0.391 c 0.586,0 0.879,-0.309 0.879,-0.928 l 0.342,-2.588 c 0.553,-5.631 2.938,-10.327 7.153,-14.087 4.215,-3.76 9.155,-5.64 14.819,-5.64 5.632,0 10.54,1.855 14.722,5.566 4.185,3.71 6.567,8.365 7.153,13.965 l 0.392,2.979 c 0,0.586 0.342,0.879 1.024,0.879 h 8.302 c 3.353,0 6.403,0.896 9.153,2.686 2.752,1.791 4.794,4.167 6.129,7.128 0.357,0.555 0.716,0.83 1.074,0.83 h 7.472 c 0.618,0 0.861,-0.391 0.731,-1.172 -1.531,-5.339 -4.56,-9.701 -9.082,-13.085 -4.524,-3.385 -9.687,-5.078 -15.479,-5.078 h -1.66 C 91.486,27.147 87.851,21.475 82.3,17.064 76.749,12.653 70.409,10.447 63.28,10.448 c -7.292,0 -13.77,2.287 -19.434,6.86 -5.664,4.573 -9.294,10.408 -10.889,17.505 -4.427,1.042 -8.31,3.142 -11.646,6.299 -3.337,3.158 -5.656,6.934 -6.958,11.328 v -0.193 c -0.033,0.097 -0.049,0.26 -0.049,0.486 z m 8.398,44.727 c 0,-1.236 0.456,-2.262 1.367,-3.076 0.782,-0.781 1.823,-1.172 3.125,-1.172 h 97.315 c 1.236,0 2.285,0.406 3.148,1.221 0.861,0.814 1.293,1.822 1.293,3.027 0,1.235 -0.438,2.295 -1.316,3.174 -0.879,0.879 -1.922,1.318 -3.125,1.318 H 27.197 c -1.205,0 -2.254,-0.447 -3.149,-1.345 -0.895,-0.893 -1.342,-1.943 -1.343,-3.147 z"
-           inkscape:connector-curvature="0"
-           style="fill:#dddddd;fill-opacity:1" />
+      <g id="g36" i:extraneous="self" style="fill:#dddddd;fill-opacity:1">
+        <path id="path34" d="M 0,81.495 C 0,80.224 0.439,79.167 1.318,78.32 2.197,77.472 3.287,77.049 4.589,77.049 h 97.218 c 1.301,0 2.367,0.414 3.197,1.244 0.83,0.83 1.244,1.896 1.244,3.199 0,1.203 -0.431,2.213 -1.293,3.025 -0.863,0.814 -1.912,1.221 -3.148,1.222 H 4.589 C 3.287,85.739 2.197,85.332 1.318,84.517 0.439,83.706 0,82.697 0,81.495 Z M 13.623,65.137 c 0,-1.27 0.456,-2.311 1.367,-3.125 0.781,-0.781 1.807,-1.172 3.076,-1.172 h 97.267 c 1.205,0 2.213,0.414 3.026,1.244 0.813,0.83 1.222,1.848 1.222,3.053 0,1.236 -0.408,2.287 -1.222,3.148 -0.813,0.862 -1.823,1.295 -3.026,1.295 H 18.066 c -1.237,0 -2.286,-0.439 -3.149,-1.318 -0.863,-0.879 -1.294,-1.92 -1.294,-3.125 z m 0.684,-12.403 c 0,0.455 0.26,0.685 0.781,0.685 h 7.471 c 0.325,0 0.667,-0.277 1.025,-0.83 1.237,-2.702 3.084,-4.916 5.542,-6.642 2.458,-1.725 5.152,-2.702 8.081,-2.93 l 2.881,-0.391 c 0.586,0 0.879,-0.309 0.879,-0.928 l 0.342,-2.588 c 0.553,-5.631 2.938,-10.327 7.153,-14.087 4.215,-3.76 9.155,-5.64 14.819,-5.64 5.632,0 10.54,1.855 14.722,5.566 4.185,3.71 6.567,8.365 7.153,13.965 l 0.392,2.979 c 0,0.586 0.342,0.879 1.024,0.879 h 8.302 c 3.353,0 6.403,0.896 9.153,2.686 2.752,1.791 4.794,4.167 6.129,7.128 0.357,0.555 0.716,0.83 1.074,0.83 h 7.472 c 0.618,0 0.861,-0.391 0.731,-1.172 -1.531,-5.339 -4.56,-9.701 -9.082,-13.085 -4.524,-3.385 -9.687,-5.078 -15.479,-5.078 h -1.66 C 91.486,27.147 87.851,21.475 82.3,17.064 76.749,12.653 70.409,10.447 63.28,10.448 c -7.292,0 -13.77,2.287 -19.434,6.86 -5.664,4.573 -9.294,10.408 -10.889,17.505 -4.427,1.042 -8.31,3.142 -11.646,6.299 -3.337,3.158 -5.656,6.934 -6.958,11.328 v -0.193 c -0.033,0.097 -0.049,0.26 -0.049,0.486 z m 8.398,44.727 c 0,-1.236 0.456,-2.262 1.367,-3.076 0.782,-0.781 1.823,-1.172 3.125,-1.172 h 97.315 c 1.236,0 2.285,0.406 3.148,1.221 0.861,0.814 1.293,1.822 1.293,3.027 0,1.235 -0.438,2.295 -1.316,3.174 -0.879,0.879 -1.922,1.318 -3.125,1.318 H 27.197 c -1.205,0 -2.254,-0.447 -3.149,-1.345 -0.895,-0.893 -1.342,-1.943 -1.343,-3.147 z" inkscape:connector-curvature="0" style="fill:#dddddd;fill-opacity:1" />
       </g>
     </switch>
   </g>

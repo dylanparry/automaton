@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:i="&amp;ns_ai;"
+   xmlns:i="ns_ai;"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -11,9 +11,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="14.675644mm"
-   height="19.883173mm"
-   viewBox="0 0 14.675644 19.883173"
+   width="19.856186mm"
+   height="19.856449mm"
+   viewBox="0 0 19.856186 19.856449"
    version="1.1"
    id="svg32"
    inkscape:version="0.92.1 r15371"
@@ -27,15 +27,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="577.35263"
-     inkscape:cy="372.53291"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="44.027527"
+     inkscape:cy="33.598532"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,10 +54,41 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(46.924576,-227.51615)">
+     transform="translate(52.142044,-227.54872)">
+    <g
+       transform="translate(-20.741442,130.57083)"
+       id="layer1-8"
+       inkscape:label="Layer 1"
+       style="fill:#000000;fill-opacity:0.19607843">
+      <switch
+         transform="matrix(0.26458333,0,0,0.26458333,-31.400602,94.161139)"
+         id="switch214"
+         style="fill:#000000;fill-opacity:0.19607843">
+        <foreignObject
+           requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
+           x="0"
+           y="0"
+           width="1"
+           height="1">
+          <i:pgfRef
+             xlink:href="#adobe_illustrator_pgf" />
+        </foreignObject>
+        <g
+           i:extraneous="self"
+           id="g212"
+           style="fill:#000000;fill-opacity:0.19607843">
+          <path
+             style="fill:#000000;fill-opacity:0.19607843"
+             inkscape:connector-curvature="0"
+             d="m 0,48.145 c 0,6.803 1.676,13.086 5.029,18.849 3.353,5.762 7.91,10.319 13.672,13.672 5.762,3.353 12.044,5.028 18.848,5.028 6.804,0 13.079,-1.676 18.823,-5.028 5.746,-3.353 10.295,-7.91 13.647,-13.672 3.353,-5.763 5.028,-12.046 5.028,-18.849 0,-6.803 -1.678,-13.078 -5.028,-18.823 -3.354,-5.745 -7.901,-10.294 -13.647,-13.647 -5.744,-3.353 -12.02,-5.029 -18.823,-5.029 -6.803,0 -13.086,1.676 -18.848,5.029 C 12.939,19.028 8.382,23.577 5.029,29.322 1.676,35.067 0,41.342 0,48.145 Z"
+             id="path210" />
+        </g>
+      </switch>
+    </g>
     <switch
        id="switch182"
-       transform="matrix(0.26458333,0,0,0.26458333,-52.131047,224.72638)">
+       transform="matrix(0.26458333,0,0,0.26458333,-52.131047,224.72638)"
+       style="fill:#eeeeee;fill-opacity:1">
       <foreignObject
          height="1"
          width="1"
@@ -69,12 +100,13 @@
       </foreignObject>
       <g
          id="g180"
-         i:extraneous="self">
+         i:extraneous="self"
+         style="fill:#eeeeee;fill-opacity:1">
         <path
            id="path178"
            d="m 19.678,48.096 c 0,4.134 0.276,7.926 0.83,11.376 0.554,3.451 1.48,6.828 2.783,10.133 1.302,3.305 3.156,6.314 5.565,9.033 2.409,2.717 5.322,5.069 8.74,7.055 5.078,0 9.937,-0.991 14.575,-2.979 4.638,-1.988 8.635,-4.655 11.987,-8.008 3.352,-3.354 6.021,-7.349 8.008,-11.986 1.985,-4.638 2.979,-9.514 2.979,-14.625 0,-5.111 -0.994,-9.978 -2.979,-14.6 -1.985,-4.622 -4.655,-8.61 -8.008,-11.963 -3.354,-3.354 -7.35,-6.022 -11.987,-8.009 -4.639,-1.985 -9.497,-2.979 -14.575,-2.979 -5.567,3.809 -9.945,9.074 -13.135,15.796 -3.189,6.724 -4.784,13.975 -4.783,21.756 z"
            inkscape:connector-curvature="0"
-           style="fill:#ffffff" />
+           style="fill:#eeeeee;fill-opacity:1" />
       </g>
     </switch>
   </g>
