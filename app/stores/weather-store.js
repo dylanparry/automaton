@@ -86,10 +86,8 @@ export default class WeatherStore
 
     request.onsuccess = async () =>
     {
-      const sameDay = moment().isSame(request.result.date, 'day');
-
       // Check if there was any data from today
-      if (request.result && sameDay)
+      if (request.result && moment().isSame(request.result.date, 'day'))
       {
         // Use the existing data
         this.astronomyData = request.result.data;
@@ -118,10 +116,8 @@ export default class WeatherStore
 
     request.onsuccess = async () =>
     {
-      const ageOfData = moment().diff(request.result.date, 'minutes');
-
       // Check if there was any data from last fifteen minutes
-      if (request.result && ageOfData < 15)
+      if (request.result && moment().diff(request.result.date, 'minutes') < 15)
       {
         // Use the existing data
         this.conditionsData = request.result.data;
@@ -150,10 +146,8 @@ export default class WeatherStore
 
     request.onsuccess = async () =>
     {
-      const ageOfData = moment().diff(request.result.date, 'minutes');
-
       // Check if there was any data from last hour
-      if (request.result && ageOfData < 60)
+      if (request.result && moment().diff(request.result.date, 'minutes') < 60)
       {
         // Use the existing data
         this.hourlyForecastData = request.result.data;
@@ -182,10 +176,8 @@ export default class WeatherStore
 
     request.onsuccess = async () =>
     {
-      const sameDay = moment().isSame(request.result.date, 'day');
-
       // Check if there was any data from today
-      if (request.result && sameDay)
+      if (request.result && moment().isSame(request.result.date, 'day'))
       {
         // Use the existing data
         this.tenDayForecastData = request.result.data;
