@@ -10,7 +10,7 @@ import WeatherStore from './stores/weather-store';
 // Disable zooming
 webFrame.setZoomLevelLimits(1, 1);
 
-const connection = window.indexedDB.open('automaton', 1);
+const connection = window.indexedDB.open('automaton', 2);
 
 connection.onupgradeneeded = ({ target: { result } }) =>
 {
@@ -33,6 +33,15 @@ connection.onupgradeneeded = ({ target: { result } }) =>
 
     // Add index for created
     objectStore.createIndex('created', 'created', { unique: false });
+  }
+
+  // Create a table for weather
+  if (!database.objectStoreNames.contains('weather'))
+  {
+    const objectStore = database.createObjectStore('weather', { autoIncrement: true });
+
+    // Add an index for type
+    objectStore.createIndex('type', 'type', { unique: true });
   }
 };
 
