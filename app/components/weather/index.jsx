@@ -78,7 +78,7 @@ const getIcon = (isDayTime, condition, ageOfMoon) =>
       return isDayTime ? 'day-partly-cloudy' : 'night-partly-cloudy';
 
     default:
-      return 'na';
+      return 'unknown';
   }
 };
 
