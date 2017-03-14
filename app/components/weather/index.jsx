@@ -32,86 +32,53 @@ const propTypes = {
   }).isRequired,
 };
 
-const getMoonPhase = (day) =>
-{
-  const phases = [
-    'wi-moon-new',
-    'wi-moon-waxing-crescent-1',
-    'wi-moon-waxing-crescent-2',
-    'wi-moon-waxing-crescent-3',
-    'wi-moon-waxing-crescent-4',
-    'wi-moon-waxing-crescent-5',
-    'wi-moon-waxing-crescent-6',
-    'wi-moon-first-quarter',
-    'wi-moon-waxing-gibbous-1',
-    'wi-moon-waxing-gibbous-2',
-    'wi-moon-waxing-gibbous-3',
-    'wi-moon-waxing-gibbous-4',
-    'wi-moon-waxing-gibbous-5',
-    'wi-moon-waxing-gibbous-6',
-    'wi-moon-full',
-    'wi-moon-waning-gibbous-1',
-    'wi-moon-waning-gibbous-2',
-    'wi-moon-waning-gibbous-3',
-    'wi-moon-waning-gibbous-4',
-    'wi-moon-waning-gibbous-5',
-    'wi-moon-waning-gibbous-6',
-    'wi-moon-third-quarter',
-    'wi-moon-waning-crescent-1',
-    'wi-moon-waning-crescent-2',
-    'wi-moon-waning-crescent-3',
-    'wi-moon-waning-crescent-4',
-    'wi-moon-waning-crescent-5',
-    'wi-moon-waning-crescent-6',
-  ];
-
-  return phases[day - 1];
-};
-
-const getIcon = (isDayTime, condition) =>
+const getIcon = (isDayTime, condition, ageOfMoon) =>
 {
   switch (condition)
   {
     case 'chanceflurries':
-      return 'wi-snow-wind';
-    case 'chancerain':
-      return 'wi-rain';
-    case 'chancesleet':
-      return 'wi-sleet';
-    case 'chancesnow':
-      return 'wi-snow';
-    case 'chancestorms':
-      return 'wi-tstorms';
-    case 'clear':
-      return isDayTime ? 'wi-day-sunny' : getMoonPhase();
-    case 'cloudy':
-      return 'wi-cloudy';
     case 'flurries':
-      return 'wi-snow-wind';
-    case 'fog':
-      return 'wi-fog';
-    case 'hazy':
-      return 'wi-day-haze';
-    case 'mostlycloudy':
-      return isDayTime ? 'wi-day-cloudy' : 'wi-night-alt-cloudy';
-    case 'mostlysunny':
-      return 'wi-day-sunny-overcast';
-    case 'partlycloudy':
-      return isDayTime ? 'wi-day-sunny-overcast' : 'wi-night-alt-partly-cloudy';
-    case 'partlysunny':
-      return isDayTime ? 'wi-day-cloudy' : 'wi-night-alt-cloudy';
-    case 'sleet':
-      return 'wi-sleet';
+      return 'flurries';
+
+    case 'chancerain':
     case 'rain':
-      return 'wi-rain';
+      return 'rain';
+
+    case 'chancesleet':
+    case 'sleet':
+      return 'sleet';
+
+    case 'chancesnow':
     case 'snow':
-      return 'wi-snow';
-    case 'sunny':
-      return 'wi-day-sunny';
+      return 'snow';
+
+    case 'chancestorms':
     case 'tstorms':
-      return 'wi-thunderstorm';
+      return 'tstorms';
+
+    case 'clear':
+    case 'sunny':
+      return isDayTime ? 'sunny' : `moon-${ageOfMoon}`;
+
+    case 'cloudy':
+      return 'cloudy';
+
+    case 'fog':
+      return 'fog';
+
+    case 'hazy':
+      return 'hazy';
+
+    case 'mostlycloudy':
+    case 'partlysunny':
+      return isDayTime ? 'day-mostly-cloudy' : 'night-mostly-cloudy';
+
+    case 'mostlysunny':
+    case 'partlycloudy':
+      return isDayTime ? 'day-partly-cloudy' : 'night-partly-cloudy';
+
     default:
-      return 'wi-na';
+      return 'na';
   }
 };
 
@@ -185,12 +152,12 @@ const WeatherTile = ({ weatherStore }) =>
       <div className={tileClass}>
         <div className="tile-content">
           <span className="tile-badge top right" style={{ fontSize: 24 }}>{weather.temp_c}°C</span>
-          <p style={{ fontSize: 100, marginTop: 55, marginBottom: 25, textAlign: 'center' }}>
-            <span className={`wi ${icon}`} />
+          <p style={{ height: 100, marginTop: 55, marginBottom: 25, textAlign: 'center' }}>
+            <img src={`./images/weather/${icon}.svg`} alt="" style={{ verticalAlign: 'middle' }} />
           </p>
           <div style={{ position: 'absolute', bottom: 10, left: 10, right: 10, padding: 10, borderRadius: 10, lineHeight: 1.5, background: 'rgba(0, 0, 0, 0.15)' }}>
             <p style={{ marginTop: 0 }}>
-              It’s currently {weather.weather.toLowerCase()}, and feels like {weather.feelslike_c}°C
+              It’s {weather.weather.toLowerCase()}, and feels like {weather.feelslike_c}°C
             </p>
             <p style={{ marginBottom: 0 }}>
               Wind is {weather.wind_string.charAt(0).toLowerCase()}{weather.wind_string.slice(1).replace(' Gusting', ', gusting').replace(/MPH/g, 'mph')}.
