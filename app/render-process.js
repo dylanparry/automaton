@@ -41,7 +41,7 @@ connection.onsuccess = ({ target: { result } }) =>
   // Stores
   const stores = {
     heatingStore: new HeatingStore(result),
-    weatherStore: new WeatherStore(process.env.WEATHER_DOT_COM_API_KEY),
+    weatherStore: new WeatherStore(),
   };
 
   // Create a Provider with props for the stores and the Router as a child

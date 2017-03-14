@@ -2,6 +2,11 @@ import { action, observable } from 'mobx';
 import moment from 'moment';
 import axios from 'axios';
 
+const apiPrefix = `http://api.wunderground.com/api/${process.env.WEATHER_DOT_COM_API_KEY}`;
+const apiSuffix = `q/${process.env.WEATHER_DOT_COM_API_COUNTRY}/${process.env.WEATHER_DOT_COM_API_TOWN}.json`;
+
+const getApiUrl = type => `${apiPrefix}/${type}/${apiSuffix}`;
+
 export default class WeatherStore
 {
   @observable
@@ -16,11 +21,8 @@ export default class WeatherStore
   @observable
   tenDayForecastData;
 
-  constructor(apiKey)
+  constructor()
   {
-    // Set the API key
-    this.apiUrl = `http://api.wunderground.com/api/${apiKey}`;
-
     // Request all data
     this.requestAstronomyData();
     this.requestConditionsData();
@@ -62,7 +64,7 @@ export default class WeatherStore
   @action
   async requestAstronomyData()
   {
-    const result = await axios(`${this.apiUrl}/astronomy/q/uk/UK/Gloucester.json`);
+    const result = await axios(getApiUrl('astronomy'));
 
     if (result.status === 200)
     {
@@ -73,7 +75,7 @@ export default class WeatherStore
   @action
   async requestConditionsData()
   {
-    const result = await axios(`${this.apiUrl}/conditions/q/uk/UK/Gloucester.json`);
+    const result = await axios(getApiUrl('conditions'));
 
     if (result.status === 200)
     {
@@ -84,7 +86,7 @@ export default class WeatherStore
   @action
   async requestHourlyForecastData()
   {
-    const result = await axios(`${this.apiUrl}/hourly/q/uk/UK/Gloucester.json`);
+    const result = await axios(getApiUrl('hourly'));
 
     if (result.status === 200)
     {
@@ -95,7 +97,7 @@ export default class WeatherStore
   @action
   async requestTenDayForecastData()
   {
-    const result = await axios(`${this.apiUrl}/forecast10day/q/uk/UK/Gloucester.json`);
+    const result = await axios(getApiUrl('forecast10day'));
 
     if (result.status === 200)
     {
