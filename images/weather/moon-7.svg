@@ -13,7 +13,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="19.856186mm"
    height="19.856449mm"
-   viewBox="0 0 19.856186 19.856449"
+   viewBox="0 0 19.856187 19.856447"
    version="1.1"
    id="svg32"
    inkscape:version="0.92.1 r15371"
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="76.397615"
-     inkscape:cy="35.293946"
+     inkscape:zoom="7.919596"
+     inkscape:cx="46.80519"
+     inkscape:cy="35.119748"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,16 +54,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(321.58165,-244.29087)">
+     transform="translate(36.285207,-229.15858)">
     <g
-       transform="translate(-290.18105,147.31298)"
-       id="layer1-9"
+       transform="rotate(180,-23.914812,172.99633)"
+       id="layer1-7"
        inkscape:label="Layer 1"
-       style="fill:#eeeeee;fill-opacity:1">
+       style="fill:#000000;fill-opacity:0.19607843">
       <switch
+         style="fill:#000000;fill-opacity:0.19607843"
          transform="matrix(0.26458333,0,0,0.26458333,-31.400602,94.161139)"
-         id="switch214"
-         style="fill:#eeeeee;fill-opacity:1">
+         id="switch214">
         <foreignObject
            requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
            x="0"
@@ -74,9 +74,9 @@
              xlink:href="#adobe_illustrator_pgf" />
         </foreignObject>
         <g
+           style="fill:#000000;fill-opacity:0.19607843"
            i:extraneous="self"
-           id="g212"
-           style="fill:#eeeeee;fill-opacity:1">
+           id="g212">
           <path
              style="fill:#000000;fill-opacity:0.19607843"
              inkscape:connector-curvature="0"
@@ -86,8 +86,8 @@
       </switch>
     </g>
     <switch
-       id="switch86"
-       transform="matrix(0.26458333,0,0,0.26458333,-321.57543,241.46854)"
+       id="switch342"
+       transform="matrix(-0.26458333,0,0,-0.26458333,-16.429022,251.83152)"
        style="fill:#eeeeee;fill-opacity:1">
       <foreignObject
          height="1"
@@ -99,12 +99,12 @@
            xlink:href="#adobe_illustrator_pgf" />
       </foreignObject>
       <g
-         id="g84"
+         id="g340"
          i:extraneous="self"
          style="fill:#eeeeee;fill-opacity:1">
         <path
-           id="path82"
-           d="m 37.5,85.693 c 6.804,0 13.086,-1.677 18.849,-5.028 5.762,-3.353 10.319,-7.91 13.672,-13.672 3.354,-5.763 5.028,-12.046 5.028,-18.849 0,-6.804 -1.676,-13.078 -5.028,-18.823 C 66.668,23.576 62.111,19.027 56.349,15.674 50.586,12.321 44.304,10.645 37.5,10.645 c 5.567,9.668 8.351,22.168 8.351,37.5 0,7.779 -0.578,14.779 -1.733,20.996 -1.157,6.217 -3.362,11.734 -6.618,16.552 z"
+           id="path338"
+           d="m 0,48.145 c 0,6.803 1.676,13.085 5.029,18.848 3.353,5.762 7.902,10.319 13.647,13.672 5.746,3.354 12.02,5.028 18.824,5.028 -3.32,-10.481 -4.98,-22.998 -4.98,-37.548 0,-11.426 1.66,-23.926 4.98,-37.5 -6.804,0 -13.078,1.676 -18.824,5.029 C 12.931,19.027 8.382,23.576 5.029,29.321 1.676,35.066 0,41.34 0,48.145 Z"
            inkscape:connector-curvature="0"
            style="fill:#eeeeee;fill-opacity:1" />
       </g>
