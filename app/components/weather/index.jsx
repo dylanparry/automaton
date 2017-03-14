@@ -188,7 +188,7 @@ const WeatherTile = ({ weatherStore }) =>
           <p style={{ fontSize: 100, marginTop: 65, marginBottom: 25, textAlign: 'center' }}>
             <span className={`wi ${icon}`} />
           </p>
-          <div style={{ padding: 10, borderRadius: 10, margin: 10, lineHeight: 1.5, background: 'rgba(0, 0, 0, 0.2)' }}>
+          <div style={{ padding: 10, borderRadius: 10, margin: 10, lineHeight: 1.5, background: 'rgba(0, 0, 0, 0.15)' }}>
             <p style={{ marginTop: 0 }}>
               It’s currently {weather.weather.toLowerCase()}, and feels like {weather.feelslike_c}°C
             </p>
