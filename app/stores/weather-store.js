@@ -21,8 +21,12 @@ export default class WeatherStore
   @observable
   tenDayForecastData;
 
-  constructor()
+  database;
+
+  constructor(database)
   {
+    this.database = database;
+
     // Request all data
     this.requestAstronomyData();
     this.requestConditionsData();

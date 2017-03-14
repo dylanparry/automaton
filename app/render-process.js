@@ -50,7 +50,7 @@ connection.onsuccess = ({ target: { result } }) =>
   // Stores
   const stores = {
     heatingStore: new HeatingStore(result),
-    weatherStore: new WeatherStore(),
+    weatherStore: new WeatherStore(result),
   };
 
   // Create a Provider with props for the stores and the Router as a child
