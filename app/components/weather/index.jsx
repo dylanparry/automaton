@@ -115,6 +115,44 @@ const getIcon = (isDayTime, condition) =>
   }
 };
 
+const getBackground = (isDayTime, condition) =>
+{
+  if (!isDayTime)
+  {
+    // Night colour is always grey
+    return 'bg-gray';
+  }
+
+  switch (condition)
+  {
+    case 'clear':
+    case 'mostlysunny':
+    case 'sunny':
+    case 'partlycloudy':
+      return 'bg-lightBlue';
+
+    case 'mostlycloudy':
+    case 'partlysunny':
+      return 'bg-darkCyan';
+
+    case 'chanceflurries':
+    case 'chancerain':
+    case 'chancesleet':
+    case 'chancesnow':
+    case 'chancestorms':
+    case 'cloudy':
+    case 'flurries':
+    case 'fog':
+    case 'hazy':
+    case 'sleet':
+    case 'rain':
+    case 'snow':
+    case 'tstorms':
+    default:
+      return 'bg-grayLight';
+  }
+};
+
 const WeatherTile = ({ weatherStore }) =>
 {
   if (!weatherStore.astronomyData || !weatherStore.conditionsData)
@@ -132,13 +170,13 @@ const WeatherTile = ({ weatherStore }) =>
     .minute(weatherStore.astronomyData.sun_phase.sunset.minute);
   const isDayTime = now.isAfter(sunrise) && now.isBefore(sunset);
 
+  const weather = weatherStore.conditionsData.current_observation;
+
   const tileClass = new ClassBuilder();
   tileClass.tile = 'tile-large';
-  tileClass.background = isDayTime ? 'bg-lightBlue' : 'bg-gray';
+  tileClass.background = getBackground(isDayTime, weather.icon);
   tileClass.color = 'fg-white';
   tileClass.useTextShadow();
-
-  const weather = weatherStore.conditionsData.current_observation;
 
   const icon = getIcon(isDayTime, weather.icon, weatherStore.astronomyData.moon_phase.ageOfMoon);
 
