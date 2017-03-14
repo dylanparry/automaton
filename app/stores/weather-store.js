@@ -65,47 +65,143 @@ export default class WeatherStore
     setTimeout(this.updateData.bind(this), 60000);
   }
 
-  @action
-  async requestAstronomyData()
+  updateDatabase(type, data)
   {
-    const result = await axios(getApiUrl('astronomy'));
+    // Store the data in the database
+    const transaction = this.database.transaction(['weather'], 'readwrite');
+    const objectStore = transaction.objectStore('weather');
+    objectStore.put({
+      type,
+      data,
+      date: new Date(),
+    });
+  }
 
-    if (result.status === 200)
+  @action
+  requestAstronomyData()
+  {
+    const transaction = this.database.transaction(['weather']);
+    const objectStore = transaction.objectStore('weather');
+    const request = objectStore.get('astronomy');
+
+    request.onsuccess = async () =>
     {
-      this.astronomyData = result.data;
-    }
+      const sameDay = moment().isSame(request.result.date, 'day');
+
+      // Check if there was any data from today
+      if (request.result && sameDay)
+      {
+        // Use the existing data
+        this.astronomyData = request.result.data;
+      }
+      else
+      {
+        // Data didn't exist or was too old, so get new data
+        const result = await axios(getApiUrl('astronomy'));
+
+        if (result.status === 200)
+        {
+          this.astronomyData = result.data;
+
+          this.updateDatabase('astronomy', result.data);
+        }
+      }
+    };
   }
 
   @action
   async requestConditionsData()
   {
-    const result = await axios(getApiUrl('conditions'));
+    const transaction = this.database.transaction(['weather']);
+    const objectStore = transaction.objectStore('weather');
+    const request = objectStore.get('conditions');
 
-    if (result.status === 200)
+    request.onsuccess = async () =>
     {
-      this.conditionsData = result.data;
-    }
+      const ageOfData = moment().diff(request.result.date, 'minutes');
+
+      // Check if there was any data from last fifteen minutes
+      if (request.result && ageOfData < 15)
+      {
+        // Use the existing data
+        this.conditionsData = request.result.data;
+      }
+      else
+      {
+        // Data didn't exist or was too old, so get new data
+        const result = await axios(getApiUrl('conditions'));
+
+        if (result.status === 200)
+        {
+          this.conditionsData = result.data;
+
+          this.updateDatabase('conditions', result.data);
+        }
+      }
+    };
   }
 
   @action
   async requestHourlyForecastData()
   {
-    const result = await axios(getApiUrl('hourly'));
+    const transaction = this.database.transaction(['weather']);
+    const objectStore = transaction.objectStore('weather');
+    const request = objectStore.get('hourly');
 
-    if (result.status === 200)
+    request.onsuccess = async () =>
     {
-      this.hourlyForecastData = result.data;
-    }
+      const ageOfData = moment().diff(request.result.date, 'minutes');
+
+      // Check if there was any data from last hour
+      if (request.result && ageOfData < 60)
+      {
+        // Use the existing data
+        this.hourlyForecastData = request.result.data;
+      }
+      else
+      {
+        // Data didn't exist or was too old, so get new data
+        const result = await axios(getApiUrl('hourly'));
+
+        if (result.status === 200)
+        {
+          this.hourlyForecastData = result.data;
+
+          this.updateDatabase('hourly', result.data);
+        }
+      }
+    };
   }
 
   @action
   async requestTenDayForecastData()
   {
-    const result = await axios(getApiUrl('forecast10day'));
+    const transaction = this.database.transaction(['weather']);
+    const objectStore = transaction.objectStore('weather');
+    const request = objectStore.get('forecast10day');
 
-    if (result.status === 200)
+    request.onsuccess = async () =>
     {
-      this.tenDayForecastData = result.data;
-    }
+      const sameDay = moment().isSame(request.result.date, 'day');
+
+      // Check if there was any data from today
+      if (request.result && sameDay)
+      {
+        // Use the existing data
+        this.tenDayForecastData = request.result.data;
+      }
+      else
+      {
+        // Data didn't exist or was too old, so get new data
+        const result = await axios(getApiUrl('forecast10day'));
+
+        if (result.status === 200)
+        {
+          this.tenDayForecastData = result.data;
+
+          this.updateDatabase('forecast10day', result.data);
+        }
+      }
+    };
   }
 }
