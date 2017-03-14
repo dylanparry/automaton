@@ -85,7 +85,7 @@ const getIcon = (isDayTime, condition) =>
     case 'clear':
       return isDayTime ? 'wi-day-sunny' : getMoonPhase();
     case 'cloudy':
-      return 'wi-cloud';
+      return 'wi-cloudy';
     case 'flurries':
       return 'wi-snow-wind';
     case 'fog':
