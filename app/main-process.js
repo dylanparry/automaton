@@ -127,3 +127,9 @@ ipcMain.on('relaunch', () =>
   app.relaunch();
   app.quit();
 });
+
+ipcMain.on('showDevTools', () =>
+{
+  mainWindow.webContents.openDevTools();
+  mainWindow.setAlwaysOnTop(false);
+});

@@ -9,7 +9,7 @@ import Power from '../../utils/power';
 
 const style = {
   container: {
-    marginTop: 40,
+    marginTop: 20,
   },
 };
 
@@ -34,6 +34,31 @@ const Settings = ({ heatingStore }) => (
         <ActionButton title="Reconnect Cube" icon="fa fa-link" action={() => cubeAction(() => heatingStore.connectToCube())} />
         <ActionButton title="Disconnect Cube" icon="fa fa-unlink" action={() => cubeAction(() => heatingStore.disconnectFromCube())} />
       </div>
+
+      <h4 style={{ marginTop: 20 }}>Environment Variables <button className="button small-button" onClick={() => ipcRenderer.send('showDevTools')}>Dev Tools</button></h4>
+
+      <table className="table striped">
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>API Key</strong></td>
+            <td>{process.env.WEATHER_DOT_COM_API_KEY}</td>
+          </tr>
+          <tr>
+            <td><strong>Country</strong></td>
+            <td>{process.env.WEATHER_DOT_COM_API_COUNTRY}</td>
+          </tr>
+          <tr>
+            <td><strong>Town</strong></td>
+            <td>{process.env.WEATHER_DOT_COM_API_TOWN}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 );
