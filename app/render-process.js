@@ -38,10 +38,7 @@ connection.onupgradeneeded = ({ target: { result } }) =>
   // Create a table for weather
   if (!database.objectStoreNames.contains('weather'))
   {
-    const objectStore = database.createObjectStore('weather', { autoIncrement: true });
-
-    // Add an index for type
-    objectStore.createIndex('type', 'type', { unique: true });
+    database.createObjectStore('weather', { keyPath: 'type' });
   }
 };
 
