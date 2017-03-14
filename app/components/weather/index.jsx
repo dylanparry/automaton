@@ -74,8 +74,6 @@ const getIcon = (isDayTime, condition) =>
     default:
       return 'wi-na';
   }
-
-  return 'clear';
 };
 
 const WeatherTile = ({ weatherStore }) =>
