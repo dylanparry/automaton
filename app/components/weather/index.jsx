@@ -153,7 +153,7 @@ const WeatherTile = ({ weatherStore }) =>
         <div className="tile-content">
           <span className="tile-badge top right" style={{ fontSize: 24 }}>{weather.temp_c}°C</span>
           <p style={{ height: 100, marginTop: 55, marginBottom: 25, textAlign: 'center' }}>
-            <img src={`./images/weather/${icon}.svg`} alt="" style={{ verticalAlign: 'middle' }} />
+            <img src={`./images/weather/${icon}.svg`} alt="" style={{ verticalAlign: 'middle', height: 100, filter: 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4))' }} />
           </p>
           <div style={{ position: 'absolute', bottom: 10, left: 10, right: 10, padding: 10, borderRadius: 10, lineHeight: 1.5, background: 'rgba(0, 0, 0, 0.15)' }}>
             <p style={{ marginTop: 0 }}>
