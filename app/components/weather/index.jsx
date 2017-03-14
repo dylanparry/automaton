@@ -110,7 +110,7 @@ const WeatherTile = ({ weatherStore }) =>
       <div className={tileClass}>
         <div className="tile-content" style={{ padding: 20 }}>
           <span className="tile-badge top right" style={{ fontSize: 24 }}>{weather.temp_c}°C</span>
-          <p style={{ fontSize: 100, marginTop: 30, marginBottom: 50, textAlign: 'center' }}>
+          <p style={{ fontSize: 100, marginTop: 45, marginBottom: 35, textAlign: 'center' }}>
             <span className={`wi ${icon}`} />
           </p>
           <p><strong>Currently:</strong> {weather.weather}</p>
