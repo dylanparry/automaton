@@ -18,6 +18,9 @@ const propTypes = {
           minute: React.PropTypes.string,
         }),
       }),
+      moon_phase: React.PropTypes.shape({
+        ageOfMoon: React.PropTypes.number,
+      }),
     }),
     current_observation: React.PropTypes.shape({
       weather: React.PropTypes.string,
@@ -27,6 +30,42 @@ const propTypes = {
       icon: React.PropTypes.string,
     }),
   }).isRequired,
+};
+
+const getMoonPhase = (day) =>
+{
+  const phases = [
+    'wi-moon-new',
+    'wi-moon-waxing-crescent-1',
+    'wi-moon-waxing-crescent-2',
+    'wi-moon-waxing-crescent-3',
+    'wi-moon-waxing-crescent-4',
+    'wi-moon-waxing-crescent-5',
+    'wi-moon-waxing-crescent-6',
+    'wi-moon-first-quarter',
+    'wi-moon-waxing-gibbous-1',
+    'wi-moon-waxing-gibbous-2',
+    'wi-moon-waxing-gibbous-3',
+    'wi-moon-waxing-gibbous-4',
+    'wi-moon-waxing-gibbous-5',
+    'wi-moon-waxing-gibbous-6',
+    'wi-moon-full',
+    'wi-moon-waning-gibbous-1',
+    'wi-moon-waning-gibbous-2',
+    'wi-moon-waning-gibbous-3',
+    'wi-moon-waning-gibbous-4',
+    'wi-moon-waning-gibbous-5',
+    'wi-moon-waning-gibbous-6',
+    'wi-moon-third-quarter',
+    'wi-moon-waning-crescent-1',
+    'wi-moon-waning-crescent-2',
+    'wi-moon-waning-crescent-3',
+    'wi-moon-waning-crescent-4',
+    'wi-moon-waning-crescent-5',
+    'wi-moon-waning-crescent-6',
+  ];
+
+  return phases[day - 1];
 };
 
 const getIcon = (isDayTime, condition) =>
@@ -44,7 +83,7 @@ const getIcon = (isDayTime, condition) =>
     case 'chancestorms':
       return 'wi-tstorms';
     case 'clear':
-      return isDayTime ? 'wi-day-sunny' : 'wi-night-clear'; // Get the moon phase instead?
+      return isDayTime ? 'wi-day-sunny' : getMoonPhase();
     case 'cloudy':
       return 'wi-cloud';
     case 'flurries':
@@ -101,7 +140,7 @@ const WeatherTile = ({ weatherStore }) =>
 
   const weather = weatherStore.conditionsData.current_observation;
 
-  const icon = getIcon(isDayTime, weather.icon);
+  const icon = getIcon(isDayTime, weather.icon, weatherStore.astronomyData.moon_phase.ageOfMoon);
 
   return (
     <Link to="/weather">
