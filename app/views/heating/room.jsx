@@ -33,7 +33,7 @@ class Room extends Component
     const query = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
       .objectStore('rooms')
       .index('roomId')
-      .getAll(parseInt(this.props.params.roomId, 10));
+      .getAll(parseInt(this.props.match.params.roomId, 10));
 
     query.onsuccess = (result) =>
     {
@@ -47,7 +47,7 @@ class Room extends Component
   {
     // Get the room specified by the URL params
     const room = this.props.heatingStore.rooms.find(
-      r => r.id === parseInt(this.props.params.roomId, 10),
+      r => r.id === parseInt(this.props.match.params.roomId, 10),
     );
 
     // Return a null component if no room found
@@ -109,8 +109,10 @@ Room.propTypes = {
     rooms: observableArray,
     database: React.PropTypes.object,
   }).isRequired,
-  params: React.PropTypes.shape({
-    roomId: React.PropTypes.string,
+  match: React.PropTypes.shape({
+    params: React.PropTypes.shape({
+      roomId: React.PropTypes.string,
+    }).isRequired,
   }).isRequired,
 };
 

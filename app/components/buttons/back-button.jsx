@@ -1,9 +1,8 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
 
-const BackButton = ({ to, children }) => (
+const BackButton = ({ to, children }, context) => (
   <div className="place-right">
-    <button className="button primary" onClick={() => hashHistory.push(to)}>
+    <button className="button primary" onClick={() => context.router.history.push(to)}>
       <span className="fa fa-fw fa-arrow-left" />
       {children}
     </button>
@@ -13,6 +12,10 @@ const BackButton = ({ to, children }) => (
 BackButton.propTypes = {
   to: React.PropTypes.string.isRequired,
   children: React.PropTypes.node.isRequired,
+};
+
+BackButton.contextTypes = {
+  router: React.PropTypes.object,
 };
 
 export default BackButton;

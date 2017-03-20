@@ -1,5 +1,4 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
 import { inject } from 'mobx-react';
 import { ipcRenderer } from 'electron';
 
@@ -13,13 +12,7 @@ const style = {
   },
 };
 
-const cubeAction = (cb) =>
-{
-  cb();
-  hashHistory.push('/');
-};
-
-const Settings = ({ heatingStore }) => (
+const Settings = ({ heatingStore }, context) => (
   <div>
     <div className="margin20">
       <BackButton to="/">Home</BackButton>
@@ -31,8 +24,22 @@ const Settings = ({ heatingStore }) => (
         <ActionButton title="Relaunch Automaton" icon="fa fa-repeat" action={() => ipcRenderer.send('relaunch')} />
         <ActionButton title="Power Off" icon="fa fa-power-off" action={() => Power.shutdown()} />
         <ActionButton title="Reboot" icon="fa fa-refresh" action={() => Power.reboot()} />
-        <ActionButton title="Reconnect Cube" icon="fa fa-link" action={() => cubeAction(() => heatingStore.connectToCube())} />
-        <ActionButton title="Disconnect Cube" icon="fa fa-unlink" action={() => cubeAction(() => heatingStore.disconnectFromCube())} />
+        <ActionButton
+          title="Reconnect Cube"
+          icon="fa fa-link"
+          action={() =>
+          {
+            heatingStore.connectToCube();
+            context.router.history.push('/');
+          }} />
+        <ActionButton
+          title="Disconnect Cube"
+          icon="fa fa-unlink"
+          action={() =>
+          {
+            heatingStore.disconnectFromCube()
+            context.router.history.push('/');
+          }} />
       </div>
 
       <h4 style={{ marginTop: 20 }}>Environment Variables <button className="button small-button" onClick={() => ipcRenderer.send('showDevTools')}>Dev Tools</button></h4>
@@ -68,6 +75,10 @@ Settings.propTypes = {
     connectToCube: React.PropTypes.func,
     disconnectFromCube: React.PropTypes.func,
   }).isRequired,
+};
+
+Settings.contextTypes = {
+  router: React.PropTypes.object,
 };
 
 export default inject('heatingStore')(Settings);

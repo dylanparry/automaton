@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import { webFrame } from 'electron';
 
-import Router from './components/navigation/router';
 import HeatingStore from './stores/heating-store';
 import WeatherStore from './stores/weather-store';
+
+import App from './views/app';
 
 // Disable zooming
 webFrame.setZoomLevelLimits(1, 1);
@@ -51,7 +52,7 @@ connection.onsuccess = ({ target: { result } }) =>
   };
 
   // Create a Provider with props for the stores and the Router as a child
-  const provider = React.createElement(Provider, stores, React.createElement(Router));
+  const provider = React.createElement(Provider, stores, React.createElement(App));
 
   ReactDOM.render(provider, document.getElementById('app'));
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer, observableArray } from 'mobx-react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const style = {
   container: {

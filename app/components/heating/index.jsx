@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { inject, observer, observableArray } from 'mobx-react';
 
 import ClassBuilder from '../../utils/class-builder';
