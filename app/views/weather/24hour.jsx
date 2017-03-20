@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default () => (
-  <p>Weather Week Forecast</p>
+  <p>Weather 24 Hour Forecast</p>
 );

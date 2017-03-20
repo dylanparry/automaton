@@ -35,8 +35,8 @@ const AppBar = ({ heatingStore }) =>
           <a className="dropdown-toggle"><span className="fa fa-fw fa-cloud" /> Weather</a>
           <ul className="d-menu" data-role="dropdown">
             <li><Link to="/weather">Weather Summary</Link></li>
-            <li><Link to="/weather/today">Weather Today</Link></li>
-            <li><Link to="/weather/week">Weather Week</Link></li>
+            <li><Link to="/weather/24hour">24 Hour Forecast</Link></li>
+            <li><Link to="/weather/10day">10 Day Forecast</Link></li>
           </ul>
         </li>
         <li><Link to="/settings"><span className="fa fa-fw fa-cog" /> Settings</Link></li>

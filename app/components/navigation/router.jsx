@@ -10,8 +10,8 @@ import HeatingRoom from '../../views/heating/room';
 import HeatingActivity from '../../views/heating/activity';
 
 import WeatherIndex from '../../views/weather';
-import WeatherToday from '../../views/weather/today';
-import WeatherWeek from '../../views/weather/week';
+import Weather24Hour from '../../views/weather/24hour';
+import Weather10Day from '../../views/weather/10day';
 
 import SettingsIndex from '../../views/settings';
 
@@ -28,8 +28,8 @@ export default () => (
 
       <Route path="weather">
         <IndexRoute component={WeatherIndex} /> {/* Summary of weather now */}
-        <Route path="today" component={WeatherToday} /> {/* Summary of today's weather */}
-        <Route path="week" component={WeatherWeek} /> {/* Five day forecast */}
+        <Route path="today" component={Weather24Hour} /> {/* Summary of today's weather */}
+        <Route path="week" component={Weather10Day} /> {/* Five day forecast */}
       </Route>
 
       <Route path="settings">
