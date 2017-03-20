@@ -28,8 +28,8 @@ export default () => (
 
       <Route path="weather">
         <IndexRoute component={WeatherIndex} /> {/* Summary of weather now */}
-        <Route path="today" component={Weather24Hour} /> {/* 24 hour forecast */}
-        <Route path="week" component={Weather10Day} /> {/* 10 day forecast */}
+        <Route path="24hour" component={Weather24Hour} /> {/* 24 hour forecast */}
+        <Route path="10day" component={Weather10Day} /> {/* 10 day forecast */}
       </Route>
 
       <Route path="settings">
