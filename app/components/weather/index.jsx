@@ -120,6 +120,68 @@ const getBackground = (isDayTime, condition) =>
   }
 };
 
+const getDescription = (condition, temperature) =>
+{
+  switch (condition)
+  {
+    case 'clear':
+      return `It’s clear, and feels like ${temperature}°C`;
+
+    case 'sunny':
+      return `It’s sunny, and feels like ${temperature}°C`;
+
+    case 'mostlysunny':
+    case 'partlycloudy':
+      return `It’s partly cloudy, and feels like ${temperature}°C`;
+
+    case 'mostlycloudy':
+    case 'partlysunny':
+      return `It’s mostly cloudy, and feels like ${temperature}°C`;
+
+    case 'chanceflurries':
+      return `There’s a chance of snow flurries. It feels like ${temperature}°C`;
+
+    case 'chancerain':
+      return `There’s a chance of rain. It feels like ${temperature}°C`;
+
+    case 'chancesleet':
+      return `There’s a chance of sleet. It feels like ${temperature}°C`;
+
+    case 'chancesnow':
+      return `There’s a chance of snow. It feels like ${temperature}°C`;
+
+    case 'chancestorms':
+      return `There’s a chance of thunderstorms. It feels like ${temperature}°C`;
+
+    case 'cloudy':
+      return `It’s cloudy, and feels like ${temperature}°C`;
+
+    case 'flurries':
+      return `There are snow flurries. It feels like ${temperature}°C`;
+
+    case 'fog':
+      return `It’s foggy, and feels like ${temperature}°C`;
+
+    case 'hazy':
+      return `It’s hazzy, and feels like ${temperature}°C`;
+
+    case 'sleet':
+      return `It’s sleeting. It feels like ${temperature}°C`;
+
+    case 'rain':
+      return `It’s raining. It feels like ${temperature}°C`;
+
+    case 'snow':
+      return `It’s snowing. It feels like ${temperature}°C`;
+
+    case 'tstorms':
+      return `There are thunderstorms. It feels like ${temperature}°C`;
+
+    default:
+      return 'Not a clue, sorry. Weather service isn’t being particularly descriptive :)';
+  }
+};
+
 const WeatherTile = ({ weatherStore }) =>
 {
   if (!weatherStore.astronomyData || !weatherStore.conditionsData)
@@ -157,7 +219,7 @@ const WeatherTile = ({ weatherStore }) =>
           </p>
           <div style={{ position: 'absolute', bottom: 10, left: 10, right: 10, padding: 10, borderRadius: 10, lineHeight: 1.5, background: 'rgba(0, 0, 0, 0.15)' }}>
             <p style={{ marginTop: 0 }}>
-              It’s {weather.weather.toLowerCase()}, and feels like {weather.feelslike_c}°C
+              {getDescription(weather.icon, weather.feelslike_c)}
             </p>
             <p style={{ marginBottom: 0 }}>
               Wind is {weather.wind_string.charAt(0).toLowerCase()}{weather.wind_string.slice(1).replace(' Gusting', ', gusting').replace(/MPH/g, 'mph')}.
