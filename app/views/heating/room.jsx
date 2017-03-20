@@ -29,11 +29,24 @@ class Room extends Component
 
   componentDidMount()
   {
+    this.getTemperatureData(parseInt(this.props.match.params.roomId, 10));
+  }
+
+  componentWillReceiveProps(nextProps)
+  {
+    if (this.props.match.params.roomId !== nextProps.match.params.roomId)
+    {
+      this.getTemperatureData(parseInt(nextProps.match.params.roomId, 10));
+    }
+  }
+
+  getTemperatureData(roomId)
+  {
     // Now get the data for the room
     const query = this.props.heatingStore.database.transaction(['rooms'], 'readonly')
       .objectStore('rooms')
       .index('roomId')
-      .getAll(parseInt(this.props.match.params.roomId, 10));
+      .getAll(roomId);
 
     query.onsuccess = (result) =>
     {
