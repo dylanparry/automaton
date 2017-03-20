@@ -1537,9 +1537,9 @@ electron-osx-sign@^0.4.1:
     plist "^2.0.1"
     tempfile "^1.1.1"
 
-electron-packager@^8.5.2:
-  version "8.5.2"
-  resolved "https://registry.yarnpkg.com/electron-packager/-/electron-packager-8.5.2.tgz#b3e84fec8256c2158440564f1056e5206d11afc7"
+electron-packager@^8.6.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/electron-packager/-/electron-packager-8.6.0.tgz#23a4233cb573389c0f728b4e87ef74416d9933e9"
   dependencies:
     asar "^0.13.0"
     debug "^2.2.0"
@@ -1550,7 +1550,7 @@ electron-packager@^8.5.2:
     get-package-info "^1.0.0"
     minimist "^1.1.1"
     plist "^2.0.0"
-    rcedit "^0.7.0"
+    rcedit "^0.8.0"
     resolve "^1.1.6"
     run-series "^1.1.1"
     sanitize-filename "^1.6.0"
@@ -3722,9 +3722,9 @@ rc@^1.1.2, rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
-rcedit@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/rcedit/-/rcedit-0.7.0.tgz#560b2920165034a135316e6a111f8274b9cec521"
+rcedit@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/rcedit/-/rcedit-0.8.0.tgz#dc3130aeb028f4a658ac2e3c8e6d047222dac948"
 
 react-chartist@^0.12.0:
   version "0.12.0"

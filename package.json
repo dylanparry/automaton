@@ -19,7 +19,7 @@
     "chartist": "^0.10.1",
     "cross-env": "^3.2.4",
     "electron": "1.6.3",
-    "electron-packager": "^8.5.2",
+    "electron-packager": "^8.6.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.1.0",
