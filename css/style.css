@@ -96,6 +96,11 @@ body::-webkit-scrollbar
   bottom: inherit;
 }
 
+.tile .tile-badge.bottom.left
+{
+  left: .425rem !important;
+}
+
 .thermostat-activity-chart .ct-area
 {
   fill-opacity: 0.5;
