@@ -50,7 +50,7 @@ const getPercentage = (icon, pop) =>
     return '';
   }
 
-  return `(${pop}%)`;
+  return `${pop}%`;
 };
 
 const DayTile = ({ date, period, high, conditions, icon, pop }) =>
@@ -73,7 +73,7 @@ const DayTile = ({ date, period, high, conditions, icon, pop }) =>
         <p style={{ height: 50, marginTop: 45, marginBottom: 15, textAlign: 'center' }}>
           <img src={`./images/weather/${image}.svg`} alt="" style={{ verticalAlign: 'middle', height: 50, filter: 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4))' }} />
         </p>
-        <span className="tile-badge bottom centre">{conditions} {getPercentage(icon, pop)}</span>
+        <span className="tile-badge bottom centre">{getPercentage(icon, pop)} {conditions}</span>
       </div>
     </div>
   );
