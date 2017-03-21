@@ -18,9 +18,7 @@ const propTypes = {
             high: React.PropTypes.shape({
               celsius: React.PropTypes.string,
             }),
-            low: React.PropTypes.shape({
-              celsius: React.PropTypes.string,
-            }),
+            pop: React.PropTypes.number,
             conditions: React.PropTypes.string,
             icon: React.PropTypes.string,
           })),

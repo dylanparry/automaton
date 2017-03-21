@@ -19,6 +19,7 @@ const propTypes = {
   }).isRequired,
   conditions: React.PropTypes.string.isRequired,
   icon: React.PropTypes.string.isRequired,
+  pop: React.PropTypes.number.isRequired,
 };
 
 const getDisplayDate = (period, date) =>
@@ -44,7 +45,18 @@ const getDisplayDate = (period, date) =>
   return <span>{day}<sup>{suffix}</sup> {month}</span>;
 };
 
-const DayTile = ({ date, period, high, low, conditions, icon }) =>
+const getPercentage = (icon, pop) =>
+{
+  const reportFor = ['chancerain', 'chancesnow', 'chancesleet', 'chanceflurries'];
+  if (reportFor.indexOf(icon) === -1)
+  {
+    return '';
+  }
+
+  return `(${pop}%)`;
+};
+
+const DayTile = ({ date, period, high, conditions, icon, pop }) =>
 {
   const tileClass = new ClassBuilder();
   tileClass.tile = 'tile';
@@ -64,7 +76,7 @@ const DayTile = ({ date, period, high, low, conditions, icon }) =>
         <p style={{ height: 50, marginTop: 45, marginBottom: 15, textAlign: 'center' }}>
           <img src={`./images/weather/${image}.svg`} alt="" style={{ verticalAlign: 'middle', height: 50, filter: 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4))' }} />
         </p>
-        <span className="tile-badge bottom centre">{conditions}</span>
+        <span className="tile-badge bottom centre">{conditions} {getPercentage(icon, pop)}</span>
       </div>
     </div>
   );
