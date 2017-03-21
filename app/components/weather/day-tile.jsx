@@ -60,11 +60,11 @@ const DayTile = ({ date, period, high, low, conditions, icon }) =>
     <div className={tileClass}>
       <div className="tile-content">
         <span className="tile-badge top left">{displayDate}</span>
+        <span className="tile-badge top right">{parseInt(high.celsius, 10)}°C</span>
         <p style={{ height: 50, marginTop: 45, marginBottom: 15, textAlign: 'center' }}>
           <img src={`./images/weather/${image}.svg`} alt="" style={{ verticalAlign: 'middle', height: 50, filter: 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4))' }} />
         </p>
-        <span className="tile-badge bottom left">{conditions}</span>
-        <span className="tile-badge">{parseInt(high.celsius, 10)}°C</span>
+        <span className="tile-badge bottom centre">{conditions}</span>
       </div>
     </div>
   );

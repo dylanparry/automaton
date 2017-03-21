@@ -101,6 +101,13 @@ body::-webkit-scrollbar
   left: .425rem !important;
 }
 
+.tile .tile-badge.bottom.centre
+{
+  left: .425rem !important;
+  right: .425rem !important;
+  text-align: center;
+}
+
 .thermostat-activity-chart .ct-area
 {
   fill-opacity: 0.5;
