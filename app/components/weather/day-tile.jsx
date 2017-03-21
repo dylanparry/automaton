@@ -14,9 +14,6 @@ const propTypes = {
   high: React.PropTypes.shape({
     celsius: React.PropTypes.string,
   }).isRequired,
-  low: React.PropTypes.shape({
-    celsius: React.PropTypes.string,
-  }).isRequired,
   conditions: React.PropTypes.string.isRequired,
   icon: React.PropTypes.string.isRequired,
   pop: React.PropTypes.number.isRequired,
