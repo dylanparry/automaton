@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
 import moment from 'moment';
 
 import Backlight from '../../utils/backlight';
@@ -21,6 +20,10 @@ const style = {
 
 export default class IdleTimer extends Component
 {
+  static contextTypes = {
+    router: React.PropTypes.object,
+  }
+
   constructor()
   {
     super();
@@ -60,7 +63,7 @@ export default class IdleTimer extends Component
     // Return to the home screen after five minutes
     this.returnToHomeScreen = setTimeout(() =>
     {
-      hashHistory.push('/');
+      this.context.router.history.push('/');
     }, 300000);
   }
 
