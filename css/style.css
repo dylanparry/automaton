@@ -3,7 +3,7 @@ body
   overflow: hidden;
 }
 
-body::-webkit-scrollbar
+::-webkit-scrollbar
 {
   width: 0 !important;
 }

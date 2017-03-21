@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BackButton from '../../components/buttons/back-button';
+import HourList from '../../components/weather/hour-list';
 
 export default () => (
   <div>
@@ -9,5 +10,6 @@ export default () => (
 
       <h1>24 Hour Forecast</h1>
     </div>
+    <HourList />
   </div>
 );
