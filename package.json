@@ -27,7 +27,7 @@
     "eslint-plugin-react": "^6.10.3",
     "font-awesome": "^4.7.0",
     "jest": "^19.0.2",
-    "jquery": "^3.2.0",
+    "jquery": "^3.2.1",
     "leftpad": "^0.0.0",
     "metro-dist": "^3.0.15",
     "mobx": "^3.1.7",
