@@ -7,7 +7,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: './dist',
+    path: path.resolve(__dirname, './dist'),
   },
   target: 'electron',
   module: {
