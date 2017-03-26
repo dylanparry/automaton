@@ -22,7 +22,7 @@ export const getBackground = (isDayTime, condition) =>
     case 'chancerain':
     case 'chancesleet':
     case 'chancesnow':
-    case 'chancestorms':
+    case 'chancetstorms':
     case 'cloudy':
     case 'flurries':
     case 'fog':
