@@ -56,7 +56,7 @@ export const getIcon = (isDayTime, condition, ageOfMoon) =>
     case 'snow':
       return 'snow';
 
-    case 'chancestorms':
+    case 'chancetstorms':
     case 'tstorms':
       return 'tstorms';
 
