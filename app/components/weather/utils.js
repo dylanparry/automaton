@@ -116,7 +116,7 @@ export const getDescription = (condition, temperature) =>
     case 'chancesnow':
       return `There’s a chance of snow. It feels like ${temperature}°C`;
 
-    case 'chancestorms':
+    case 'chancetstorms':
       return `There’s a chance of thunderstorms. It feels like ${temperature}°C`;
 
     case 'cloudy':
