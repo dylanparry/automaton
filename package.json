@@ -46,7 +46,7 @@
     "test": "jest",
     "lint": "eslint ./ --ext .jsx,.js",
     "prebuild": "webpack -p --progress --colors --env.production",
-    "build": "electron-packager . --out packages --overwrite --arch armv7l --platform linux --asar && electron-packager . --out packages --overwrite --arch x64 --platform win32 --asar"
+    "build": "electron-packager . --out packages --overwrite --arch armv7l --platform linux --asar"
   },
   "babel": {
     "presets": [
