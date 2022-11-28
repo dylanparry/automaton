@@ -17,7 +17,7 @@ function createMainWindow() {
     },
   });
 
-  win.loadFile("hello-world.html");
+  win.loadFile("index.html");
   win.setKiosk(process.arch === "arm" && process.platform === "linux");
 }
 
