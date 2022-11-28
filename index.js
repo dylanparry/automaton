@@ -6,7 +6,11 @@ const { app, BrowserWindow } = require("electron");
 function createMainWindow() {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 480,
+    useContentSize: true,
+    resizable: false,
+    autoHideMenuBar: true,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -14,7 +18,7 @@ function createMainWindow() {
   });
 
   win.loadFile("hello-world.html");
-  win.webContents.openDevTools();
+  win.setKiosk(process.arch === "arm" && process.platform === "linux");
 }
 
 app.whenReady().then(createMainWindow);
